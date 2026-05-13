@@ -609,6 +609,7 @@ footer{padding:32px 40px;border-top:1px solid var(--line);display:flex;align-ite
 
 <script>
 // LANGUAGE SYSTEM
+let currentLang = 'ru';
 const translations = {
   ru: {
     nav:['Услуги','Кейсы','Процесс','FAQ'],
@@ -748,6 +749,7 @@ const translations = {
 };
 
 function setLang(code){
+  currentLang = code;
   const t=translations[code];
   // hide modal
   const overlay=document.getElementById('lang-overlay');
@@ -861,6 +863,24 @@ function openFaq(btn){const item=btn.closest('.fq'),open=item.classList.contains
 function sendForm(){
   const n=document.getElementById('fn').value.trim();
   if(!n){document.getElementById('fn').focus();return}
+  
+  const formData = {
+    name: n,
+    phone: document.querySelector('input[type="tel"]')?.value || '',
+    email: document.querySelector('input[type="email"]')?.value || '',
+    telegram: document.getElementById('ft')?.value || '',
+    business: document.querySelector('select.fi')?.value || '',
+    comment: document.querySelector('textarea.fi')?.value || '',
+    language: currentLang || 'ru',
+    source: 'naxio.agency'
+  };
+
+  fetch('http://147.93.72.128:5678/webhook/677d734e-e0e7-42e3-8039-6a7ddadf9b69', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(formData)
+  }).catch(()=>{});
+
   document.getElementById('formInner').style.display='none';
   document.getElementById('sentMsg').style.display='block';
 }
