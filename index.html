@@ -18,131 +18,53 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--w);font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
 ::-webkit-scrollbar{width:0}
-
-/* CURSOR */
 #cur{position:fixed;width:8px;height:8px;background:var(--volt);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference}
 #cring{position:fixed;width:34px;height:34px;border:1px solid rgba(200,255,0,.3);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
-
-/* ══ NAV ══ */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  height:60px;display:flex;align-items:center;justify-content:space-between;
-  padding:0 40px;
-  background:rgba(0,0,0,.85);
-  backdrop-filter:blur(24px);
-  border-bottom:1px solid var(--line2);
-}
-
-/* NAXIO LOGO */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(0,0,0,.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--line2)}
 .n-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .n-mark{width:32px;height:32px;position:relative;flex-shrink:0}
 .n-mark svg{width:32px;height:32px}
 .n-wordmark{font-size:16px;font-weight:800;letter-spacing:4px;color:var(--w);text-transform:uppercase}
 .n-wordmark em{color:var(--volt);font-style:normal}
-
-/* NAV LINKS — now clearly visible */
 .nav-links{display:flex;gap:0;list-style:none}
-.nav-links a{
-  font-size:13px;font-weight:500;color:rgba(255,255,255,.75);
-  text-decoration:none;padding:8px 16px;border-radius:8px;
-  transition:color .2s,background .2s;letter-spacing:.3px;
-}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(255,255,255,.75);text-decoration:none;padding:8px 16px;border-radius:8px;transition:color .2s,background .2s;letter-spacing:.3px}
 .nav-links a:hover{color:var(--w);background:rgba(255,255,255,.07)}
-
-.nav-cta{
-  font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;
-  background:var(--volt);color:#000;border:none;
-  padding:9px 22px;border-radius:980px;cursor:none;
-  letter-spacing:.3px;transition:transform .2s,box-shadow .2s;
-}
+.nav-cta{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;background:var(--volt);color:#000;border:none;padding:9px 22px;border-radius:980px;cursor:none;letter-spacing:.3px;transition:transform .2s,box-shadow .2s}
 .nav-cta:hover{transform:scale(1.04);box-shadow:0 0 28px rgba(200,255,0,.35)}
 .burger{display:none;background:none;border:none;cursor:none;flex-direction:column;gap:5px;padding:4px}
 .burger span{display:block;width:20px;height:1.5px;background:var(--w)}
-
-/* ══ HERO ══ */
-.hero{
-  min-height:100vh;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  text-align:center;padding:100px 24px 80px;
-  position:relative;overflow:hidden;
-}
-
-/* background orbs */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 80px;position:relative;overflow:hidden}
 .orb1{position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(41,151,255,.08) 0%,transparent 65%);top:-15%;left:-20%;pointer-events:none;animation:o1 24s ease-in-out infinite}
 .orb2{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,255,0,.05) 0%,transparent 65%);bottom:-10%;right:-15%;pointer-events:none;animation:o2 30s ease-in-out infinite}
 @keyframes o1{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,-40px)}}
 @keyframes o2{0%,100%{transform:translate(0,0)}50%{transform:translate(-50px,50px)}}
-
-/* BRAND MARK — SVG watermark behind title */
-.hero-brand-layer{
-  position:absolute;top:50%;left:50%;
-  transform:translate(-50%,-58%);
-  width:min(600px,90vw);
-  opacity:.04;
-  pointer-events:none;
-  animation:bspin 60s linear infinite;
-}
+.hero-brand-layer{position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);width:min(600px,90vw);opacity:.04;pointer-events:none;animation:bspin 60s linear infinite}
 @keyframes bspin{from{transform:translate(-50%,-58%) rotate(0deg)}to{transform:translate(-50%,-58%) rotate(360deg)}}
-
 .hero-decode{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
 .dc{font-size:12px;font-weight:400;color:var(--w3);letter-spacing:.5px}
 .dc b{color:var(--volt);font-weight:700}
-
-/* eyebrow */
-.hero-eyebrow{
-  position:relative;z-index:1;
-  font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
-  color:var(--volt);margin-bottom:32px;
-  display:flex;align-items:center;gap:0;
-}
+.hero-eyebrow{position:relative;z-index:1;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--volt);margin-bottom:32px;display:flex;align-items:center;gap:0}
 .hero-eyebrow::before,.hero-eyebrow::after{content:'';width:28px;height:1px;background:var(--volt);margin:0 14px}
-
-/* TITLE */
-.hero h1{
-  position:relative;z-index:1;
-  font-size:clamp(54px,9.5vw,128px);
-  font-weight:800;line-height:.98;letter-spacing:-3px;
-  margin-bottom:28px;
-}
+.hero h1{position:relative;z-index:1;font-size:clamp(54px,9.5vw,128px);font-weight:800;line-height:.98;letter-spacing:-3px;margin-bottom:28px}
 .h1-dim{font-weight:200;color:rgba(255,255,255,.35);display:block}
 .h1-volt{color:var(--volt);display:block}
-
-.hero-desc{
-  position:relative;z-index:1;
-  font-size:clamp(15px,1.8vw,18px);font-weight:300;
-  color:var(--w2);max-width:520px;line-height:1.8;margin-bottom:44px;
-}
+.hero-desc{position:relative;z-index:1;font-size:clamp(15px,1.8vw,18px);font-weight:300;color:var(--w2);max-width:520px;line-height:1.8;margin-bottom:44px}
 .hero-desc strong{color:var(--w);font-weight:600}
-
 .hero-btns{position:relative;z-index:1;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .btn-main{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;background:var(--volt);color:#000;border:none;padding:16px 36px;border-radius:980px;cursor:none;transition:transform .25s,box-shadow .25s}
 .btn-main:hover{transform:scale(1.04);box-shadow:0 0 40px rgba(200,255,0,.3)}
 .btn-ghost{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:400;background:rgba(255,255,255,.06);color:var(--w);border:1px solid var(--line2);padding:16px 36px;border-radius:980px;cursor:none;transition:background .2s,border-color .2s}
 .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3)}
-
-/* stats row */
-.hero-stats{
-  position:relative;z-index:1;
-  display:flex;gap:48px;margin-top:64px;flex-wrap:wrap;justify-content:center;
-  padding-top:48px;border-top:1px solid var(--line);
-}
-.stat h3{font-size:36px;font-weight:800;letter-spacing:-2px;color:var(--volt);line-height:1}
-.stat p{font-size:12px;font-weight:500;color:var(--w3);letter-spacing:.5px;margin-top:4px;text-transform:uppercase}
-
 .scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:1}
 .scroll-bar{width:1px;height:40px;background:linear-gradient(var(--w3),transparent);animation:spulse 2s ease-in-out infinite}
 .scroll-txt{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--w3)}
 @keyframes spulse{0%,100%{opacity:.3;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
-
-/* MARQUEE */
 .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:13px 0;overflow:hidden}
 .strack{display:flex;width:max-content;animation:ticker 28s linear infinite}
 .strack:hover{animation-play-state:paused}
 .sitem{padding:0 30px;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--w3);border-right:1px solid var(--line);white-space:nowrap;display:flex;align-items:center;gap:8px}
 .sdot{width:3px;height:3px;border-radius:50%;background:var(--volt);flex-shrink:0}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* SECTIONS */
 .sec{padding:120px 40px;position:relative}
 .sec-c{display:flex;flex-direction:column;align-items:center;text-align:center}
 .eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--volt);margin-bottom:16px;display:flex;align-items:center;gap:10px}
@@ -150,14 +72,10 @@ nav{
 .sec-h{font-size:clamp(36px,6vw,76px);font-weight:800;line-height:1.02;letter-spacing:-2px;margin-bottom:16px;max-width:800px}
 .sec-h .dim{font-weight:200;color:var(--w2)}
 .sec-sub{font-size:clamp(14px,1.7vw,17px);color:var(--w2);max-width:480px;line-height:1.8;margin-bottom:56px;font-weight:300}
-
-/* SOFT CTA */
 .soft-cta{margin-top:60px;padding-top:44px;border-top:1px solid var(--line);width:100%;max-width:1080px;display:flex;flex-direction:column;align-items:center;gap:10px}
 .soft-cta p{font-size:13px;color:var(--w3);font-weight:400}
 .soft-cta button{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:600;color:var(--blue);background:none;border:none;cursor:none;letter-spacing:.2px;transition:letter-spacing .2s,color .2s}
 .soft-cta button:hover{letter-spacing:.8px;color:var(--volt)}
-
-/* SERVICES */
 .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;width:100%;max-width:1080px}
 .svc{background:var(--card);padding:48px 40px;border:1px solid var(--line);position:relative;overflow:hidden;text-align:left;transition:background .3s}
 .svc::after{content:'';position:absolute;inset:0;background:linear-gradient(140deg,rgba(200,255,0,.05),transparent);opacity:0;transition:opacity .3s}
@@ -169,33 +87,6 @@ nav{
 .svc-tags{display:flex;flex-wrap:wrap;gap:6px}
 .stag{font-size:10px;font-weight:600;border:1px solid var(--line2);padding:4px 12px;border-radius:20px;color:var(--w3);letter-spacing:.5px;transition:border-color .2s,color .2s}
 .svc:hover .stag{border-color:rgba(200,255,0,.3);color:rgba(200,255,0,.9)}
-
-/* NUMBERS */
-.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;width:100%;max-width:960px;border:1px solid var(--line)}
-.nbox{padding:44px 32px;background:var(--bg2);border:1px solid var(--line);text-align:left;transition:background .3s}
-.nbox:hover{background:var(--card)}
-.nbig{font-size:56px;font-weight:800;letter-spacing:-3px;line-height:1;margin-bottom:6px}
-.nacc{color:var(--volt)}
-.nbox h4{font-size:13px;font-weight:600;margin-bottom:4px}
-.nbox p{font-size:12px;color:var(--w3);line-height:1.6}
-
-/* CASES */
-.cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:1080px}
-.case{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;text-align:left;transition:border-color .3s,transform .3s}
-.case:hover{border-color:rgba(41,151,255,.3);transform:translateY(-5px)}
-.c-head{padding:30px 28px 22px}
-.c-type{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
-.case h3{font-size:17px;font-weight:700;letter-spacing:-.2px;margin-bottom:8px;line-height:1.3}
-.c-prob{font-size:13px;color:var(--w2);line-height:1.7}
-.c-sep{height:1px;background:var(--line)}
-.c-body{padding:16px 28px 24px;display:flex;flex-direction:column;gap:10px}
-.c-res{background:rgba(41,151,255,.06);border:1px solid rgba(41,151,255,.14);border-radius:9px;padding:12px 16px}
-.c-rl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:4px}
-.c-rv{font-size:13px;font-weight:600;color:var(--w)}
-.c-stack{display:flex;flex-wrap:wrap;gap:5px}
-.badge{font-size:10px;background:rgba(255,255,255,.04);border:1px solid var(--line);padding:3px 10px;border-radius:20px;color:var(--w3)}
-
-/* CASES SOON */
 .cases-soon{width:100%;max-width:500px;margin-top:0}
 .soon-card{background:var(--card);border:1px solid var(--line2);border-radius:20px;padding:52px 40px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px}
 .soon-icon{width:80px;height:80px;background:rgba(200,255,0,.06);border:1px solid rgba(200,255,0,.15);border-radius:50%;display:flex;align-items:center;justify-content:center}
@@ -203,14 +94,10 @@ nav{
 .soon-card p{font-size:14px;color:var(--w2);line-height:1.75;max-width:320px}
 .soon-btn{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;background:var(--volt);color:#000;border:none;padding:12px 26px;border-radius:980px;cursor:none;margin-top:8px;transition:transform .2s,box-shadow .2s}
 .soon-btn:hover{transform:scale(1.04);box-shadow:0 0 28px rgba(200,255,0,.25)}
-
-/* TECH */
 .tech-pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:740px}
 .tp{display:flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);padding:9px 18px;border-radius:980px;font-size:12px;font-weight:500;color:var(--w2);cursor:none;transition:border-color .2s,color .2s,background .2s}
 .tp:hover{border-color:var(--line2);color:var(--w);background:#1c1c1c}
 .tp span{font-size:15px}
-
-/* PROCESS */
 .proc-steps{width:100%;max-width:660px;text-align:left}
 .pstep{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line);transition:border-color .3s}
 .pstep:first-child{border-top:1px solid var(--line)}
@@ -218,8 +105,6 @@ nav{
 .pnum{font-size:11px;font-weight:700;color:var(--volt);width:24px;flex-shrink:0;padding-top:3px;letter-spacing:1px}
 .pbody h4{font-size:14px;font-weight:700;margin-bottom:5px;letter-spacing:-.2px}
 .pbody p{font-size:13px;color:var(--w2);line-height:1.7}
-
-/* FAQ */
 .faq-list{width:100%;max-width:640px;text-align:left}
 .fq{border-bottom:1px solid var(--line)}
 .fq-q{width:100%;background:none;border:none;color:var(--w);font-family:'Montserrat',sans-serif;font-size:14px;font-weight:600;text-align:left;padding:20px 0;cursor:none;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .2s}
@@ -228,19 +113,6 @@ nav{
 .fq.open .fq-ico{transform:rotate(45deg);border-color:var(--volt);color:var(--volt)}
 .fq-a{max-height:0;overflow:hidden;font-size:13px;color:var(--w2);line-height:1.8;transition:max-height .4s ease,padding .3s}
 .fq.open .fq-a{max-height:160px;padding-bottom:20px}
-
-/* CONTACT */
-.ctc-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;width:100%;max-width:980px;text-align:left}
-.ctc-left h2{font-size:clamp(34px,5vw,58px);font-weight:800;letter-spacing:-1.5px;line-height:1.04;margin-bottom:16px}
-.ctc-left h2 span{color:var(--volt)}
-.ctc-left>p{font-size:14px;color:var(--w2);line-height:1.8;margin-bottom:28px;font-weight:300}
-.chs{display:flex;flex-direction:column;gap:8px}
-.ch{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);padding:12px 16px;border-radius:12px;font-size:13px;font-weight:500;text-decoration:none;color:var(--w);transition:border-color .2s,background .2s,transform .2s}
-.ch:hover{border-color:var(--line2);background:#1a1a1a;transform:translateX(4px)}
-.ch-ico{font-size:16px;width:24px;text-align:center;flex-shrink:0}
-.ch-sub{font-size:10px;color:var(--w3);margin-top:1px}
-
-/* FORM */
 .form-box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:32px}
 .form-ttl{font-size:16px;font-weight:700;margin-bottom:20px;letter-spacing:-.2px}
 .fg{margin-bottom:12px}
@@ -251,23 +123,15 @@ nav{
 textarea.fi{resize:vertical;min-height:80px}
 select.fi option{background:var(--card)}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.ck-g{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
-.ck{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.03);border:1px solid var(--line);padding:6px 12px;border-radius:980px;cursor:none;font-size:11px;font-weight:500;transition:border-color .2s,background .2s}
-.ck:hover,.ck:has(input:checked){border-color:rgba(200,255,0,.35);background:rgba(200,255,0,.06)}
-.ck input{accent-color:var(--volt)}
 .btn-send{width:100%;margin-top:8px;background:var(--volt);color:#000;border:none;border-radius:980px;padding:14px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;cursor:none;transition:transform .25s,box-shadow .25s}
 .btn-send:hover{transform:scale(1.02);box-shadow:0 0 28px rgba(200,255,0,.25)}
 .sent-msg{display:none;text-align:center;padding:44px 16px}
 .sent-msg .sico{font-size:40px;margin-bottom:12px}
 .sent-msg h3{font-size:18px;font-weight:700;margin-bottom:5px}
 .sent-msg p{font-size:13px;color:var(--w2)}
-
-/* FLOAT BTN */
 .float-btn{position:fixed;bottom:24px;right:24px;z-index:150;background:var(--volt);color:#000;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;border:none;padding:12px 20px;border-radius:980px;cursor:none;box-shadow:0 8px 28px rgba(0,0,0,.5);opacity:0;transform:translateY(14px);transition:opacity .3s,transform .3s,box-shadow .2s;letter-spacing:.3px}
 .float-btn.on{opacity:1;transform:translateY(0)}
 .float-btn:hover{box-shadow:0 8px 36px rgba(200,255,0,.3);transform:scale(1.04)}
-
-/* FOOTER */
 footer{padding:32px 40px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
 .f-logo{display:flex;align-items:center;gap:8px}
 .f-logo-txt{font-size:13px;font-weight:800;letter-spacing:3px}
@@ -276,129 +140,45 @@ footer{padding:32px 40px;border-top:1px solid var(--line);display:flex;align-ite
 .f-nav a{font-size:11px;color:var(--w3);text-decoration:none;font-weight:500;transition:color .2s}
 .f-nav a:hover{color:var(--w)}
 .f-copy{font-size:11px;color:var(--w3)}
-
-/* REVEAL */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
 .rv.in{opacity:1;transform:none}
-
-/* MOBILE */
-@media(max-width:960px){
-  .svc-grid,.cases-grid,.ctc-grid{grid-template-columns:1fr}
-  .nums{grid-template-columns:1fr 1fr}
-}
-@media(max-width:640px){
-  nav{padding:0 16px}
-  .nav-links{display:none}
-  .burger{display:flex}
-  .nav-cta{display:none}
-  .frow{grid-template-columns:1fr}
-  .nums{grid-template-columns:1fr}
-  .sec{padding:80px 16px}
-  footer{padding:28px 16px}
-}
+@media(max-width:960px){.svc-grid{grid-template-columns:1fr}}
+@media(max-width:640px){nav{padding:0 16px}.nav-links{display:none}.burger{display:flex}.nav-cta{display:none}.frow{grid-template-columns:1fr}.sec{padding:80px 16px}footer{padding:28px 16px}}
 </style>
 </head>
 <body>
-
-<!-- ══ LANGUAGE MODAL ══ -->
 <div id="lang-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(20px);padding:16px;overflow-y:auto">
   <div id="lang-modal" style="background:#111;border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:32px 24px;max-width:440px;width:100%;text-align:center;animation:modalIn .5s cubic-bezier(.16,1,.3,1) both;margin:auto">
-    <!-- Logo -->
     <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:20px">
-      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-        <polygon points="16,2 28,9 28,23 16,30 4,23 4,9" stroke="#c8ff00" stroke-width="1.5" fill="none"/>
-        <line x1="9" y1="9" x2="23" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="23" y1="9" x2="9" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/>
-        <circle cx="16" cy="16" r="2.5" fill="#c8ff00"/>
-      </svg>
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><polygon points="16,2 28,9 28,23 16,30 4,23 4,9" stroke="#c8ff00" stroke-width="1.5" fill="none"/><line x1="9" y1="9" x2="23" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><line x1="23" y1="9" x2="9" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="#c8ff00"/></svg>
       <span style="font-size:16px;font-weight:800;letter-spacing:4px;color:#f0f0f0">NAX<em style="color:#c8ff00;font-style:normal">IO</em></span>
     </div>
-
     <p style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#c8ff00;margin-bottom:12px">Choose language</p>
     <h2 style="font-size:20px;font-weight:700;letter-spacing:-.5px;margin-bottom:20px;color:#f0f0f0">Выберите язык</h2>
-
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-      <button class="lang-btn" onclick="setLang('ru')" style="display:flex;align-items:center;gap(12px">
-        <span style="font-size:22px">🇷🇺</span>
-        <div style="text-align:left">
-          <div style="font-size:14px;font-weight:600">Русский</div>
-          <div style="font-size:11px;color:#666">Russian</div>
-        </div>
-      </button>
-      <button class="lang-btn" onclick="setLang('ua')">
-        <span style="font-size:22px">🇺🇦</span>
-        <div style="text-align:left">
-          <div style="font-size:14px;font-weight:600">Українська</div>
-          <div style="font-size:11px;color:#666">Ukrainian</div>
-        </div>
-      </button>
-      <button class="lang-btn" onclick="setLang('en')">
-        <span style="font-size:22px">🇬🇧</span>
-        <div style="text-align:left">
-          <div style="font-size:14px;font-weight:600">English</div>
-          <div style="font-size:11px;color:#666">English</div>
-        </div>
-      </button>
-      <button class="lang-btn" onclick="setLang('de')">
-        <span style="font-size:22px">🇩🇪</span>
-        <div style="text-align:left">
-          <div style="font-size:14px;font-weight:600">Deutsch</div>
-          <div style="font-size:11px;color:#666">German</div>
-        </div>
-      </button>
-      <button class="lang-btn" onclick="setLang('pl')" style="grid-column:1/-1">
-        <span style="font-size:22px">🇵🇱</span>
-        <div style="text-align:left">
-          <div style="font-size:14px;font-weight:600">Polski</div>
-          <div style="font-size:11px;color:#666">Polish</div>
-        </div>
-      </button>
+      <button class="lang-btn" onclick="setLang('ru')"><span style="font-size:22px">🇷🇺</span><div style="text-align:left"><div style="font-size:14px;font-weight:600">Русский</div><div style="font-size:11px;color:#666">Russian</div></div></button>
+      <button class="lang-btn" onclick="setLang('ua')"><span style="font-size:22px">🇺🇦</span><div style="text-align:left"><div style="font-size:14px;font-weight:600">Українська</div><div style="font-size:11px;color:#666">Ukrainian</div></div></button>
+      <button class="lang-btn" onclick="setLang('en')"><span style="font-size:22px">🇬🇧</span><div style="text-align:left"><div style="font-size:14px;font-weight:600">English</div><div style="font-size:11px;color:#666">English</div></div></button>
+      <button class="lang-btn" onclick="setLang('de')"><span style="font-size:22px">🇩🇪</span><div style="text-align:left"><div style="font-size:14px;font-weight:600">Deutsch</div><div style="font-size:11px;color:#666">German</div></div></button>
+      <button class="lang-btn" onclick="setLang('pl')" style="grid-column:1/-1"><span style="font-size:22px">🇵🇱</span><div style="text-align:left"><div style="font-size:14px;font-weight:600">Polski</div><div style="font-size:11px;color:#666">Polish</div></div></button>
     </div>
   </div>
 </div>
-
 <style>
 @keyframes modalIn{from{opacity:0;transform:scale(.94) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.lang-btn{
-  display:flex;align-items:center;gap:14px;
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
-  border-radius:14px;padding:12px 16px;cursor:pointer;
-  font-family:'Montserrat',sans-serif;color:#f0f0f0;
-  transition:border-color .2s,background .2s,transform .15s;
-  text-align:left;
-}
+.lang-btn{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px 16px;cursor:pointer;font-family:'Montserrat',sans-serif;color:#f0f0f0;transition:border-color .2s,background .2s,transform .15s;text-align:left}
 .lang-btn:hover{border-color:rgba(200,255,0,.4);background:rgba(200,255,0,.06);transform:scale(1.02)}
 </style>
-
 <div id="cur"></div>
 <div id="cring"></div>
 <button class="float-btn" id="fb" onclick="goForm()">Оставить заявку →</button>
-
-<!-- ══ NAV ══ -->
 <nav>
-  <!-- NAXIO LOGO with unique mark -->
   <a class="n-logo" href="#">
     <div class="n-mark">
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Hexagon outer -->
-        <polygon points="16,2 28,9 28,23 16,30 4,23 4,9" stroke="#c8ff00" stroke-width="1.5" fill="none"/>
-        <!-- Inner X lines — nexus symbol -->
-        <line x1="9" y1="9" x2="23" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="23" y1="9" x2="9" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/>
-        <!-- Center dot -->
-        <circle cx="16" cy="16" r="2.5" fill="#c8ff00"/>
-        <!-- Corner nodes -->
-        <circle cx="16" cy="2" r="1.2" fill="#c8ff00"/>
-        <circle cx="28" cy="9" r="1.2" fill="#c8ff00"/>
-        <circle cx="28" cy="23" r="1.2" fill="#c8ff00"/>
-        <circle cx="16" cy="30" r="1.2" fill="#c8ff00"/>
-        <circle cx="4" cy="23" r="1.2" fill="#c8ff00"/>
-        <circle cx="4" cy="9" r="1.2" fill="#c8ff00"/>
-      </svg>
+      <svg viewBox="0 0 32 32" fill="none"><polygon points="16,2 28,9 28,23 16,30 4,23 4,9" stroke="#c8ff00" stroke-width="1.5" fill="none"/><line x1="9" y1="9" x2="23" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><line x1="23" y1="9" x2="9" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="#c8ff00"/><circle cx="16" cy="2" r="1.2" fill="#c8ff00"/><circle cx="28" cy="9" r="1.2" fill="#c8ff00"/><circle cx="28" cy="23" r="1.2" fill="#c8ff00"/><circle cx="16" cy="30" r="1.2" fill="#c8ff00"/><circle cx="4" cy="23" r="1.2" fill="#c8ff00"/><circle cx="4" cy="9" r="1.2" fill="#c8ff00"/></svg>
     </div>
     <div class="n-wordmark">NAX<em>IO</em></div>
   </a>
-
   <ul class="nav-links">
     <li><a href="#services">Услуги</a></li>
     <li><a href="#cases">Кейсы</a></li>
@@ -408,41 +188,10 @@ footer{padding:32px 40px;border-top:1px solid var(--line);display:flex;align-ite
   <button class="nav-cta" onclick="goForm()">Начать проект</button>
   <button class="burger" onclick="mobileNav()"><span></span><span></span><span></span></button>
 </nav>
-
-<!-- ══ HERO ══ -->
 <section class="hero">
   <div class="orb1"></div>
   <div class="orb2"></div>
-
-  <!-- BRAND WATERMARK LAYER -->
-  <svg class="hero-brand-layer" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Large outer hexagon -->
-    <polygon points="200,20 360,110 360,290 200,380 40,290 40,110" stroke="white" stroke-width="1" fill="none"/>
-    <!-- Mid hexagon -->
-    <polygon points="200,60 320,130 320,270 200,340 80,270 80,130" stroke="white" stroke-width=".5" fill="none"/>
-    <!-- Inner hex -->
-    <polygon points="200,100 280,148 280,252 200,300 120,252 120,148" stroke="white" stroke-width=".5" fill="none"/>
-    <!-- X cross -->
-    <line x1="80" y1="110" x2="320" y2="290" stroke="white" stroke-width=".5"/>
-    <line x1="320" y1="110" x2="80" y2="290" stroke="white" stroke-width=".5"/>
-    <!-- Verticals -->
-    <line x1="200" y1="20" x2="200" y2="380" stroke="white" stroke-width=".3" stroke-dasharray="4 8"/>
-    <line x1="40" y1="200" x2="360" y2="200" stroke="white" stroke-width=".3" stroke-dasharray="4 8"/>
-    <!-- Orbit ring -->
-    <circle cx="200" cy="200" r="140" stroke="white" stroke-width=".4" stroke-dasharray="2 12"/>
-    <circle cx="200" cy="200" r="90" stroke="white" stroke-width=".3" stroke-dasharray="1 8"/>
-    <!-- Center -->
-    <circle cx="200" cy="200" r="8" stroke="white" stroke-width="1" fill="none"/>
-    <circle cx="200" cy="200" r="3" fill="white"/>
-    <!-- Node dots -->
-    <circle cx="200" cy="20" r="3" fill="white"/>
-    <circle cx="360" cy="110" r="3" fill="white"/>
-    <circle cx="360" cy="290" r="3" fill="white"/>
-    <circle cx="200" cy="380" r="3" fill="white"/>
-    <circle cx="40" cy="290" r="3" fill="white"/>
-    <circle cx="40" cy="110" r="3" fill="white"/>
-  </svg>
-
+  <svg class="hero-brand-layer" viewBox="0 0 400 400" fill="none"><polygon points="200,20 360,110 360,290 200,380 40,290 40,110" stroke="white" stroke-width="1" fill="none"/><polygon points="200,60 320,130 320,270 200,340 80,270 80,130" stroke="white" stroke-width=".5" fill="none"/><polygon points="200,100 280,148 280,252 200,300 120,252 120,148" stroke="white" stroke-width=".5" fill="none"/><line x1="80" y1="110" x2="320" y2="290" stroke="white" stroke-width=".5"/><line x1="320" y1="110" x2="80" y2="290" stroke="white" stroke-width=".5"/><line x1="200" y1="20" x2="200" y2="380" stroke="white" stroke-width=".3" stroke-dasharray="4 8"/><line x1="40" y1="200" x2="360" y2="200" stroke="white" stroke-width=".3" stroke-dasharray="4 8"/><circle cx="200" cy="200" r="140" stroke="white" stroke-width=".4" stroke-dasharray="2 12"/><circle cx="200" cy="200" r="90" stroke="white" stroke-width=".3" stroke-dasharray="1 8"/><circle cx="200" cy="200" r="8" stroke="white" stroke-width="1" fill="none"/><circle cx="200" cy="200" r="3" fill="white"/><circle cx="200" cy="20" r="3" fill="white"/><circle cx="360" cy="110" r="3" fill="white"/><circle cx="360" cy="290" r="3" fill="white"/><circle cx="200" cy="380" r="3" fill="white"/><circle cx="40" cy="290" r="3" fill="white"/><circle cx="40" cy="110" r="3" fill="white"/></svg>
   <div class="hero-eyebrow">AI Automation Agency · NAXIO</div>
   <div class="hero-decode rv">
     <span class="dc"><b>N</b>ext</span>
@@ -450,55 +199,20 @@ footer{padding:32px 40px;border-top:1px solid var(--line);display:flex;align-ite
     <span class="dc">e<b>X</b>perience</span>
     <span class="dc"><b>I/O</b></span>
   </div>
-
-  <h1>
-    Автоматизация,<br>
-    <span class="h1-dim">которая</span>
-    <span class="h1-volt">работает</span>
-  </h1>
-
-  <p class="hero-desc">
-    Создаю <strong>AI-системы и сайты</strong>, которые берут на себя рутину — n8n, OpenAI, Telegram боты, CRM. От идеи до запуска за 7 дней.
-  </p>
-
+  <h1>Автоматизация,<br><span class="h1-dim">которая</span><span class="h1-volt">работает</span></h1>
+  <p class="hero-desc">Создаю <strong>AI-системы и сайты</strong>, которые берут на себя рутину — n8n, OpenAI, Telegram боты, CRM. От идеи до запуска за 7 дней.</p>
   <div class="hero-btns">
     <button class="btn-main" onclick="goForm()">Начать проект</button>
     <button class="btn-ghost" onclick="go('cases')">Смотреть кейсы</button>
   </div>
-
-  <div class="scroll-hint">
-    <div class="scroll-bar"></div>
-    <div class="scroll-txt">Scroll</div>
-  </div>
+  <div class="scroll-hint"><div class="scroll-bar"></div><div class="scroll-txt">Scroll</div></div>
 </section>
-
-<!-- MARQUEE -->
 <div class="strip">
   <div class="strack">
-    <div class="sitem"><span class="sdot"></span>AI Automation</div>
-    <div class="sitem"><span class="sdot"></span>n8n Workflows</div>
-    <div class="sitem"><span class="sdot"></span>Telegram Bots</div>
-    <div class="sitem"><span class="sdot"></span>CRM Integration</div>
-    <div class="sitem"><span class="sdot"></span>AI Chatbots</div>
-    <div class="sitem"><span class="sdot"></span>Website Dev</div>
-    <div class="sitem"><span class="sdot"></span>WhatsApp Bots</div>
-    <div class="sitem"><span class="sdot"></span>Email Automation</div>
-    <div class="sitem"><span class="sdot"></span>Lead Generation</div>
-    <div class="sitem"><span class="sdot"></span>OpenAI API</div>
-    <div class="sitem"><span class="sdot"></span>AI Automation</div>
-    <div class="sitem"><span class="sdot"></span>n8n Workflows</div>
-    <div class="sitem"><span class="sdot"></span>Telegram Bots</div>
-    <div class="sitem"><span class="sdot"></span>CRM Integration</div>
-    <div class="sitem"><span class="sdot"></span>AI Chatbots</div>
-    <div class="sitem"><span class="sdot"></span>Website Dev</div>
-    <div class="sitem"><span class="sdot"></span>WhatsApp Bots</div>
-    <div class="sitem"><span class="sdot"></span>Email Automation</div>
-    <div class="sitem"><span class="sdot"></span>Lead Generation</div>
-    <div class="sitem"><span class="sdot"></span>OpenAI API</div>
+    <div class="sitem"><span class="sdot"></span>AI Automation</div><div class="sitem"><span class="sdot"></span>n8n Workflows</div><div class="sitem"><span class="sdot"></span>Telegram Bots</div><div class="sitem"><span class="sdot"></span>CRM Integration</div><div class="sitem"><span class="sdot"></span>AI Chatbots</div><div class="sitem"><span class="sdot"></span>Website Dev</div><div class="sitem"><span class="sdot"></span>WhatsApp Bots</div><div class="sitem"><span class="sdot"></span>Email Automation</div><div class="sitem"><span class="sdot"></span>Lead Generation</div><div class="sitem"><span class="sdot"></span>OpenAI API</div>
+    <div class="sitem"><span class="sdot"></span>AI Automation</div><div class="sitem"><span class="sdot"></span>n8n Workflows</div><div class="sitem"><span class="sdot"></span>Telegram Bots</div><div class="sitem"><span class="sdot"></span>CRM Integration</div><div class="sitem"><span class="sdot"></span>AI Chatbots</div><div class="sitem"><span class="sdot"></span>Website Dev</div><div class="sitem"><span class="sdot"></span>WhatsApp Bots</div><div class="sitem"><span class="sdot"></span>Email Automation</div><div class="sitem"><span class="sdot"></span>Lead Generation</div><div class="sitem"><span class="sdot"></span>OpenAI API</div>
   </div>
 </div>
-
-<!-- SERVICES -->
 <section class="sec sec-c" id="services" style="background:var(--bg2)">
   <div class="eyebrow rv">Услуги</div>
   <h2 class="sec-h rv">Что мы делаем<br><span class="dim">для вашего бизнеса</span></h2>
@@ -511,30 +225,19 @@ footer{padding:32px 40px;border-top:1px solid var(--line);display:flex;align-ite
   </div>
   <div class="soft-cta rv"><p>Хотите автоматизировать свой бизнес?</p><button onclick="goForm()">Обсудить проект →</button></div>
 </section>
-
-<!-- CASES -->
 <section class="sec sec-c" id="cases" style="background:var(--bg2)">
   <div class="eyebrow rv">Кейсы</div>
   <h2 class="sec-h rv">Проекты<br><span class="dim">в процессе</span></h2>
   <p class="sec-sub rv">Мы только начинаем — первые кейсы появятся здесь совсем скоро</p>
   <div class="cases-soon rv">
     <div class="soon-card">
-      <div class="soon-icon">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-          <polygon points="24,4 42,14 42,34 24,44 6,34 6,14" stroke="#c8ff00" stroke-width="1.5" fill="none"/>
-          <line x1="14" y1="14" x2="34" y2="34" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="34" y1="14" x2="14" y2="34" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="24" cy="24" r="3.5" fill="#c8ff00"/>
-        </svg>
-      </div>
+      <div class="soon-icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><polygon points="24,4 42,14 42,34 24,44 6,34 6,14" stroke="#c8ff00" stroke-width="1.5" fill="none"/><line x1="14" y1="14" x2="34" y2="34" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><line x1="34" y1="14" x2="14" y2="34" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><circle cx="24" cy="24" r="3.5" fill="#c8ff00"/></svg></div>
       <h3>Кейсы появятся скоро</h3>
       <p>Мы работаем над первыми проектами и будем публиковать реальные результаты — без приукрашиваний</p>
       <button class="soon-btn" onclick="goForm()">Стать первым клиентом →</button>
     </div>
   </div>
 </section>
-
-<!-- TECH -->
 <section class="sec sec-c" style="background:var(--bg)">
   <div class="eyebrow rv">Стек</div>
   <h2 class="sec-h rv">Инструменты</h2>
@@ -542,8 +245,6 @@ footer{padding:32px 40px;border-top:1px solid var(--line);display:flex;align-ite
     <div class="tp"><span>⚡</span>n8n</div><div class="tp"><span>🤖</span>OpenAI API</div><div class="tp"><span>🧠</span>ChatGPT API</div><div class="tp"><span>✈️</span>Telegram API</div><div class="tp"><span>💬</span>WhatsApp</div><div class="tp"><span>📊</span>Airtable</div><div class="tp"><span>📝</span>Notion</div><div class="tp"><span>📈</span>Google Sheets</div><div class="tp"><span>🔗</span>Webhooks</div><div class="tp"><span>⚛️</span>React</div><div class="tp"><span>🌐</span>Next.js</div><div class="tp"><span>🎨</span>Tailwind CSS</div><div class="tp"><span>📦</span>AmoCRM</div><div class="tp"><span>🔧</span>Bitrix24</div><div class="tp"><span>🎯</span>HubSpot</div>
   </div>
 </section>
-
-<!-- PROCESS -->
 <section class="sec sec-c" id="process" style="background:var(--bg2)">
   <div class="eyebrow rv">Процесс</div>
   <h2 class="sec-h rv">Как проходит<br><span class="dim">работа с NAXIO</span></h2>
@@ -557,22 +258,18 @@ footer{padding:32px 40px;border-top:1px solid var(--line);display:flex;align-ite
   </div>
   <div class="soft-cta rv"><p>Готовы начать?</p><button onclick="goForm()">Записаться на созвон →</button></div>
 </section>
-
-<!-- FAQ -->
 <section class="sec sec-c" id="faq" style="background:var(--bg)">
   <div class="eyebrow rv">FAQ</div>
   <h2 class="sec-h rv">Частые вопросы</h2>
   <div class="faq-list">
-    <div class="fq rv"><button class="fq-q" onclick="openFaq(this)">Сколько стоит автоматизация?<span class="fq-ico">+</span></button><div class="fq-a">Всё зависит от сложности проекта — универсальных прайсов нет. Цены начинаются от $200. Точную стоимость называем после бесплатного созвона, когда понимаем задачу.</div></div>
+    <div class="fq rv"><button class="fq-q" onclick="openFaq(this)">Сколько стоит автоматизация?<span class="fq-ico">+</span></button><div class="fq-a">Всё зависит от сложности проекта — универсальных прайсов нет. Цены начинаются от $200. Точную стоимость называем после бесплатного созвона.</div></div>
     <div class="fq rv"><button class="fq-q" onclick="openFaq(this)">Сколько времени занимает разработка?<span class="fq-ico">+</span></button><div class="fq-a">MVP автоматизации — 3–7 дней. Сайт — 7–14 дней. Комплексный AI-workflow — 2–4 недели. Сроки обсуждаем на старте.</div></div>
-    <div class="fq rv"><button class="fq-q" onclick="openFaq(this)">Какие автоматизации можно сделать?<span class="fq-ico">+</span></button><div class="fq-a">Практически любые: обработка заявок, ответы клиентам, запись в CRM, email-цепочки, квалификация лидов, Telegram-уведомления, отчёты, синхронизация данных между сервисами.</div></div>
+    <div class="fq rv"><button class="fq-q" onclick="openFaq(this)">Какие автоматизации можно сделать?<span class="fq-ico">+</span></button><div class="fq-a">Практически любые: обработка заявок, ответы клиентам, запись в CRM, email-цепочки, квалификация лидов, Telegram-уведомления, отчёты.</div></div>
     <div class="fq rv"><button class="fq-q" onclick="openFaq(this)">С какими CRM работаете?<span class="fq-ico">+</span></button><div class="fq-a">AmoCRM, Bitrix24, HubSpot, Pipedrive, Notion, Airtable и другими. Настраиваем двустороннюю синхронизацию и автоматические триггеры.</div></div>
-    <div class="fq rv"><button class="fq-q" onclick="openFaq(this)">Есть ли поддержка после запуска?<span class="fq-ico">+</span></button><div class="fq-a">Первые 2 недели — бесплатное сопровождение. Далее по договорённости. Доступна ежемесячная поддержка для мониторинга и развития.</div></div>
+    <div class="fq rv"><button class="fq-q" onclick="openFaq(this)">Есть ли поддержка после запуска?<span class="fq-ico">+</span></button><div class="fq-a">Первые 2 недели — бесплатное сопровождение. Далее по договорённости.</div></div>
   </div>
   <div class="soft-cta rv"><p>Остались вопросы?</p><button onclick="goForm()">Спросить напрямую →</button></div>
 </section>
-
-<!-- CONTACT -->
 <section class="sec sec-c" id="contact" style="background:var(--bg2)">
   <div class="eyebrow rv">Заявка</div>
   <h2 class="sec-h rv">Оставьте заявку —<br><span class="dim">мы свяжемся сами</span></h2>
@@ -597,302 +294,92 @@ footer{padding:32px 40px;border-top:1px solid var(--line);display:flex;align-ite
     </div>
   </div>
 </section>
-
 <footer>
   <div class="f-logo">
     <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><polygon points="16,2 28,9 28,23 16,30 4,23 4,9" stroke="#c8ff00" stroke-width="1.5" fill="none"/><line x1="9" y1="9" x2="23" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><line x1="23" y1="9" x2="9" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="#c8ff00"/></svg>
     <div class="f-logo-txt">NAX<em>IO</em></div>
   </div>
   <nav class="f-nav"><a href="#services">Услуги</a><a href="#cases">Кейсы</a><a href="#process">Процесс</a><a href="#faq">FAQ</a><a href="#contact">Контакты</a></nav>
-  <div class="f-copy">© 2024 NAXIO Agency</div>
+  <div class="f-copy">© 2026 NAXIO Agency</div>
 </footer>
-
 <script>
-// LANGUAGE SYSTEM
-let currentLang = 'ru';
-const translations = {
-  ru: {
-    nav:['Услуги','Кейсы','Процесс','FAQ'],
-    navCta:'Начать проект',
-    heroEye:'AI Automation Agency · NAXIO',
-    heroH:'Автоматизация,<br><span class="h1-dim">которая</span><span class="h1-volt">работает</span>',
-    heroDesc:'Создаю <strong>AI-системы и сайты</strong>, которые берут на себя рутину — n8n, OpenAI, Telegram боты, CRM. От идеи до запуска за 7 дней.',
-    heroBtnMain:'Начать проект', heroBtnGhost:'Смотреть кейсы',
-    floatBtn:'Оставить заявку →',
-    s1eye:'Услуги', s1h:'Что мы делаем<br><span class="dim">для вашего бизнеса</span>', s1sub:'Полный цикл — от идеи до живого продукта, который приносит деньги',
-    s1cta:'Хотите автоматизировать свой бизнес?', s1ctaBtn:'Обсудить проект →',
-    caseEye:'Кейсы', caseH:'Проекты<br><span class="dim">в процессе</span>', caseSub:'Мы только начинаем — первые кейсы появятся здесь совсем скоро',
-    caseSoonH:'Кейсы появятся скоро', caseSoonP:'Мы работаем над первыми проектами и будем публиковать реальные результаты', caseSoonBtn:'Стать первым клиентом →',
-    techEye:'Стек', techH:'Инструменты',
-    procEye:'Процесс', procH:'Как проходит<br><span class="dim">работа с NAXIO</span>', procSub:'Прозрачно, быстро, без лишних брифингов',
-    procCta:'Готовы начать?', procCtaBtn:'Записаться на созвон →',
-    faqEye:'FAQ', faqH:'Частые вопросы',
-    faqCtaP:'Остались вопросы?', faqCtaBtn:'Спросить напрямую →',
-    formEye:'Заявка', formH:'Оставьте заявку —<br><span class="dim">мы свяжемся сами</span>', formSub:'Заполните форму и мы свяжемся с вами в ближайшее время',
-    formTitle:'Заявка на проект',
-    lName:'Имя *', lPhone:'Телефон', lEmail:'Email', lTg:'Telegram / WA', lBiz:'Тип бизнеса', lComment:'Комментарий (необязательно)',
-    bizOptions:['Выберите...','E-commerce','Услуги / Агентство','SaaS / IT','Недвижимость','Образование','Другое'],
-    phName:'Ваше имя', phPhone:'+7 (999) ...', phEmail:'you@example.com', phTg:'@username', phComment:'Кратко опишите задачу или оставьте пустым...',
-    sendBtn:'Отправить заявку →', sentH:'Заявка отправлена!', sentP:'Свяжемся с вами в ближайшее время',
-    footerLinks:['Услуги','Кейсы','Процесс','FAQ','Контакты'],
-    proc:['Разбор задачи','Созвон 30–60 мин — разбираем процессы, боли и цели. Сразу к делу.','Архитектура решения','Предлагаем схему автоматизации и стек. Объясняем логику и результаты.','Разработка MVP','Рабочая версия за 3–7 дней. Смотрите как работает до полной оплаты.','Запуск и тест','Тестируем на реальных данных, настраиваем под специфику бизнеса.','Поддержка и рост','Сопровождаем после запуска — мониторим и масштабируем вместе с вами.'],
-    faq:[['Сколько стоит автоматизация?','Всё зависит от сложности проекта — универсальных прайсов нет. Цены начинаются от $200. Точную стоимость называем после бесплатного созвона.'],['Сколько времени занимает разработка?','MVP автоматизации — 3–7 дней. Сайт — 7–14 дней. Комплексный AI-workflow — 2–4 недели. Сроки обсуждаем на старте.'],['Какие автоматизации можно сделать?','Практически любые: обработка заявок, ответы клиентам, запись в CRM, email-цепочки, квалификация лидов, Telegram-уведомления, отчёты.'],['С какими CRM работаете?','AmoCRM, Bitrix24, HubSpot, Pipedrive, Notion, Airtable и другими. Настраиваем двустороннюю синхронизацию и автоматические триггеры.'],['Есть ли поддержка после запуска?','Первые 2 недели — бесплатное сопровождение. Далее по договорённости.']]
-  },
-  ua: {
-    nav:['Послуги','Кейси','Процес','FAQ'],
-    navCta:'Почати проект',
-    heroEye:'AI Automation Agency · NAXIO',
-    heroH:'Автоматизація,<br><span class="h1-dim">яка</span><span class="h1-volt">працює</span>',
-    heroDesc:'Створюю <strong>AI-системи та сайти</strong>, які беруть на себе рутину — n8n, OpenAI, Telegram боти, CRM. Від ідеї до запуску за 7 днів.',
-    heroBtnMain:'Почати проект', heroBtnGhost:'Дивитися кейси',
-    floatBtn:'Залишити заявку →',
-    s1eye:'Послуги', s1h:'Що ми робимо<br><span class="dim">для вашого бізнесу</span>', s1sub:'Повний цикл — від ідеї до живого продукту, який приносить гроші',
-    s1cta:'Хочете автоматизувати свій бізнес?', s1ctaBtn:'Обговорити проект →',
-    caseEye:'Кейси', caseH:'Проекти<br><span class="dim">в процесі</span>', caseSub:'Ми тільки починаємо — перші кейси зʼявляться тут дуже скоро',
-    caseSoonH:'Кейси зʼявляться скоро', caseSoonP:'Ми працюємо над першими проектами і будемо публікувати реальні результати', caseSoonBtn:'Стати першим клієнтом →',
-    techEye:'Стек', techH:'Інструменти',
-    procEye:'Процес', procH:'Як проходить<br><span class="dim">робота з NAXIO</span>', procSub:'Прозоро, швидко, без зайвих брифінгів',
-    procCta:'Готові почати?', procCtaBtn:'Записатися на дзвінок →',
-    faqEye:'FAQ', faqH:'Часті запитання',
-    faqCtaP:'Залишились питання?', faqCtaBtn:'Запитати напряму →',
-    formEye:'Заявка', formH:'Залиште заявку —<br><span class="dim">ми звʼяжемося самі</span>', formSub:'Заповніть форму і ми звʼяжемося з вами найближчим часом',
-    formTitle:'Заявка на проект',
-    lName:"Ім'я *", lPhone:'Телефон', lEmail:'Email', lTg:'Telegram / WA', lBiz:'Тип бізнесу', lComment:'Коментар (необовʼязково)',
-    bizOptions:['Оберіть...','E-commerce','Послуги / Агентство','SaaS / IT','Нерухомість','Освіта','Інше'],
-    phName:"Ваше ім'я", phPhone:'+38 (099) ...', phEmail:'you@example.com', phTg:'@username', phComment:'Коротко опишіть задачу або залиште порожнім...',
-    sendBtn:'Надіслати заявку →', sentH:'Заявку надіслано!', sentP:'Звʼяжемося з вами найближчим часом',
-    footerLinks:['Послуги','Кейси','Процес','FAQ','Контакти'],
-    proc:['Розбір задачі','Дзвінок 30–60 хв — розбираємо процеси, болі та цілі.','Архітектура рішення','Пропонуємо схему автоматизації та стек.','Розробка MVP','Робоча версія за 3–7 днів.','Запуск і тест','Тестуємо на реальних даних.','Підтримка і зростання','Супроводжуємо після запуску.'],
-    faq:[['Скільки коштує автоматизація?','Все залежить від складності проекту. Ціни починаються від $200. Точну вартість називаємо після безкоштовного дзвінка.'],['Скільки часу займає розробка?','MVP — 3–7 днів. Сайт — 7–14 днів. Комплексний AI-workflow — 2–4 тижні.'],['Які автоматизації можна зробити?','Практично будь-які: обробка заявок, відповіді клієнтам, запис у CRM, email-ланцюжки, кваліфікація лідів.'],['З якими CRM працюєте?','AmoCRM, Bitrix24, HubSpot, Pipedrive, Notion, Airtable та іншими.'],['Чи є підтримка після запуску?','Перші 2 тижні — безкоштовний супровід. Далі за домовленістю.']]
-  },
-  en: {
-    nav:['Services','Cases','Process','FAQ'],
-    navCta:'Start project',
-    heroEye:'AI Automation Agency · NAXIO',
-    heroH:'Automation<br><span class="h1-dim">that</span><span class="h1-volt">works</span>',
-    heroDesc:'I build <strong>AI systems and websites</strong> that handle routine tasks — n8n, OpenAI, Telegram bots, CRM. From idea to launch in 7 days.',
-    heroBtnMain:'Start project', heroBtnGhost:'View cases',
-    floatBtn:'Leave a request →',
-    s1eye:'Services', s1h:'What we do<br><span class="dim">for your business</span>', s1sub:'Full cycle — from idea to a live product that makes money',
-    s1cta:'Want to automate your business?', s1ctaBtn:'Discuss project →',
-    caseEye:'Cases', caseH:'Projects<br><span class="dim">in progress</span>', caseSub:'We are just starting — first cases will appear here very soon',
-    caseSoonH:'Cases coming soon', caseSoonP:'We are working on our first projects and will publish real results', caseSoonBtn:'Be the first client →',
-    techEye:'Stack', techH:'Tools',
-    procEye:'Process', procH:'How working<br><span class="dim">with NAXIO looks</span>', procSub:'Transparent, fast, no unnecessary briefings',
-    procCta:'Ready to start?', procCtaBtn:'Book a call →',
-    faqEye:'FAQ', faqH:'Frequently asked questions',
-    faqCtaP:'Still have questions?', faqCtaBtn:'Ask directly →',
-    formEye:'Request', formH:'Leave a request —<br><span class="dim">we will reach out</span>', formSub:'Fill out the form and we will contact you shortly',
-    formTitle:'Project request',
-    lName:'Name *', lPhone:'Phone', lEmail:'Email', lTg:'Telegram / WA', lBiz:'Business type', lComment:'Comment (optional)',
-    bizOptions:['Select...','E-commerce','Services / Agency','SaaS / IT','Real estate','Education','Other'],
-    phName:'Your name', phPhone:'+1 (000) ...', phEmail:'you@example.com', phTg:'@username', phComment:'Briefly describe your task or leave empty...',
-    sendBtn:'Send request →', sentH:'Request sent!', sentP:'We will contact you shortly',
-    footerLinks:['Services','Cases','Process','FAQ','Contacts'],
-    proc:['Task analysis','30–60 min call — we discuss your processes, pain points and goals.','Solution architecture','We propose an automation scheme and tech stack.','MVP development','Working version in 3–7 days.','Launch & test','We test on real data and configure.','Support & growth','We monitor and scale together with you.'],
-    faq:[['How much does automation cost?','Everything depends on project complexity. Prices start from $200. We give an exact quote after a free call.'],['How long does development take?','Automation MVP — 3–7 days. Website — 7–14 days. Full AI-workflow — 2–4 weeks.'],['What automations can you build?','Almost anything: lead processing, customer replies, CRM entry, email sequences, lead qualification, Telegram notifications.'],['Which CRMs do you work with?','AmoCRM, Bitrix24, HubSpot, Pipedrive, Notion, Airtable and others.'],['Is there support after launch?','First 2 weeks — free support. After that by agreement.']]
-  },
-  de: {
-    nav:['Leistungen','Cases','Prozess','FAQ'],
-    navCta:'Projekt starten',
-    heroEye:'AI Automation Agency · NAXIO',
-    heroH:'Automatisierung,<br><span class="h1-dim">die</span><span class="h1-volt">funktioniert</span>',
-    heroDesc:'Ich baue <strong>KI-Systeme und Websites</strong>, die Routineaufgaben übernehmen — n8n, OpenAI, Telegram Bots, CRM. Von der Idee bis zum Launch in 7 Tagen.',
-    heroBtnMain:'Projekt starten', heroBtnGhost:'Cases ansehen',
-    floatBtn:'Anfrage senden →',
-    s1eye:'Leistungen', s1h:'Was wir tun<br><span class="dim">für Ihr Unternehmen</span>', s1sub:'Voller Zyklus — von der Idee bis zum lebenden Produkt',
-    s1cta:'Möchten Sie Ihr Unternehmen automatisieren?', s1ctaBtn:'Projekt besprechen →',
-    caseEye:'Cases', caseH:'Projekte<br><span class="dim">in Arbeit</span>', caseSub:'Wir fangen gerade an — erste Cases erscheinen hier sehr bald',
-    caseSoonH:'Cases kommen bald', caseSoonP:'Wir arbeiten an ersten Projekten und werden echte Ergebnisse veröffentlichen', caseSoonBtn:'Erster Kunde werden →',
-    techEye:'Stack', techH:'Tools',
-    procEye:'Prozess', procH:'Wie die Arbeit<br><span class="dim">mit NAXIO aussieht</span>', procSub:'Transparent, schnell, ohne unnötige Briefings',
-    procCta:'Bereit anzufangen?', procCtaBtn:'Call buchen →',
-    faqEye:'FAQ', faqH:'Häufige Fragen',
-    faqCtaP:'Noch Fragen?', faqCtaBtn:'Direkt fragen →',
-    formEye:'Anfrage', formH:'Anfrage senden —<br><span class="dim">wir melden uns</span>', formSub:'Füllen Sie das Formular aus — wir melden uns bald',
-    formTitle:'Projektanfrage',
-    lName:'Name *', lPhone:'Telefon', lEmail:'E-Mail', lTg:'Telegram / WA', lBiz:'Unternehmenstyp', lComment:'Kommentar (optional)',
-    bizOptions:['Auswählen...','E-Commerce','Dienstleistungen','SaaS / IT','Immobilien','Bildung','Sonstiges'],
-    phName:'Ihr Name', phPhone:'+49 (000) ...', phEmail:'sie@beispiel.de', phTg:'@username', phComment:'Beschreiben Sie kurz Ihre Aufgabe...',
-    sendBtn:'Anfrage senden →', sentH:'Anfrage gesendet!', sentP:'Wir melden uns in Kürze',
-    footerLinks:['Leistungen','Cases','Prozess','FAQ','Kontakt'],
-    proc:['Aufgabenanalyse','30–60 Min. Call — wir besprechen Prozesse und Ziele.','Lösungsarchitektur','Wir schlagen ein Automatisierungsschema vor.','MVP-Entwicklung','Funktionierende Version in 3–7 Tagen.','Launch & Test','Wir testen mit echten Daten.','Support & Wachstum','Wir begleiten und skalieren gemeinsam.'],
-    faq:[['Was kostet Automatisierung?','Alles hängt von der Projektkomplexität ab. Preise ab $200. Genaue Kosten nennen wir nach einem kostenlosen Call.'],['Wie lange dauert die Entwicklung?','MVP — 3–7 Tage. Website — 7–14 Tage. AI-Workflow — 2–4 Wochen.'],['Welche Automatisierungen sind möglich?','Fast alles: Lead-Verarbeitung, Kundenantworten, CRM-Eintrag, E-Mail-Sequenzen, Lead-Qualifizierung.'],['Mit welchen CRMs arbeiten Sie?','AmoCRM, Bitrix24, HubSpot, Pipedrive, Notion, Airtable und andere.'],['Gibt es Support nach dem Launch?','Erste 2 Wochen — kostenloser Support. Danach nach Vereinbarung.']]
-  },
-  pl: {
-    nav:['Usługi','Cases','Proces','FAQ'],
-    navCta:'Zacznij projekt',
-    heroEye:'AI Automation Agency · NAXIO',
-    heroH:'Automatyzacja,<br><span class="h1-dim">która</span><span class="h1-volt">działa</span>',
-    heroDesc:'Tworzę <strong>systemy AI i strony internetowe</strong>, które przejmują rutynę — n8n, OpenAI, boty Telegram, CRM. Od pomysłu do uruchomienia w 7 dni.',
-    heroBtnMain:'Zacznij projekt', heroBtnGhost:'Zobacz cases',
-    floatBtn:'Zostaw zapytanie →',
-    s1eye:'Usługi', s1h:'Co robimy<br><span class="dim">dla Twojego biznesu</span>', s1sub:'Pełny cykl — od pomysłu do żywego produktu, który przynosi pieniądze',
-    s1cta:'Chcesz zautomatyzować swój biznes?', s1ctaBtn:'Omów projekt →',
-    caseEye:'Cases', caseH:'Projekty<br><span class="dim">w trakcie</span>', caseSub:'Dopiero zaczynamy — pierwsze cases pojawią się tu wkrótce',
-    caseSoonH:'Cases pojawią się wkrótce', caseSoonP:'Pracujemy nad pierwszymi projektami i będziemy publikować prawdziwe wyniki', caseSoonBtn:'Zostań pierwszym klientem →',
-    techEye:'Stack', techH:'Narzędzia',
-    procEye:'Proces', procH:'Jak wygląda<br><span class="dim">praca z NAXIO</span>', procSub:'Przejrzyście, szybko, bez zbędnych briefingów',
-    procCta:'Gotowy zacząć?', procCtaBtn:'Umów rozmowę →',
-    faqEye:'FAQ', faqH:'Często zadawane pytania',
-    faqCtaP:'Masz jeszcze pytania?', faqCtaBtn:'Zapytaj bezpośrednio →',
-    formEye:'Zapytanie', formH:'Zostaw zapytanie —<br><span class="dim">sami się odezwiemy</span>', formSub:'Wypełnij formularz a my skontaktujemy się z Tobą wkrótce',
-    formTitle:'Zapytanie o projekt',
-    lName:'Imię *', lPhone:'Telefon', lEmail:'E-mail', lTg:'Telegram / WA', lBiz:'Typ biznesu', lComment:'Komentarz (opcjonalnie)',
-    bizOptions:['Wybierz...','E-commerce','Usługi / Agencja','SaaS / IT','Nieruchomości','Edukacja','Inne'],
-    phName:'Twoje imię', phPhone:'+48 (000) ...', phEmail:'ty@przykład.pl', phTg:'@username', phComment:'Krótko opisz zadanie lub zostaw puste...',
-    sendBtn:'Wyślij zapytanie →', sentH:'Zapytanie wysłane!', sentP:'Skontaktujemy się wkrótce',
-    footerLinks:['Usługi','Cases','Proces','FAQ','Kontakt'],
-    proc:['Analiza zadania','Rozmowa 30–60 min — omawiamy procesy, problemy i cele.','Architektura rozwiązania','Proponujemy schemat automatyzacji i stack.','Rozwój MVP','Działająca wersja w 3–7 dni.','Launch i testy','Testujemy na prawdziwych danych.','Wsparcie i wzrost','Towarzyszymy po uruchomieniu.'],
-    faq:[['Ile kosztuje automatyzacja?','Wszystko zależy od złożoności projektu. Ceny zaczynają się od $200. Dokładną cenę podajemy po bezpłatnej rozmowie.'],['Ile czasu zajmuje rozwój?','MVP — 3–7 dni. Strona — 7–14 dni. AI-workflow — 2–4 tygodnie.'],['Jakie automatyzacje można zrobić?','Prawie wszystko: obsługa leadów, odpowiedzi klientom, zapis do CRM, sekwencje email, kwalifikacja leadów.'],['Z jakimi CRM pracujecie?','AmoCRM, Bitrix24, HubSpot, Pipedrive, Notion, Airtable i inne.'],['Czy jest wsparcie po uruchomieniu?','Pierwsze 2 tygodnie — bezpłatna opieka. Potem według umowy.']]
-  }
-};
+let currentLang='ru';
+const translations={ru:{nav:['Услуги','Кейсы','Процесс','FAQ'],navCta:'Начать проект',heroEye:'AI Automation Agency · NAXIO',heroH:'Автоматизация,<br><span class="h1-dim">которая</span><span class="h1-volt">работает</span>',heroDesc:'Создаю <strong>AI-системы и сайты</strong>, которые берут на себя рутину — n8n, OpenAI, Telegram боты, CRM. От идеи до запуска за 7 дней.',heroBtnMain:'Начать проект',heroBtnGhost:'Смотреть кейсы',floatBtn:'Оставить заявку →',s1eye:'Услуги',s1h:'Что мы делаем<br><span class="dim">для вашего бизнеса</span>',s1sub:'Полный цикл — от идеи до живого продукта, который приносит деньги',s1cta:'Хотите автоматизировать свой бизнес?',s1ctaBtn:'Обсудить проект →',caseEye:'Кейсы',caseH:'Проекты<br><span class="dim">в процессе</span>',caseSub:'Мы только начинаем — первые кейсы появятся здесь совсем скоро',caseSoonH:'Кейсы появятся скоро',caseSoonP:'Мы работаем над первыми проектами и будем публиковать реальные результаты',caseSoonBtn:'Стать первым клиентом →',techEye:'Стек',techH:'Инструменты',procEye:'Процесс',procH:'Как проходит<br><span class="dim">работа с NAXIO</span>',procSub:'Прозрачно, быстро, без лишних брифингов',procCta:'Готовы начать?',procCtaBtn:'Записаться на созвон →',faqEye:'FAQ',faqH:'Частые вопросы',faqCtaP:'Остались вопросы?',faqCtaBtn:'Спросить напрямую →',formEye:'Заявка',formH:'Оставьте заявку —<br><span class="dim">мы свяжемся сами</span>',formSub:'Заполните форму и мы свяжемся с вами в ближайшее время',formTitle:'Заявка на проект',lName:'Имя *',lPhone:'Телефон',lEmail:'Email',lTg:'Telegram / WA',lBiz:'Тип бизнеса',lComment:'Комментарий (необязательно)',bizOptions:['Выберите...','E-commerce','Услуги / Агентство','SaaS / IT','Недвижимость','Образование','Другое'],phName:'Ваше имя',phPhone:'+7 (999) ...',phEmail:'you@example.com',phTg:'@username',phComment:'Кратко опишите задачу или оставьте пустым...',sendBtn:'Отправить заявку →',sentH:'Заявка отправлена!',sentP:'Свяжемся с вами в ближайшее время',footerLinks:['Услуги','Кейсы','Процесс','FAQ','Контакты'],proc:['Разбор задачи','Созвон 30–60 мин — разбираем процессы, боли и цели.','Архитектура решения','Предлагаем схему автоматизации и стек.','Разработка MVP','Рабочая версия за 3–7 дней.','Запуск и тест','Тестируем на реальных данных.','Поддержка и рост','Сопровождаем после запуска.'],faq:[['Сколько стоит автоматизация?','Всё зависит от сложности проекта. Цены начинаются от $200. Точную стоимость называем после бесплатного созвона.'],['Сколько времени занимает разработка?','MVP — 3–7 дней. Сайт — 7–14 дней. AI-workflow — 2–4 недели.'],['Какие автоматизации можно сделать?','Практически любые: обработка заявок, ответы клиентам, запись в CRM, email-цепочки, квалификация лидов.'],['С какими CRM работаете?','AmoCRM, Bitrix24, HubSpot, Pipedrive, Notion, Airtable и другими.'],['Есть ли поддержка после запуска?','Первые 2 недели — бесплатное сопровождение. Далее по договорённости.']]},ua:{nav:['Послуги','Кейси','Процес','FAQ'],navCta:'Почати проект',heroEye:'AI Automation Agency · NAXIO',heroH:'Автоматизація,<br><span class="h1-dim">яка</span><span class="h1-volt">працює</span>',heroDesc:'Створюю <strong>AI-системи та сайти</strong>, які беруть на себе рутину — n8n, OpenAI, Telegram боти, CRM. Від ідеї до запуску за 7 днів.',heroBtnMain:'Почати проект',heroBtnGhost:'Дивитися кейси',floatBtn:'Залишити заявку →',s1eye:'Послуги',s1h:'Що ми робимо<br><span class="dim">для вашого бізнесу</span>',s1sub:'Повний цикл — від ідеї до живого продукту, який приносить гроші',s1cta:'Хочете автоматизувати свій бізнес?',s1ctaBtn:'Обговорити проект →',caseEye:'Кейси',caseH:'Проекти<br><span class="dim">в процесі</span>',caseSub:'Ми тільки починаємо — перші кейси зʼявляться тут дуже скоро',caseSoonH:'Кейси зʼявляться скоро',caseSoonP:'Ми працюємо над першими проектами і будемо публікувати реальні результати',caseSoonBtn:'Стати першим клієнтом →',techEye:'Стек',techH:'Інструменти',procEye:'Процес',procH:'Як проходить<br><span class="dim">робота з NAXIO</span>',procSub:'Прозоро, швидко, без зайвих брифінгів',procCta:'Готові почати?',procCtaBtn:'Записатися на дзвінок →',faqEye:'FAQ',faqH:'Часті запитання',faqCtaP:'Залишились питання?',faqCtaBtn:'Запитати напряму →',formEye:'Заявка',formH:'Залиште заявку —<br><span class="dim">ми звʼяжемося самі</span>',formSub:'Заповніть форму і ми звʼяжемося з вами найближчим часом',formTitle:'Заявка на проект',lName:"Ім'я *",lPhone:'Телефон',lEmail:'Email',lTg:'Telegram / WA',lBiz:'Тип бізнесу',lComment:'Коментар (необовʼязково)',bizOptions:['Оберіть...','E-commerce','Послуги / Агентство','SaaS / IT','Нерухомість','Освіта','Інше'],phName:"Ваше ім'я",phPhone:'+38 (099) ...',phEmail:'you@example.com',phTg:'@username',phComment:'Коротко опишіть задачу або залиште порожнім...',sendBtn:'Надіслати заявку →',sentH:'Заявку надіслано!',sentP:'Звʼяжемося з вами найближчим часом',footerLinks:['Послуги','Кейси','Процес','FAQ','Контакти'],proc:['Розбір задачі','Дзвінок 30–60 хв.','Архітектура рішення','Пропонуємо схему автоматизації.','Розробка MVP','Робоча версія за 3–7 днів.','Запуск і тест','Тестуємо на реальних даних.','Підтримка і зростання','Супроводжуємо після запуску.'],faq:[['Скільки коштує автоматизація?','Все залежить від складності. Ціни від $200. Точну вартість після безкоштовного дзвінка.'],['Скільки часу займає розробка?','MVP — 3–7 днів. Сайт — 7–14 днів. AI-workflow — 2–4 тижні.'],['Які автоматизації можна зробити?','Практично будь-які: обробка заявок, відповіді клієнтам, запис у CRM.'],['З якими CRM працюєте?','AmoCRM, Bitrix24, HubSpot, Pipedrive, Notion, Airtable.'],['Чи є підтримка після запуску?','Перші 2 тижні — безкоштовний супровід.']]},en:{nav:['Services','Cases','Process','FAQ'],navCta:'Start project',heroEye:'AI Automation Agency · NAXIO',heroH:'Automation<br><span class="h1-dim">that</span><span class="h1-volt">works</span>',heroDesc:'I build <strong>AI systems and websites</strong> that handle routine tasks — n8n, OpenAI, Telegram bots, CRM. From idea to launch in 7 days.',heroBtnMain:'Start project',heroBtnGhost:'View cases',floatBtn:'Leave a request →',s1eye:'Services',s1h:'What we do<br><span class="dim">for your business</span>',s1sub:'Full cycle — from idea to a live product that makes money',s1cta:'Want to automate your business?',s1ctaBtn:'Discuss project →',caseEye:'Cases',caseH:'Projects<br><span class="dim">in progress</span>',caseSub:'We are just starting — first cases will appear here very soon',caseSoonH:'Cases coming soon',caseSoonP:'We are working on our first projects and will publish real results',caseSoonBtn:'Be the first client →',techEye:'Stack',techH:'Tools',procEye:'Process',procH:'How working<br><span class="dim">with NAXIO looks</span>',procSub:'Transparent, fast, no unnecessary briefings',procCta:'Ready to start?',procCtaBtn:'Book a call →',faqEye:'FAQ',faqH:'Frequently asked questions',faqCtaP:'Still have questions?',faqCtaBtn:'Ask directly →',formEye:'Request',formH:'Leave a request —<br><span class="dim">we will reach out</span>',formSub:'Fill out the form and we will contact you shortly',formTitle:'Project request',lName:'Name *',lPhone:'Phone',lEmail:'Email',lTg:'Telegram / WA',lBiz:'Business type',lComment:'Comment (optional)',bizOptions:['Select...','E-commerce','Services / Agency','SaaS / IT','Real estate','Education','Other'],phName:'Your name',phPhone:'+1 (000) ...',phEmail:'you@example.com',phTg:'@username',phComment:'Briefly describe your task or leave empty...',sendBtn:'Send request →',sentH:'Request sent!',sentP:'We will contact you shortly',footerLinks:['Services','Cases','Process','FAQ','Contacts'],proc:['Task analysis','30–60 min call.','Solution architecture','We propose an automation scheme.','MVP development','Working version in 3–7 days.','Launch & test','We test on real data.','Support & growth','We monitor and scale.'],faq:[['How much does automation cost?','Depends on complexity. Prices from $200. Exact quote after a free call.'],['How long does development take?','MVP — 3–7 days. Website — 7–14 days. AI-workflow — 2–4 weeks.'],['What automations can you build?','Almost anything: lead processing, CRM entry, email sequences.'],['Which CRMs do you work with?','AmoCRM, Bitrix24, HubSpot, Pipedrive, Notion, Airtable.'],['Is there support after launch?','First 2 weeks — free. After that by agreement.']]},de:{nav:['Leistungen','Cases','Prozess','FAQ'],navCta:'Projekt starten',heroEye:'AI Automation Agency · NAXIO',heroH:'Automatisierung,<br><span class="h1-dim">die</span><span class="h1-volt">funktioniert</span>',heroDesc:'Ich baue <strong>KI-Systeme und Websites</strong> — n8n, OpenAI, Telegram Bots, CRM. Von der Idee bis zum Launch in 7 Tagen.',heroBtnMain:'Projekt starten',heroBtnGhost:'Cases ansehen',floatBtn:'Anfrage senden →',s1eye:'Leistungen',s1h:'Was wir tun<br><span class="dim">für Ihr Unternehmen</span>',s1sub:'Voller Zyklus — von der Idee bis zum lebenden Produkt',s1cta:'Möchten Sie automatisieren?',s1ctaBtn:'Projekt besprechen →',caseEye:'Cases',caseH:'Projekte<br><span class="dim">in Arbeit</span>',caseSub:'Wir fangen an — erste Cases erscheinen bald',caseSoonH:'Cases kommen bald',caseSoonP:'Wir arbeiten an ersten Projekten',caseSoonBtn:'Erster Kunde werden →',techEye:'Stack',techH:'Tools',procEye:'Prozess',procH:'Wie die Arbeit<br><span class="dim">mit NAXIO aussieht</span>',procSub:'Transparent, schnell',procCta:'Bereit?',procCtaBtn:'Call buchen →',faqEye:'FAQ',faqH:'Häufige Fragen',faqCtaP:'Noch Fragen?',faqCtaBtn:'Direkt fragen →',formEye:'Anfrage',formH:'Anfrage senden —<br><span class="dim">wir melden uns</span>',formSub:'Formular ausfüllen — wir melden uns bald',formTitle:'Projektanfrage',lName:'Name *',lPhone:'Telefon',lEmail:'E-Mail',lTg:'Telegram / WA',lBiz:'Unternehmenstyp',lComment:'Kommentar (optional)',bizOptions:['Auswählen...','E-Commerce','Dienstleistungen','SaaS / IT','Immobilien','Bildung','Sonstiges'],phName:'Ihr Name',phPhone:'+49 (000) ...',phEmail:'sie@beispiel.de',phTg:'@username',phComment:'Kurz beschreiben...',sendBtn:'Anfrage senden →',sentH:'Anfrage gesendet!',sentP:'Wir melden uns',footerLinks:['Leistungen','Cases','Prozess','FAQ','Kontakt'],proc:['Aufgabenanalyse','30–60 Min. Call.','Lösungsarchitektur','Automatisierungsschema.','MVP-Entwicklung','3–7 Tage.','Launch & Test','Echte Daten.','Support & Wachstum','Gemeinsam skalieren.'],faq:[['Was kostet Automatisierung?','Ab $200. Genau nach kostenlosem Call.'],['Wie lange dauert Entwicklung?','MVP 3–7 Tage. Website 7–14 Tage.'],['Welche Automatisierungen?','Lead-Verarbeitung, CRM, E-Mail.'],['Welche CRMs?','AmoCRM, Bitrix24, HubSpot, Pipedrive.'],['Support nach Launch?','2 Wochen kostenlos.']]},pl:{nav:['Usługi','Cases','Proces','FAQ'],navCta:'Zacznij projekt',heroEye:'AI Automation Agency · NAXIO',heroH:'Automatyzacja,<br><span class="h1-dim">która</span><span class="h1-volt">działa</span>',heroDesc:'Tworzę <strong>systemy AI i strony</strong> — n8n, OpenAI, boty Telegram, CRM. Od pomysłu do uruchomienia w 7 dni.',heroBtnMain:'Zacznij projekt',heroBtnGhost:'Zobacz cases',floatBtn:'Zostaw zapytanie →',s1eye:'Usługi',s1h:'Co robimy<br><span class="dim">dla Twojego biznesu</span>',s1sub:'Pełny cykl — od pomysłu do produktu',s1cta:'Chcesz zautomatyzować?',s1ctaBtn:'Omów projekt →',caseEye:'Cases',caseH:'Projekty<br><span class="dim">w trakcie</span>',caseSub:'Dopiero zaczynamy — cases pojawią się wkrótce',caseSoonH:'Cases wkrótce',caseSoonP:'Pracujemy nad pierwszymi projektami',caseSoonBtn:'Zostań pierwszym klientem →',techEye:'Stack',techH:'Narzędzia',procEye:'Proces',procH:'Jak wygląda<br><span class="dim">praca z NAXIO</span>',procSub:'Przejrzyście i szybko',procCta:'Gotowy?',procCtaBtn:'Umów rozmowę →',faqEye:'FAQ',faqH:'Często zadawane pytania',faqCtaP:'Masz pytania?',faqCtaBtn:'Zapytaj →',formEye:'Zapytanie',formH:'Zostaw zapytanie —<br><span class="dim">odezwiemy się</span>',formSub:'Wypełnij formularz',formTitle:'Zapytanie o projekt',lName:'Imię *',lPhone:'Telefon',lEmail:'E-mail',lTg:'Telegram / WA',lBiz:'Typ biznesu',lComment:'Komentarz (opcjonalnie)',bizOptions:['Wybierz...','E-commerce','Usługi','SaaS / IT','Nieruchomości','Edukacja','Inne'],phName:'Twoje imię',phPhone:'+48 (000) ...',phEmail:'ty@przykład.pl',phTg:'@username',phComment:'Krótko opisz...',sendBtn:'Wyślij →',sentH:'Wysłano!',sentP:'Skontaktujemy się',footerLinks:['Usługi','Cases','Proces','FAQ','Kontakt'],proc:['Analiza','Rozmowa 30–60 min.','Architektura','Schemat automatyzacji.','MVP','3–7 dni.','Launch','Testy.','Wsparcie','Po uruchomieniu.'],faq:[['Ile kosztuje?','Od $200. Wycena po rozmowie.'],['Czas realizacji?','MVP 3–7 dni. Strona 7–14 dni.'],['Jakie automatyzacje?','Leady, CRM, email.'],['Jakie CRM?','AmoCRM, Bitrix24, HubSpot.'],['Wsparcie po launch?','2 tygodnie bezpłatnie.']]}}; 
 
 function setLang(code){
-  currentLang = code;
-  const t=translations[code];
-  // hide modal
+  currentLang=code;const t=translations[code];
   const overlay=document.getElementById('lang-overlay');
   overlay.style.transition='opacity .4s';overlay.style.opacity='0';
   setTimeout(()=>overlay.style.display='none',400);
-  // nav links
   const navAs=document.querySelectorAll('.nav-links a');
   t.nav.forEach((txt,i)=>{if(navAs[i])navAs[i].textContent=txt});
   document.querySelector('.nav-cta').textContent=t.navCta;
   document.getElementById('fb').textContent=t.floatBtn;
-  // hero
   document.querySelector('.hero-eyebrow').textContent=t.heroEye;
   document.querySelector('.hero h1').innerHTML=t.heroH;
   document.querySelector('.hero-desc').innerHTML=t.heroDesc;
-  const herobtns=document.querySelectorAll('.hero-btns button');
-  if(herobtns[0])herobtns[0].textContent=t.heroBtnMain;
-  if(herobtns[1])herobtns[1].textContent=t.heroBtnGhost;
-  // sections via eyebrow
-  const eyebrows=document.querySelectorAll('.eyebrow');
-  const secHs=document.querySelectorAll('.sec-h');
-  const secSubs=document.querySelectorAll('.sec-sub');
-  // services
-  if(eyebrows[0])eyebrows[0].innerHTML='<span style="display:inline-block;width:18px;height:1px;background:var(--volt);margin-right:10px;vertical-align:middle"></span>'+t.s1eye;
-  if(secHs[0])secHs[0].innerHTML=t.s1h;
-  if(secSubs[0])secSubs[0].textContent=t.s1sub;
-  // cases
-  if(eyebrows[1])eyebrows[1].innerHTML='<span style="display:inline-block;width:18px;height:1px;background:var(--volt);margin-right:10px;vertical-align:middle"></span>'+t.caseEye;
-  if(secHs[1])secHs[1].innerHTML=t.caseH;
-  if(secSubs[1])secSubs[1].textContent=t.caseSub;
-  const soonH=document.querySelector('.soon-card h3');
-  const soonP=document.querySelector('.soon-card p');
-  const soonBtn=document.querySelector('.soon-btn');
-  if(soonH)soonH.textContent=t.caseSoonH;
-  if(soonP)soonP.textContent=t.caseSoonP;
-  if(soonBtn)soonBtn.textContent=t.caseSoonBtn;
-  // tech
-  if(eyebrows[2])eyebrows[2].innerHTML='<span style="display:inline-block;width:18px;height:1px;background:var(--volt);margin-right:10px;vertical-align:middle"></span>'+t.techEye;
-  if(secHs[2])secHs[2].textContent=t.techH;
-  // process
-  if(eyebrows[3])eyebrows[3].innerHTML='<span style="display:inline-block;width:18px;height:1px;background:var(--volt);margin-right:10px;vertical-align:middle"></span>'+t.procEye;
-  if(secHs[3])secHs[3].innerHTML=t.procH;
-  if(secSubs[2])secSubs[2].textContent=t.procSub;
-  const pBodies=document.querySelectorAll('.pbody');
-  for(let i=0;i<pBodies.length;i++){const h=pBodies[i].querySelector('h4'),p=pBodies[i].querySelector('p');if(h)h.textContent=t.proc[i*2];if(p)p.textContent=t.proc[i*2+1]}
-  // faq
-  if(eyebrows[4])eyebrows[4].innerHTML='<span style="display:inline-block;width:18px;height:1px;background:var(--volt);margin-right:10px;vertical-align:middle"></span>'+t.faqEye;
-  if(secHs[4])secHs[4].textContent=t.faqH;
-  const fqQs=document.querySelectorAll('.fq-q');
-  const fqAs=document.querySelectorAll('.fq-a');
-  t.faq.forEach((pair,i)=>{if(fqQs[i])fqQs[i].innerHTML=pair[0]+'<span class="fq-ico">+</span>';if(fqAs[i])fqAs[i].textContent=pair[1]});
-  // contact form
-  if(eyebrows[5])eyebrows[5].innerHTML='<span style="display:inline-block;width:18px;height:1px;background:var(--volt);margin-right:10px;vertical-align:middle"></span>'+t.formEye;
-  if(secHs[5])secHs[5].innerHTML=t.formH;
-  if(secSubs[3])secSubs[3].textContent=t.formSub;
+  const hb=document.querySelectorAll('.hero-btns button');
+  if(hb[0])hb[0].textContent=t.heroBtnMain;
+  if(hb[1])hb[1].textContent=t.heroBtnGhost;
+  const ew=document.querySelectorAll('.eyebrow');
+  const sh=document.querySelectorAll('.sec-h');
+  const ss=document.querySelectorAll('.sec-sub');
+  const line='<span style="display:inline-block;width:18px;height:1px;background:var(--volt);margin-right:10px;vertical-align:middle"></span>';
+  if(ew[0])ew[0].innerHTML=line+t.s1eye;if(sh[0])sh[0].innerHTML=t.s1h;if(ss[0])ss[0].textContent=t.s1sub;
+  if(ew[1])ew[1].innerHTML=line+t.caseEye;if(sh[1])sh[1].innerHTML=t.caseH;if(ss[1])ss[1].textContent=t.caseSub;
+  const sH=document.querySelector('.soon-card h3'),sP=document.querySelector('.soon-card p'),sB=document.querySelector('.soon-btn');
+  if(sH)sH.textContent=t.caseSoonH;if(sP)sP.textContent=t.caseSoonP;if(sB)sB.textContent=t.caseSoonBtn;
+  if(ew[2])ew[2].innerHTML=line+t.techEye;if(sh[2])sh[2].textContent=t.techH;
+  if(ew[3])ew[3].innerHTML=line+t.procEye;if(sh[3])sh[3].innerHTML=t.procH;if(ss[2])ss[2].textContent=t.procSub;
+  const pb=document.querySelectorAll('.pbody');
+  for(let i=0;i<pb.length;i++){const h=pb[i].querySelector('h4'),p=pb[i].querySelector('p');if(h)h.textContent=t.proc[i*2];if(p)p.textContent=t.proc[i*2+1]}
+  if(ew[4])ew[4].innerHTML=line+t.faqEye;if(sh[4])sh[4].textContent=t.faqH;
+  const fq=document.querySelectorAll('.fq-q'),fa=document.querySelectorAll('.fq-a');
+  t.faq.forEach((pair,i)=>{if(fq[i])fq[i].innerHTML=pair[0]+'<span class="fq-ico">+</span>';if(fa[i])fa[i].textContent=pair[1]});
+  if(ew[5])ew[5].innerHTML=line+t.formEye;if(sh[5])sh[5].innerHTML=t.formH;if(ss[3])ss[3].textContent=t.formSub;
   document.querySelector('.form-ttl').textContent=t.formTitle;
-  const labels=document.querySelectorAll('.fg label');
-  const keys=['lName','lPhone','lEmail','lTg','lBiz','lComment'];
-  keys.forEach((k,i)=>{if(labels[i])labels[i].textContent=t[k]});
-  const inputs=document.querySelectorAll('.fi');
-  if(inputs[0])inputs[0].placeholder=t.phName;
-  if(inputs[1])inputs[1].placeholder=t.phPhone;
-  if(inputs[2])inputs[2].placeholder=t.phEmail;
-  if(inputs[3])inputs[3].placeholder=t.phTg;
+  const lb=document.querySelectorAll('.fg label');
+  ['lName','lPhone','lEmail','lTg','lBiz','lComment'].forEach((k,i)=>{if(lb[i])lb[i].textContent=t[k]});
+  const inp=document.querySelectorAll('.fi');
+  if(inp[0])inp[0].placeholder=t.phName;if(inp[1])inp[1].placeholder=t.phPhone;if(inp[2])inp[2].placeholder=t.phEmail;if(inp[3])inp[3].placeholder=t.phTg;
   const sel=document.querySelector('select.fi');
   if(sel){sel.innerHTML='';t.bizOptions.forEach(o=>{const op=document.createElement('option');op.textContent=o;sel.appendChild(op)})}
-  if(inputs[4])inputs[4].placeholder=t.phComment;
+  if(inp[4])inp[4].placeholder=t.phComment;
   document.querySelector('.btn-send').textContent=t.sendBtn;
   document.querySelector('.sent-msg h3').textContent=t.sentH;
   document.querySelector('.sent-msg p').textContent=t.sentP;
-  // footer
-  const fLinks=document.querySelectorAll('.f-nav a');
-  t.footerLinks.forEach((txt,i)=>{if(fLinks[i])fLinks[i].textContent=txt});
-  // soft CTAs
-  const softPs=document.querySelectorAll('.soft-cta p');
-  const softBtns=document.querySelectorAll('.soft-cta button');
-  if(softPs[0])softPs[0].textContent=t.s1cta;
-  if(softBtns[0])softBtns[0].textContent=t.s1ctaBtn;
-  if(softPs[1])softPs[1].textContent=t.procCta;
-  if(softBtns[1])softBtns[1].textContent=t.procCtaBtn;
-  if(softPs[2])softPs[2].textContent=t.faqCtaP;
-  if(softBtns[2])softBtns[2].textContent=t.faqCtaBtn;
+  const fl=document.querySelectorAll('.f-nav a');
+  t.footerLinks.forEach((txt,i)=>{if(fl[i])fl[i].textContent=txt});
+  const sp=document.querySelectorAll('.soft-cta p'),sb=document.querySelectorAll('.soft-cta button');
+  if(sp[0])sp[0].textContent=t.s1cta;if(sb[0])sb[0].textContent=t.s1ctaBtn;
+  if(sp[1])sp[1].textContent=t.procCta;if(sb[1])sb[1].textContent=t.procCtaBtn;
+  if(sp[2])sp[2].textContent=t.faqCtaP;if(sb[2])sb[2].textContent=t.faqCtaBtn;
 }
 
 const cur=document.getElementById('cur'),cring=document.getElementById('cring');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
 (function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cring.style.left=rx+'px';cring.style.top=ry+'px';requestAnimationFrame(loop)})();
-document.querySelectorAll('a,button,.tp,.ck,.case,.svc').forEach(el=>{
+document.querySelectorAll('a,button,.tp,.case,.svc').forEach(el=>{
   el.addEventListener('mouseenter',()=>{cur.style.width='16px';cur.style.height='16px';cring.style.width='48px';cring.style.height='48px'});
   el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';cring.style.width='34px';cring.style.height='34px'});
 });
-
-// REVEAL
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
-},{threshold:.07,rootMargin:'0px 0px -30px 0px'});
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});},{threshold:.07,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-// FLOAT BTN
 const fb=document.getElementById('fb');
 window.addEventListener('scroll',()=>fb.classList.toggle('on',window.scrollY>window.innerHeight*.5));
-
-// HELPERS
 function goForm(){document.getElementById('contact').scrollIntoView({behavior:'smooth'});setTimeout(()=>{const n=document.getElementById('fn');if(n)n.focus()},700)}
 function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
-
-// FAQ
 function openFaq(btn){const item=btn.closest('.fq'),open=item.classList.contains('open');document.querySelectorAll('.fq.open').forEach(i=>i.classList.remove('open'));if(!open)item.classList.add('open')}
-
-// FORM
 function sendForm(){
   const n=document.getElementById('fn').value.trim();
   if(!n){document.getElementById('fn').focus();return}
-  
-  const formData = {
-    name: n,
-    phone: document.querySelector('input[type="tel"]')?.value || '',
-    email: document.querySelector('input[type="email"]')?.value || '',
-    telegram: document.getElementById('ft') ? document.getElementById('ft').value : '',
-    business: document.querySelector('select.fi')?.value || '',
-    comment: document.querySelector('textarea.fi')?.value || '',
-    language: currentLang || 'ru',
-    source: 'naxio.agency'
-  };
-
-  fetch('https://n8n.naxio.agency/webhook/677d734e-e0e7-42e3-8039-6a7ddadf9b69', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(formData)
-  }).catch(()=>{});
-
+  fetch('https://n8n.naxio.agency/webhook/677d734e-e0e7-42e3-8039-6a7ddadf9b69',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:n,phone:document.querySelector('input[type="tel"]')?.value||'',email:document.querySelector('input[type="email"]')?.value||'',telegram:document.getElementById('ft')?document.getElementById('ft').value:'',business:document.querySelector('select.fi')?.value||'',comment:document.querySelector('textarea.fi')?.value||'',language:currentLang||'ru',source:'naxio.agency'})}).catch(()=>{});
   document.getElementById('formInner').style.display='none';
   document.getElementById('sentMsg').style.display='block';
 }
-
-// MOBILE NAV
 let navOpen=false;
-function mobileNav(){
-  navOpen=!navOpen;
-  const l=document.querySelector('.nav-links');
-  if(navOpen){l.style.cssText='display:flex;flex-direction:column;position:fixed;top:60px;left:0;right:0;background:rgba(0,0,0,.97);padding:24px 20px;gap:4px;border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(20px);z-index:199';l.querySelectorAll('a').forEach(a=>a.onclick=()=>mobileNav())}
-  else{l.style.display='none'}
-}
+function mobileNav(){navOpen=!navOpen;const l=document.querySelector('.nav-links');if(navOpen){l.style.cssText='display:flex;flex-direction:column;position:fixed;top:60px;left:0;right:0;background:rgba(0,0,0,.97);padding:24px 20px;gap:4px;border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(20px);z-index:199';l.querySelectorAll('a').forEach(a=>a.onclick=()=>mobileNav())}else{l.style.display='none'}}
 </script>
 </body>
 </html>
