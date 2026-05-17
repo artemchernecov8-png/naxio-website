@@ -3,405 +3,641 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>NAXIO — AI-Powered Growth Systems</title>
-<meta name="description" content="NAXIO строит AI-powered growth systems — автоматизация, сайты, боты, CRM. Масштабируем бизнес через performance и automation."/>
+<title>NAXIO — AI Growth Infrastructure</title>
+<meta name="description" content="NAXIO builds AI-powered growth systems — automation, acquisition, conversion infrastructure for scaling brands."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#020202;--bg2:#050505;--card:#0d0d0d;--line:rgba(255,255,255,.06);--line2:rgba(255,255,255,.12);--w:#efefef;--w2:#888;--w3:#444;--w4:#2a2a2a;--volt:#c8ff00;--blue:#4f8ef7}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--w);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+:root{
+  --bg:#0c0c0c;
+  --bg1:#111;
+  --bg2:#161616;
+  --border:rgba(255,255,255,.08);
+  --border2:rgba(255,255,255,.14);
+  --text:#f2f2f2;
+  --text2:#888;
+  --text3:#555;
+  --accent:#e8ff57;
+  --accent2:rgba(232,255,87,.1);
+  --r:10px;
+  --gap:1px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:'Geist',sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 ::-webkit-scrollbar{width:0}
-#cur{position:fixed;width:6px;height:6px;background:var(--volt);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
-#cring{position:fixed;width:32px;height:32px;border:1px solid rgba(200,255,0,.25);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .12s}
-#lang-overlay,#lang-overlay *{pointer-events:all !important}
-#lang-overlay button{cursor:pointer !important}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(2,2,2,.9);backdrop-filter:blur(32px);border-bottom:1px solid var(--line)}
-.n-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.n-mark svg{width:28px;height:28px}
-.n-wordmark{font-family:'Syne',sans-serif;font-size:15px;font-weight:800;letter-spacing:5px;color:var(--w)}
-.n-wordmark em{color:var(--volt);font-style:normal}
-.nav-links{display:flex;gap:2px;list-style:none}
-.nav-links a{font-size:13px;color:var(--w2);text-decoration:none;padding:7px 14px;border-radius:8px;transition:color .2s}
-.nav-links a:hover{color:var(--w)}
-.nav-cta{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;background:var(--volt);color:#000;border:none;padding:9px 20px;border-radius:980px;cursor:pointer;letter-spacing:.5px;transition:transform .2s,box-shadow .2s}
-.nav-cta:hover{transform:scale(1.04);box-shadow:0 0 32px rgba(200,255,0,.3)}
-.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
-.burger span{display:block;width:20px;height:1px;background:var(--w)}
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:120px 48px 80px;position:relative;overflow:hidden;max-width:1400px;margin:0 auto}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%)}
-.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(200,255,0,.04) 0%,transparent 65%);top:-20%;right:-10%;pointer-events:none}
-.hero-glow2{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(79,142,247,.05) 0%,transparent 65%);bottom:-10%;left:-5%;pointer-events:none}
-.hero-tag{position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;background:rgba(200,255,0,.06);border:1px solid rgba(200,255,0,.2);padding:6px 14px;border-radius:980px;font-size:11px;font-weight:500;color:var(--volt);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:40px}
-.hero-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--volt);animation:blink 2s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.hero h1{position:relative;z-index:1;font-family:'Syne',sans-serif;font-size:clamp(52px,8vw,110px);font-weight:800;line-height:.95;letter-spacing:-3px;margin-bottom:32px;max-width:900px}
-.hero h1 .line-dim{color:var(--w3);display:block;font-weight:400}
-.hero h1 .line-volt{color:var(--volt);display:block}
-.hero-sub{position:relative;z-index:1;font-size:clamp(15px,1.6vw,18px);font-weight:300;color:var(--w2);max-width:480px;line-height:1.85;margin-bottom:48px}
-.hero-sub strong{color:var(--w);font-weight:500}
-.hero-btns{position:relative;z-index:1;display:flex;gap:12px;flex-wrap:wrap;margin-bottom:80px}
-.btn-main{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;background:var(--volt);color:#000;border:none;padding:15px 32px;border-radius:980px;cursor:pointer;letter-spacing:.3px;transition:transform .25s,box-shadow .25s}
-.btn-main:hover{transform:scale(1.04);box-shadow:0 0 48px rgba(200,255,0,.28)}
-.btn-ghost{font-family:'DM Sans',sans-serif;font-size:13px;background:transparent;color:var(--w2);border:1px solid var(--line2);padding:15px 32px;border-radius:980px;cursor:pointer;transition:border-color .2s,color .2s}
-.btn-ghost:hover{border-color:rgba(255,255,255,.3);color:var(--w)}
-.hero-stats{position:relative;z-index:1;display:flex;gap:48px;flex-wrap:wrap}
-.hstat-n{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--w);letter-spacing:-1px}
-.hstat-n span{color:var(--volt)}
-.hstat-l{font-size:11px;color:var(--w3);letter-spacing:.5px;text-transform:uppercase;margin-top:4px}
-.hero-scroll{position:absolute;bottom:40px;left:48px;z-index:1;display:flex;align-items:center;gap:12px;opacity:.4}
-.hero-scroll-line{width:32px;height:1px;background:var(--w3)}
-.hero-scroll-txt{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--w3)}
-.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;overflow:hidden;background:var(--bg2)}
-.strack{display:flex;width:max-content;animation:ticker 32s linear infinite}
-.sitem{padding:0 28px;font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--w3);border-right:1px solid var(--line);white-space:nowrap;display:flex;align-items:center;gap:8px}
-.sdot{width:3px;height:3px;border-radius:50%;background:var(--volt);flex-shrink:0}
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.sec{padding:128px 48px;position:relative}
-.sec-inner{max-width:1200px;margin:0 auto}
-.eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--volt);margin-bottom:20px;display:flex;align-items:center;gap:10px}
-.eyebrow::before{content:'';width:18px;height:1px;background:var(--volt)}
-.sec-h{font-family:'Syne',sans-serif;font-size:clamp(36px,5.5vw,72px);font-weight:800;line-height:1.0;letter-spacing:-2px;margin-bottom:20px}
-.sec-h .dim{font-weight:400;color:var(--w3)}
-.sec-sub{font-size:16px;color:var(--w2);max-width:480px;line-height:1.85;margin-bottom:64px;font-weight:300}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.svc{background:var(--bg);padding:44px 36px;position:relative;overflow:hidden;transition:background .3s}
-.svc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--volt);transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.svc:hover{background:var(--card)}
-.svc:hover::before{transform:scaleX(1)}
-.svc-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--w4);letter-spacing:2px;margin-bottom:28px}
-.svc-ico{font-size:24px;margin-bottom:16px}
-.svc h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;letter-spacing:-.3px;margin-bottom:12px}
-.svc p{font-size:13px;color:var(--w2);line-height:1.8;margin-bottom:24px}
+a{text-decoration:none;color:inherit}
+button{font-family:'Geist',sans-serif}
+#lo{position:fixed;inset:0;background:#0c0c0c;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px}
+.lo-card{max-width:400px;width:100%}
+.lo-logo{display:flex;align-items:center;gap:10px;margin-bottom:48px}
+.lo-logo-mark{width:32px;height:32px;border:1.5px solid var(--accent);transform:rotate(45deg);position:relative;flex-shrink:0}
+.lo-logo-mark::after{content:'';position:absolute;inset:5px;background:var(--accent)}
+.lo-logo-text{font-size:13px;font-weight:600;letter-spacing:6px;color:var(--text)}
+.lo-logo-text em{color:var(--accent);font-style:normal}
+.lo-title{font-family:'Instrument Serif',serif;font-size:clamp(28px,5vw,40px);line-height:1.15;margin-bottom:8px;color:var(--text)}
+.lo-title em{font-style:italic;color:var(--text2)}
+.lo-sub{font-size:13px;color:var(--text3);margin-bottom:36px}
+.lo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lo-btn{background:transparent;border:1px solid var(--border2);border-radius:var(--r);padding:16px 20px;cursor:pointer;text-align:left;transition:border-color .2s,background .2s;color:var(--text)}
+.lo-btn:hover{border-color:var(--accent);background:var(--accent2)}
+.lo-btn-lang{font-size:14px;font-weight:500;display:block;margin-bottom:3px}
+.lo-btn-native{font-size:11px;color:var(--text3);display:block}
+.lo-btn-full{grid-column:1/-1}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-bottom:1px solid var(--border);background:rgba(12,12,12,.85);backdrop-filter:blur(20px)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-mark{width:22px;height:22px;border:1.5px solid var(--accent);transform:rotate(45deg);position:relative;flex-shrink:0}
+.nav-logo-mark::after{content:'';position:absolute;inset:4px;background:var(--accent)}
+.nav-logo-text{font-size:12px;font-weight:600;letter-spacing:5px}
+.nav-logo-text em{color:var(--accent);font-style:normal}
+.nav-links{display:flex;align-items:center;gap:1px}
+.nav-links a{font-size:12px;color:var(--text2);padding:6px 12px;border-radius:6px;transition:color .15s}
+.nav-links a:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-lang{font-size:11px;color:var(--text3);cursor:pointer;padding:5px 10px;border:1px solid var(--border);border-radius:6px;background:transparent;transition:border-color .2s,color .2s}
+.nav-lang:hover{border-color:var(--border2);color:var(--text2)}
+.btn-cta{font-size:12px;font-weight:500;background:var(--accent);color:#000;border:none;padding:8px 18px;border-radius:6px;cursor:pointer;transition:opacity .2s}
+.btn-cta:hover{opacity:.85}
+.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:4px}
+.burger span{display:block;width:18px;height:1px;background:var(--text)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:32px}
+.hero-eyebrow-dot{width:5px;height:5px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.hero-h{font-family:'Instrument Serif',serif;font-size:clamp(44px,7vw,96px);line-height:1.05;letter-spacing:-.02em;max-width:820px;margin-bottom:28px}
+.hero-h em{font-style:italic;color:var(--text2)}
+.hero-p{font-size:clamp(15px,1.4vw,17px);font-weight:300;color:var(--text2);max-width:460px;line-height:1.8;margin-bottom:44px}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:80px}
+.btn-primary{font-size:13px;font-weight:500;background:var(--accent);color:#000;border:none;padding:13px 28px;border-radius:7px;cursor:pointer;transition:opacity .2s}
+.btn-primary:hover{opacity:.85}
+.btn-secondary{font-size:13px;background:transparent;color:var(--text2);border:1px solid var(--border2);padding:13px 28px;border-radius:7px;cursor:pointer;transition:border-color .2s,color .2s}
+.btn-secondary:hover{border-color:rgba(255,255,255,.25);color:var(--text)}
+.hero-metrics{display:flex;gap:48px;flex-wrap:wrap}
+.metric-val{font-family:'Instrument Serif',serif;font-size:36px;line-height:1;color:var(--text);margin-bottom:4px}
+.metric-val span{color:var(--accent)}
+.metric-label{font-size:11px;color:var(--text3);letter-spacing:.5px;text-transform:uppercase}
+.marquee{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:12px 0;overflow:hidden;background:var(--bg1)}
+.marquee-track{display:flex;width:max-content;animation:marq 28s linear infinite}
+.marquee-item{padding:0 24px;font-size:10px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--text3);border-right:1px solid var(--border);white-space:nowrap}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+section{padding:120px 32px}
+.sec-inner{max-width:1160px;margin:0 auto}
+.sec-label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.sec-label::before{content:'';width:16px;height:1px;background:var(--accent)}
+.sec-title{font-family:'Instrument Serif',serif;font-size:clamp(32px,5vw,64px);line-height:1.08;letter-spacing:-.02em;margin-bottom:16px}
+.sec-title em{font-style:italic;color:var(--text2)}
+.sec-desc{font-size:15px;color:var(--text2);max-width:440px;line-height:1.8;margin-bottom:64px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);background:var(--border);border:1px solid var(--border)}
+.svc-card{background:var(--bg);padding:40px 32px;position:relative;transition:background .25s;overflow:hidden}
+.svc-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.svc-card:hover{background:var(--bg2)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-n{font-size:10px;font-weight:600;letter-spacing:2px;color:var(--text3);margin-bottom:24px}
+.svc-title{font-family:'Instrument Serif',serif;font-size:22px;line-height:1.2;margin-bottom:12px}
+.svc-desc{font-size:13px;color:var(--text2);line-height:1.75;margin-bottom:20px}
 .svc-tags{display:flex;flex-wrap:wrap;gap:6px}
-.stag{font-size:10px;font-weight:500;border:1px solid var(--line2);padding:4px 10px;border-radius:20px;color:var(--w3);transition:border-color .2s,color .2s}
-.svc:hover .stag{border-color:rgba(200,255,0,.25);color:rgba(200,255,0,.8)}
-.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.how-steps{display:flex;flex-direction:column}
-.hstep{display:flex;gap:24px;padding:28px 0;border-bottom:1px solid var(--line);transition:border-color .3s}
-.hstep:first-child{border-top:1px solid var(--line)}
-.hstep:hover{border-color:rgba(200,255,0,.2)}
-.hstep-n{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--volt);width:28px;flex-shrink:0;padding-top:2px}
-.hstep-body h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px}
-.hstep-body p{font-size:13px;color:var(--w2);line-height:1.7}
-.how-visual{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:40px}
-.how-visual-inner{display:flex;flex-direction:column;gap:12px}
-.hv-row{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--bg2);border:1px solid var(--line);border-radius:10px;transition:border-color .3s}
-.hv-row:hover{border-color:rgba(200,255,0,.2)}
-.hv-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.hv-dot.green{background:#22c55e}.hv-dot.volt{background:var(--volt)}.hv-dot.blue{background:var(--blue)}.hv-dot.gray{background:var(--w4)}
-.hv-label{font-size:12px;font-weight:500;color:var(--w2);flex:1}
-.hv-status{font-size:10px;color:var(--w3)}
-.hv-arrow{font-size:10px;color:var(--volt)}
-.how-visual-title{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--w3);margin-bottom:20px}
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
-.why-card{background:var(--bg2);padding:36px 28px;transition:background .3s}
-.why-card:hover{background:var(--card)}
-.why-ico{font-size:22px;margin-bottom:16px}
-.why-card h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:8px}
-.why-card p{font-size:12px;color:var(--w2);line-height:1.75}
-.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.case-card{background:var(--bg);padding:40px 32px;transition:background .3s;min-height:320px;display:flex;flex-direction:column;justify-content:space-between}
-.case-card:hover{background:var(--card)}
-.case-soon{opacity:.4}
-.case-tag{display:inline-flex;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--volt);background:rgba(200,255,0,.06);border:1px solid rgba(200,255,0,.15);padding:5px 12px;border-radius:980px;margin-bottom:20px}
-.case-card h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:12px;line-height:1.3}
-.case-card p{font-size:13px;color:var(--w2);line-height:1.75;flex:1;margin-bottom:24px}
-.case-meta{display:flex;flex-wrap:wrap;gap:8px}
-.case-chip{font-size:10px;border:1px solid var(--line2);padding:4px 10px;border-radius:20px;color:var(--w3)}
-.case-coming{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;height:100%}
-.case-coming-ico{width:56px;height:56px;border:1px solid var(--line2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:8px}
-.case-coming h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--w2)}
-.case-coming p{font-size:12px;color:var(--w3);line-height:1.7}
-.stack-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px}
-.tp{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);padding:8px 16px;border-radius:980px;font-size:12px;color:var(--w2);transition:border-color .2s,color .2s}
-.tp:hover{border-color:var(--line2);color:var(--w)}
-.tp span{font-size:14px}
-.faq-list{max-width:680px}
-.fq{border-bottom:1px solid var(--line)}
-.fq-q{width:100%;background:none;border:none;color:var(--w);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;text-align:left;padding:22px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .2s}
-.fq-q:hover{color:var(--volt)}
-.fq-ico{width:22px;height:22px;flex-shrink:0;border-radius:50%;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--w3);transition:transform .3s,border-color .3s,color .3s}
-.fq.open .fq-ico{transform:rotate(45deg);border-color:var(--volt);color:var(--volt)}
-.fq-a{max-height:0;overflow:hidden;font-size:13px;color:var(--w2);line-height:1.85;transition:max-height .4s ease,padding .3s}
-.fq.open .fq-a{max-height:200px;padding-bottom:22px}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.contact-info{display:flex;flex-direction:column;gap:16px}
-.ci{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--w2)}
-.ci-icon{width:36px;height:36px;border:1px solid var(--line2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.form-box{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:36px}
-.form-ttl{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:24px}
-.fg{margin-bottom:14px}
-.fg label{display:block;font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--w3);margin-bottom:7px}
-.fi{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--w);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;outline:none;transition:border-color .2s;-webkit-appearance:none}
-.fi:focus{border-color:rgba(200,255,0,.35);background:rgba(200,255,0,.02)}
-.fi::placeholder{color:rgba(255,255,255,.15)}
-textarea.fi{resize:vertical;min-height:80px}
-select.fi option{background:var(--card)}
+.tag{font-size:10px;border:1px solid var(--border2);padding:3px 9px;border-radius:4px;color:var(--text3);transition:border-color .2s,color .2s}
+.svc-card:hover .tag{border-color:rgba(232,255,87,.2);color:rgba(232,255,87,.7)}
+.framework-row{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.framework-steps{display:flex;flex-direction:column;gap:0;margin-top:48px}
+.fstep{display:grid;grid-template-columns:48px 1fr;gap:0;padding:24px 0;border-bottom:1px solid var(--border);transition:border-color .25s}
+.fstep:first-child{border-top:1px solid var(--border)}
+.fstep:hover{border-color:var(--border2)}
+.fstep-n{font-family:'Instrument Serif',serif;font-size:28px;color:var(--text3);line-height:1;padding-top:2px}
+.fstep-title{font-size:14px;font-weight:500;margin-bottom:5px}
+.fstep-desc{font-size:12px;color:var(--text3);line-height:1.7}
+.framework-visual{position:sticky;top:80px;background:var(--bg1);border:1px solid var(--border);border-radius:12px;padding:32px}
+.fv-title{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:20px}
+.fv-rows{display:flex;flex-direction:column;gap:8px}
+.fv-row{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--bg);border:1px solid var(--border);border-radius:8px;transition:border-color .2s}
+.fv-row:hover{border-color:var(--border2)}
+.fv-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.fv-dot.g{background:#34d399}.fv-dot.y{background:var(--accent)}.fv-dot.b{background:#60a5fa}.fv-dot.d{background:var(--text3)}
+.fv-label{font-size:12px;color:var(--text2);flex:1}
+.fv-badge{font-size:10px;color:var(--text3);background:var(--bg2);border:1px solid var(--border);padding:2px 7px;border-radius:4px}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);background:var(--border)}
+.why-card{background:var(--bg1);padding:32px 24px;transition:background .2s}
+.why-card:hover{background:var(--bg2)}
+.why-num{font-family:'Instrument Serif',serif;font-size:40px;color:var(--accent);line-height:1;margin-bottom:12px}
+.why-title{font-size:13px;font-weight:500;margin-bottom:8px}
+.why-desc{font-size:12px;color:var(--text2);line-height:1.7}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);background:var(--border);border:1px solid var(--border)}
+.case-card{background:var(--bg);padding:36px 28px;transition:background .25s;display:flex;flex-direction:column;min-height:300px}
+.case-card:hover{background:var(--bg2)}
+.case-soon{opacity:.35}
+.case-badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);border:1px solid rgba(232,255,87,.2);padding:4px 10px;border-radius:4px;margin-bottom:18px}
+.case-title{font-family:'Instrument Serif',serif;font-size:20px;line-height:1.25;margin-bottom:10px}
+.case-desc{font-size:12px;color:var(--text2);line-height:1.75;flex:1;margin-bottom:20px}
+.case-tags{display:flex;flex-wrap:wrap;gap:6px}
+.case-empty{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;height:100%}
+.case-empty-label{font-family:'Instrument Serif',serif;font-size:18px;color:var(--text2);margin-bottom:8px}
+.case-empty-sub{font-size:12px;color:var(--text3);line-height:1.6;margin-bottom:24px}
+.stack-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px}
+.stack-pill{display:flex;align-items:center;gap:7px;background:var(--bg1);border:1px solid var(--border);padding:7px 14px;border-radius:6px;font-size:12px;color:var(--text2);transition:border-color .15s,color .15s}
+.stack-pill:hover{border-color:var(--border2);color:var(--text)}
+.faq-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.fqi{border-bottom:1px solid var(--border)}
+.fqi-q{width:100%;background:none;border:none;color:var(--text);font-family:'Geist',sans-serif;font-size:13px;font-weight:400;text-align:left;padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:color .15s;line-height:1.5}
+.fqi-q:hover{color:var(--accent)}
+.fqi-icon{width:20px;height:20px;flex-shrink:0;border-radius:50%;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--text3);transition:transform .3s,border-color .3s,color .3s;line-height:1}
+.fqi.open .fqi-icon{transform:rotate(45deg);border-color:var(--accent);color:var(--accent)}
+.fqi-a{max-height:0;overflow:hidden;font-size:13px;color:var(--text2);line-height:1.8;transition:max-height .35s ease,padding .3s}
+.fqi.open .fqi-a{max-height:180px;padding-bottom:20px}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:14px;margin-top:32px}
+.ci-row{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--text2)}
+.ci-icon{width:32px;height:32px;border:1px solid var(--border2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;color:var(--text3)}
+.form-box{background:var(--bg1);border:1px solid var(--border);border-radius:12px;padding:32px}
+.form-title{font-size:14px;font-weight:500;margin-bottom:24px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
+.fi{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:7px;padding:11px 13px;color:var(--text);font-family:'Geist',sans-serif;font-size:13px;font-weight:300;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.fi:focus{border-color:rgba(232,255,87,.3)}
+.fi::placeholder{color:var(--text3)}
+textarea.fi{resize:none;height:80px}
+select.fi option{background:var(--bg1)}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.btn-send{width:100%;margin-top:8px;background:var(--volt);color:#000;border:none;border-radius:980px;padding:14px;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:.3px;transition:transform .25s,box-shadow .25s}
-.btn-send:hover{transform:scale(1.02);box-shadow:0 0 32px rgba(200,255,0,.22)}
-.sent-msg{display:none;text-align:center;padding:48px 16px}
-.sent-msg .sico{font-size:36px;margin-bottom:12px}
-.sent-msg h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:6px}
-.sent-msg p{font-size:13px;color:var(--w2)}
-.float-btn{position:fixed;bottom:28px;right:28px;z-index:150;background:var(--volt);color:#000;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;border:none;padding:12px 20px;border-radius:980px;cursor:pointer;box-shadow:0 8px 32px rgba(0,0,0,.6);opacity:0;transform:translateY(14px);transition:opacity .3s,transform .3s;letter-spacing:.3px}
-.float-btn.on{opacity:1;transform:translateY(0)}
-footer{padding:40px 48px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
-.f-logo{display:flex;align-items:center;gap:8px}
-.f-logo-txt{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;letter-spacing:4px}
-.f-logo-txt em{color:var(--volt);font-style:normal}
-.f-nav{display:flex;gap:20px}
-.f-nav a{font-size:11px;color:var(--w3);text-decoration:none;transition:color .2s}
-.f-nav a:hover{color:var(--w)}
-.f-copy{font-size:11px;color:var(--w4)}
-.rv{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.btn-submit{width:100%;margin-top:8px;background:var(--accent);color:#000;border:none;border-radius:7px;padding:13px;font-family:'Geist',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:opacity .2s}
+.btn-submit:hover{opacity:.85}
+.sent-view{display:none;text-align:center;padding:40px 0}
+.sent-icon{font-size:32px;margin-bottom:12px}
+.sent-title{font-family:'Instrument Serif',serif;font-size:22px;margin-bottom:6px}
+.sent-sub{font-size:13px;color:var(--text2)}
+.float-cta{position:fixed;bottom:24px;right:24px;z-index:90;background:var(--accent);color:#000;font-family:'Geist',sans-serif;font-size:12px;font-weight:500;border:none;padding:11px 18px;border-radius:7px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;box-shadow:0 4px 24px rgba(0,0,0,.5)}
+.float-cta.show{opacity:1;transform:translateY(0)}
+footer{padding:32px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-logo{display:flex;align-items:center;gap:8px}
+.footer-logo-mark{width:18px;height:18px;border:1.5px solid var(--accent);transform:rotate(45deg);position:relative;flex-shrink:0}
+.footer-logo-mark::after{content:'';position:absolute;inset:3px;background:var(--accent)}
+.footer-logo-text{font-size:11px;font-weight:600;letter-spacing:4px}
+.footer-logo-text em{color:var(--accent);font-style:normal}
+.footer-nav{display:flex;gap:16px}
+.footer-nav a{font-size:11px;color:var(--text3);transition:color .15s}
+.footer-nav a:hover{color:var(--text)}
+.footer-copy{font-size:11px;color:var(--text3)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .rv.in{opacity:1;transform:none}
-.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
-.label-section{padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:var(--bg2)}
-.label-section span{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--w4)}
-.highlight-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);background:var(--line)}
-.hl{background:var(--bg2);padding:32px 28px;transition:background .3s}
-.hl:hover{background:var(--card)}
-.hl-n{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:var(--volt);letter-spacing:-1.5px;margin-bottom:6px}
-.hl-l{font-size:12px;color:var(--w3);line-height:1.5}
-@media(max-width:1024px){.svc-grid{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:repeat(2,1fr)}.cases-grid{grid-template-columns:repeat(2,1fr)}.highlight-row{grid-template-columns:repeat(2,1fr)}.how-grid{grid-template-columns:1fr;gap:48px}.contact-grid{grid-template-columns:1fr;gap:48px}}
-@media(max-width:640px){nav{padding:0 16px}.nav-links{display:none}.burger{display:flex}.nav-cta{display:none}.hero{padding:100px 20px 60px}.hero-stats{gap:28px}.sec{padding:80px 20px}.label-section{padding:12px 20px}.svc-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr 1fr}.cases-grid{grid-template-columns:1fr}.highlight-row{grid-template-columns:1fr 1fr}.frow{grid-template-columns:1fr}footer{padding:28px 20px}}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}.rv-d4{transition-delay:.32s}
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .cases-grid{grid-template-columns:repeat(2,1fr)}
+  .framework-row{grid-template-columns:1fr;gap:48px}
+  .framework-visual{position:static}
+  .faq-layout{grid-template-columns:1fr;gap:48px}
+  .contact-layout{grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:640px){
+  nav{padding:0 16px}
+  .nav-links{display:none}
+  .burger{display:flex}
+  .btn-cta{display:none}
+  .hero-metrics{gap:28px}
+  section{padding:80px 16px}
+  .services-grid{grid-template-columns:1fr}
+  .cases-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .frow{grid-template-columns:1fr}
+  footer{padding:24px 16px}
+  .float-cta{display:none}
+}
 </style>
 </head>
 <body>
-<div id="lang-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:9000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(24px);padding:16px;overflow-y:auto">
-  <div style="background:#0d0d0d;border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:36px 28px;max-width:440px;width:100%;text-align:center;animation:modalIn .5s cubic-bezier(.16,1,.3,1) both;margin:auto">
-    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:24px">
-      <svg width="26" height="26" viewBox="0 0 32 32" fill="none"><polygon points="16,2 28,9 28,23 16,30 4,23 4,9" stroke="#c8ff00" stroke-width="1.5" fill="none"/><line x1="9" y1="9" x2="23" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><line x1="23" y1="9" x2="9" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="#c8ff00"/></svg>
-      <span style="font-family:'Syne',sans-serif;font-size:14px;font-weight:800;letter-spacing:5px;color:#efefef">NAX<em style="color:#c8ff00;font-style:normal">IO</em></span>
-    </div>
-    <p style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#c8ff00;margin-bottom:14px">Choose language</p>
-    <h2 style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:24px;color:#efefef">Выберите язык</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-      <button onclick="setLang('ru')" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:14px 16px;cursor:pointer;font-family:'DM Sans',sans-serif;color:#efefef;text-align:left"><div><div style="font-size:13px;font-weight:600">RU Русский</div><div style="font-size:10px;color:#555;margin-top:2px">Russian</div></div></button>
-      <button onclick="setLang('ua')" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:14px 16px;cursor:pointer;font-family:'DM Sans',sans-serif;color:#efefef;text-align:left"><div><div style="font-size:13px;font-weight:600">UA Українська</div><div style="font-size:10px;color:#555;margin-top:2px">Ukrainian</div></div></button>
-      <button onclick="setLang('en')" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:14px 16px;cursor:pointer;font-family:'DM Sans',sans-serif;color:#efefef;text-align:left"><div><div style="font-size:13px;font-weight:600">EN English</div><div style="font-size:10px;color:#555;margin-top:2px">English</div></div></button>
-      <button onclick="setLang('de')" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:14px 16px;cursor:pointer;font-family:'DM Sans',sans-serif;color:#efefef;text-align:left"><div><div style="font-size:13px;font-weight:600">DE Deutsch</div><div style="font-size:10px;color:#555;margin-top:2px">German</div></div></button>
-      <button onclick="setLang('pl')" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:14px 16px;cursor:pointer;font-family:'DM Sans',sans-serif;color:#efefef;text-align:left;grid-column:1/-1"><div><div style="font-size:13px;font-weight:600">PL Polski</div><div style="font-size:10px;color:#555;margin-top:2px">Polish</div></div></button>
+<div id="lo">
+  <div class="lo-card">
+    <div class="lo-logo"><div class="lo-logo-mark"></div><div class="lo-logo-text">NAX<em>IO</em></div></div>
+    <h1 class="lo-title">Select your <em>language</em></h1>
+    <p class="lo-sub">Choose how you want to experience NAXIO</p>
+    <div class="lo-grid">
+      <button class="lo-btn" onclick="boot('ru')"><span class="lo-btn-lang">Русский</span><span class="lo-btn-native">Russian</span></button>
+      <button class="lo-btn" onclick="boot('ua')"><span class="lo-btn-lang">Українська</span><span class="lo-btn-native">Ukrainian</span></button>
+      <button class="lo-btn" onclick="boot('en')"><span class="lo-btn-lang">English</span><span class="lo-btn-native">English</span></button>
+      <button class="lo-btn" onclick="boot('de')"><span class="lo-btn-lang">Deutsch</span><span class="lo-btn-native">German</span></button>
+      <button class="lo-btn lo-btn-full" onclick="boot('pl')"><span class="lo-btn-lang">Polski</span><span class="lo-btn-native">Polish</span></button>
     </div>
   </div>
 </div>
-<style>@keyframes modalIn{from{opacity:0;transform:scale(.95) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}</style>
-<div id="cur"></div><div id="cring"></div>
-<button class="float-btn" id="fb" onclick="goForm()">Начать проект →</button>
+<button class="float-cta" id="fcta" onclick="scrollTo('contact')"></button>
 <nav>
-  <a class="n-logo" href="#"><div class="n-mark"><svg viewBox="0 0 32 32" fill="none"><polygon points="16,2 28,9 28,23 16,30 4,23 4,9" stroke="#c8ff00" stroke-width="1.5" fill="none"/><line x1="9" y1="9" x2="23" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><line x1="23" y1="9" x2="9" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="#c8ff00"/><circle cx="16" cy="2" r="1.2" fill="#c8ff00"/><circle cx="28" cy="9" r="1.2" fill="#c8ff00"/><circle cx="28" cy="23" r="1.2" fill="#c8ff00"/><circle cx="16" cy="30" r="1.2" fill="#c8ff00"/><circle cx="4" cy="23" r="1.2" fill="#c8ff00"/><circle cx="4" cy="9" r="1.2" fill="#c8ff00"/></svg></div><div class="n-wordmark">NAX<em>IO</em></div></a>
-  <ul class="nav-links"><li><a href="#services">Услуги</a></li><li><a href="#cases">Кейсы</a></li><li><a href="#process">Процесс</a></li><li><a href="#faq">FAQ</a></li></ul>
-  <button class="nav-cta" onclick="goForm()">Начать проект</button>
-  <button class="burger" onclick="mobileNav()"><span></span><span></span><span></span></button>
+  <div class="nav-logo"><div class="nav-logo-mark"></div><div class="nav-logo-text">NAX<em>IO</em></div></div>
+  <div class="nav-links" id="navlinks">
+    <a href="#services" id="nl1"></a>
+    <a href="#framework" id="nl2"></a>
+    <a href="#cases" id="nl3"></a>
+    <a href="#faq" id="nl4">FAQ</a>
+  </div>
+  <div class="nav-right">
+    <button class="nav-lang" onclick="showLang()" id="nlang"></button>
+    <button class="btn-cta" id="nctabtn" onclick="scrollTo('contact')"></button>
+  </div>
+  <button class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
-<section class="hero">
-  <div class="hero-grid"></div><div class="hero-glow"></div><div class="hero-glow2"></div>
-  <div class="hero-tag rv"><span class="hero-tag-dot"></span>AI-Powered Growth Agency</div>
-  <h1 class="rv rv-d1">Системы роста<br><span class="line-dim">для современного</span><span class="line-volt">бизнеса</span></h1>
-  <p class="hero-sub rv rv-d2">Строим <strong>AI growth systems</strong> — автоматизация процессов, performance marketing, умные боты и инфраструктура для масштабирования.</p>
-  <div class="hero-btns rv rv-d3"><button class="btn-main" onclick="goForm()">Начать проект</button><button class="btn-ghost" onclick="go('cases')">Смотреть кейсы</button></div>
-  <div class="hero-stats rv rv-d4">
-    <div><div class="hstat-n">7<span>дн</span></div><div class="hstat-l">от идеи до запуска</div></div>
-    <div><div class="hstat-n">24<span>/7</span></div><div class="hstat-l">AI работает без вас</div></div>
-    <div><div class="hstat-n">x3<span>+</span></div><div class="hstat-l">рост конверсий</div></div>
-  </div>
-  <div class="hero-scroll"><div class="hero-scroll-line"></div><div class="hero-scroll-txt">Scroll</div></div>
-</section>
-<div class="strip"><div class="strack"><div class="sitem"><span class="sdot"></span>AI Automation</div><div class="sitem"><span class="sdot"></span>Growth Systems</div><div class="sitem"><span class="sdot"></span>n8n Workflows</div><div class="sitem"><span class="sdot"></span>Telegram Bots</div><div class="sitem"><span class="sdot"></span>CRM Integration</div><div class="sitem"><span class="sdot"></span>AI Chatbots</div><div class="sitem"><span class="sdot"></span>Website Dev</div><div class="sitem"><span class="sdot"></span>WhatsApp Bots</div><div class="sitem"><span class="sdot"></span>Performance Marketing</div><div class="sitem"><span class="sdot"></span>OpenAI API</div><div class="sitem"><span class="sdot"></span>Lead Generation</div><div class="sitem"><span class="sdot"></span>Funnel Automation</div><div class="sitem"><span class="sdot"></span>AI Automation</div><div class="sitem"><span class="sdot"></span>Growth Systems</div><div class="sitem"><span class="sdot"></span>n8n Workflows</div><div class="sitem"><span class="sdot"></span>Telegram Bots</div><div class="sitem"><span class="sdot"></span>CRM Integration</div><div class="sitem"><span class="sdot"></span>AI Chatbots</div><div class="sitem"><span class="sdot"></span>Website Dev</div><div class="sitem"><span class="sdot"></span>WhatsApp Bots</div><div class="sitem"><span class="sdot"></span>Performance Marketing</div><div class="sitem"><span class="sdot"></span>OpenAI API</div><div class="sitem"><span class="sdot"></span>Lead Generation</div><div class="sitem"><span class="sdot"></span>Funnel Automation</div></div></div>
-<div class="label-section"><span>NAXIO 2026</span><span>AI Growth Agency</span></div>
-<div class="highlight-row">
-  <div class="hl rv"><div class="hl-n">7</div><div class="hl-l">дней от идеи до MVP</div></div>
-  <div class="hl rv rv-d1"><div class="hl-n">24/7</div><div class="hl-l">AI работает без вас</div></div>
-  <div class="hl rv rv-d2"><div class="hl-n">x3</div><div class="hl-l">рост конверсий в среднем</div></div>
-  <div class="hl rv rv-d3"><div class="hl-n">AI</div><div class="hl-l">native подход к каждому проекту</div></div>
-</div>
-<div class="label-section"><span id="svc-lbl">Что мы делаем</span></div>
-<section class="sec" id="services" style="background:var(--bg2)">
-  <div class="sec-inner">
-    <div class="eyebrow rv" id="svc-eye">Услуги</div>
-    <h2 class="sec-h rv" id="svc-h">Полный стек<br><span class="dim">для роста бизнеса</span></h2>
-    <p class="sec-sub rv" id="svc-sub">От первого касания до масштабируемой AI-инфраструктуры — строим системы, а не разовые решения</p>
-    <div class="svc-grid rv">
-      <div class="svc"><div class="svc-num">01</div><div class="svc-ico">🤖</div><h3>AI Automation</h3><p>Автоматизируем бизнес-процессы с помощью ИИ. Системы работают 24/7 без участия людей.</p><div class="svc-tags"><span class="stag">AI Workflows</span><span class="stag">OpenAI API</span><span class="stag">n8n</span></div></div>
-      <div class="svc"><div class="svc-num">02</div><div class="svc-ico">⚡</div><h3>Growth Systems</h3><p>Строим полные системы роста — от лидогенерации до автоматического закрытия в CRM.</p><div class="svc-tags"><span class="stag">Lead Gen</span><span class="stag">CRM Sync</span><span class="stag">Analytics</span></div></div>
-      <div class="svc"><div class="svc-num">03</div><div class="svc-ico">🌐</div><h3>Website and Funnel</h3><p>Создаём сайты и лендинги которые конвертируют. Аналитика и воронки с первого дня.</p><div class="svc-tags"><span class="stag">Landing Pages</span><span class="stag">SEO</span><span class="stag">Conversion</span></div></div>
-      <div class="svc"><div class="svc-num">04</div><div class="svc-ico">💬</div><h3>AI Chatbots</h3><p>Умные боты для Telegram и WhatsApp — квалифицируют лидов, отвечают клиентам 24/7.</p><div class="svc-tags"><span class="stag">Telegram</span><span class="stag">WhatsApp</span><span class="stag">GPT-4</span></div></div>
-      <div class="svc"><div class="svc-num">05</div><div class="svc-ico">📊</div><h3>CRM and Infrastructure</h3><p>Настраиваем CRM с полной автоматизацией — от получения лида до закрытия сделки.</p><div class="svc-tags"><span class="stag">Bitrix24</span><span class="stag">HubSpot</span><span class="stag">AmoCRM</span></div></div>
-      <div class="svc"><div class="svc-num">06</div><div class="svc-ico">🎙️</div><h3>AI Calls and Voice</h3><p>AI-агенты для голосовых звонков — обзвоны, квалификация, напоминания без найма.</p><div class="svc-tags"><span class="stag">AI Voice</span><span class="stag">ElevenLabs</span><span class="stag">Twilio</span></div></div>
+<section style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:140px;padding-bottom:80px;padding-left:32px;padding-right:32px">
+  <div style="max-width:1160px;margin:0 auto;width:100%">
+    <div class="hero-eyebrow rv"><span class="hero-eyebrow-dot"></span><span id="h-tag"></span></div>
+    <h1 class="hero-h rv rv-d1" id="h-headline"></h1>
+    <p class="hero-p rv rv-d2" id="h-sub"></p>
+    <div class="hero-btns rv rv-d3">
+      <button class="btn-primary" id="h-btn1" onclick="scrollTo('contact')"></button>
+      <button class="btn-secondary" id="h-btn2" onclick="scrollTo('cases')"></button>
+    </div>
+    <div class="hero-metrics rv rv-d4">
+      <div><div class="metric-val">7<span>d</span></div><div class="metric-label" id="m1"></div></div>
+      <div><div class="metric-val">24<span>/7</span></div><div class="metric-label" id="m2"></div></div>
+      <div><div class="metric-val">x3<span>+</span></div><div class="metric-label" id="m3"></div></div>
     </div>
   </div>
 </section>
-<div class="label-section"><span id="proc-lbl">Процесс</span></div>
-<section class="sec" id="process" style="background:var(--bg)">
+<div class="marquee"><div class="marquee-track" id="mq"></div></div>
+<section id="services" style="background:var(--bg1)">
   <div class="sec-inner">
-    <div class="how-grid">
+    <div class="sec-label rv" id="s-eye"></div>
+    <h2 class="sec-title rv" id="s-title"></h2>
+    <p class="sec-desc rv" id="s-desc"></p>
+    <div class="services-grid rv" id="svc-grid"></div>
+  </div>
+</section>
+<section id="framework" style="background:var(--bg)">
+  <div class="sec-inner">
+    <div class="framework-row">
       <div>
-        <div class="eyebrow rv" id="proc-eye">Как мы работаем</div>
-        <h2 class="rv" id="proc-h" style="font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,64px);font-weight:800;line-height:1;letter-spacing:-2px;margin-bottom:24px">От задачи<br><span style="color:var(--w3);font-weight:400">до системы за 7 дней</span></h2>
-        <p class="rv" style="font-size:15px;color:var(--w2);line-height:1.85;margin-bottom:40px" id="proc-sub">Прозрачный процесс без лишних брифингов</p>
-        <div class="how-steps">
-          <div class="hstep rv"><div class="hstep-n">01</div><div class="hstep-body"><h4>Разбор задачи</h4><p>Созвон 30-60 мин. Разбираем процессы, боли и цели.</p></div></div>
-          <div class="hstep rv rv-d1"><div class="hstep-n">02</div><div class="hstep-body"><h4>Архитектура</h4><p>Предлагаем схему системы и стек с ожидаемыми результатами.</p></div></div>
-          <div class="hstep rv rv-d2"><div class="hstep-n">03</div><div class="hstep-body"><h4>Разработка MVP</h4><p>Рабочая версия за 3-7 дней до полной оплаты.</p></div></div>
-          <div class="hstep rv rv-d3"><div class="hstep-n">04</div><div class="hstep-body"><h4>Запуск и тест</h4><p>Тестируем на реальных данных, настраиваем под бизнес.</p></div></div>
-          <div class="hstep rv rv-d4"><div class="hstep-n">05</div><div class="hstep-body"><h4>Поддержка и рост</h4><p>Мониторим, масштабируем и развиваем систему.</p></div></div>
-        </div>
+        <div class="sec-label rv" id="fw-eye"></div>
+        <h2 class="sec-title rv" id="fw-title"></h2>
+        <p class="sec-desc rv" id="fw-desc"></p>
+        <div class="framework-steps rv" id="fw-steps"></div>
       </div>
-      <div class="how-visual rv">
-        <div class="how-visual-title">Пример: AI воронка заявок</div>
-        <div class="how-visual-inner">
-          <div class="hv-row"><div class="hv-dot green"></div><div class="hv-label">Заявка с сайта</div><div class="hv-status">webhook</div><div class="hv-arrow">→</div></div>
-          <div class="hv-row"><div class="hv-dot volt"></div><div class="hv-label">n8n обрабатывает</div><div class="hv-status">автоматически</div><div class="hv-arrow">→</div></div>
-          <div class="hv-row"><div class="hv-dot blue"></div><div class="hv-label">AI квалифицирует лид</div><div class="hv-status">GPT-4o</div><div class="hv-arrow">→</div></div>
-          <div class="hv-row"><div class="hv-dot green"></div><div class="hv-label">Запись в CRM</div><div class="hv-status">Bitrix24</div><div class="hv-arrow">→</div></div>
-          <div class="hv-row"><div class="hv-dot volt"></div><div class="hv-label">Уведомление менеджеру</div><div class="hv-status">Telegram</div><div class="hv-arrow">→</div></div>
-          <div class="hv-row"><div class="hv-dot blue"></div><div class="hv-label">Email клиенту</div><div class="hv-status">автоматически</div><div class="hv-arrow">→</div></div>
-          <div class="hv-row"><div class="hv-dot gray"></div><div class="hv-label">AI бот начинает диалог</div><div class="hv-status">@naxio_manager_bot</div><div class="hv-arrow">OK</div></div>
-        </div>
+      <div class="framework-visual rv">
+        <div class="fv-title" id="fv-title"></div>
+        <div class="fv-rows" id="fv-rows"></div>
       </div>
     </div>
   </div>
 </section>
-<div class="label-section"><span>Почему NAXIO</span></div>
-<div class="why-grid">
-  <div class="why-card rv"><div class="why-ico">⚡</div><h4>Скорость</h4><p>MVP за 3-7 дней. Не месяцы согласований — результат с первой недели.</p></div>
-  <div class="why-card rv rv-d1"><div class="why-ico">🎯</div><h4>Системный подход</h4><p>Строим масштабируемые системы которые растут вместе с бизнесом.</p></div>
-  <div class="why-card rv rv-d2"><div class="why-ico">🤖</div><h4>AI-native</h4><p>AI — основа каждого решения. GPT-4, Claude, локальные модели.</p></div>
-  <div class="why-card rv rv-d3"><div class="why-ico">🔍</div><h4>Прозрачность</h4><p>Документация, метрики, доступы — всё ваше с первого дня.</p></div>
-</div>
-<div class="label-section"><span id="case-lbl">Кейсы</span></div>
-<section class="sec" id="cases" style="background:var(--bg2)">
+<section style="padding:0;background:var(--bg1)">
+  <div class="why-grid" id="why-grid"></div>
+</section>
+<section id="cases" style="background:var(--bg)">
   <div class="sec-inner">
-    <div class="eyebrow rv" id="case-eye">Результаты</div>
-    <h2 class="sec-h rv" id="case-h">Проекты<br><span class="dim">в работе</span></h2>
-    <p class="sec-sub rv" id="case-sub">Первые кейсы появятся совсем скоро — работаем над реальными проектами</p>
-    <div class="cases-grid rv">
-      <div class="case-card case-soon"><div><div class="case-tag">AI Automation</div><h3>Автоматизация отдела продаж</h3><p>AI-система которая квалифицирует заявки, ведет переписку и передает лидов менеджерам.</p></div><div class="case-meta"><span class="case-chip">n8n</span><span class="case-chip">GPT-4o</span><span class="case-chip">CRM</span></div></div>
-      <div class="case-card case-soon"><div><div class="case-tag">Website</div><h3>AI-сайт с умным ассистентом</h3><p>Лендинг с встроенным AI-ботом который отвечает на вопросы и собирает заявки 24/7.</p></div><div class="case-meta"><span class="case-chip">Next.js</span><span class="case-chip">Flowise</span><span class="case-chip">OpenAI</span></div></div>
-      <div class="case-card"><div class="case-coming"><div class="case-coming-ico">+</div><h3>Ваш проект здесь</h3><p>Станьте первым клиентом и получите реальный кейс с результатами</p><button class="btn-main" style="margin-top:16px;font-size:12px;padding:12px 24px" onclick="goForm()">Обсудить проект</button></div></div>
-    </div>
+    <div class="sec-label rv" id="c-eye"></div>
+    <h2 class="sec-title rv" id="c-title"></h2>
+    <p class="sec-desc rv" id="c-desc"></p>
+    <div class="cases-grid rv" id="cases-grid"></div>
   </div>
 </section>
-<div class="label-section"><span id="tech-lbl">Технологии</span></div>
-<section class="sec" style="background:var(--bg)">
+<section style="background:var(--bg1)">
   <div class="sec-inner">
-    <div class="eyebrow rv" id="tech-eye">Инструменты</div>
-    <h2 class="sec-h rv" id="tech-h">Стек</h2>
-    <div class="stack-pills rv"><div class="tp"><span>⚡</span>n8n</div><div class="tp"><span>🤖</span>OpenAI</div><div class="tp"><span>🧠</span>Claude API</div><div class="tp"><span>✈️</span>Telegram</div><div class="tp"><span>💬</span>WhatsApp</div><div class="tp"><span>🌊</span>Flowise</div><div class="tp"><span>📊</span>Airtable</div><div class="tp"><span>📝</span>Notion</div><div class="tp"><span>📈</span>Google Sheets</div><div class="tp"><span>🔗</span>Webhooks</div><div class="tp"><span>⚛️</span>React</div><div class="tp"><span>🌐</span>Next.js</div><div class="tp"><span>🎨</span>Tailwind</div><div class="tp"><span>📦</span>AmoCRM</div><div class="tp"><span>🔧</span>Bitrix24</div><div class="tp"><span>🎯</span>HubSpot</div><div class="tp"><span>🔊</span>ElevenLabs</div><div class="tp"><span>📞</span>Twilio</div></div>
+    <div class="sec-label rv" id="st-eye"></div>
+    <h2 class="sec-title rv" id="st-title"></h2>
+    <div class="stack-wrap rv" id="stack-wrap"></div>
   </div>
 </section>
-<div class="label-section"><span id="faq-lbl">FAQ</span></div>
-<section class="sec" id="faq" style="background:var(--bg2)">
-  <div class="sec-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
-    <div>
-      <div class="eyebrow rv" id="faq-eye">Вопросы</div>
-      <h2 class="sec-h rv" id="faq-h">Часто<br><span class="dim">спрашивают</span></h2>
-      <p style="font-size:15px;color:var(--w2);line-height:1.85;margin-top:16px" class="rv" id="faq-sub">Остались вопросы? Напишите нам — ответим быстро.</p>
-      <button class="btn-main rv" style="margin-top:32px" onclick="goForm()">Задать вопрос</button>
-    </div>
-    <div class="faq-list rv">
-      <div class="fq"><button class="fq-q" onclick="openFaq(this)">Сколько стоит автоматизация?<span class="fq-ico">+</span></button><div class="fq-a">Всё зависит от сложности. Цены от 200 PLN. Точную стоимость называем после бесплатного созвона.</div></div>
-      <div class="fq"><button class="fq-q" onclick="openFaq(this)">Сколько времени занимает разработка?<span class="fq-ico">+</span></button><div class="fq-a">MVP — 3-7 дней. Сайт — 7-14 дней. Комплексный AI-workflow — 2-4 недели.</div></div>
-      <div class="fq"><button class="fq-q" onclick="openFaq(this)">Какие автоматизации можно сделать?<span class="fq-ico">+</span></button><div class="fq-a">Практически любые: заявки, CRM, email, квалификация лидов, Telegram, голосовые звонки.</div></div>
-      <div class="fq"><button class="fq-q" onclick="openFaq(this)">С какими CRM работаете?<span class="fq-ico">+</span></button><div class="fq-a">AmoCRM, Bitrix24, HubSpot, Pipedrive, Notion, Airtable и другими.</div></div>
-      <div class="fq"><button class="fq-q" onclick="openFaq(this)">Есть ли поддержка после запуска?<span class="fq-ico">+</span></button><div class="fq-a">Первые 2 недели — бесплатно. Далее по договоренности.</div></div>
-    </div>
-  </div>
-</section>
-<div class="label-section"><span id="form-lbl">Заявка</span></div>
-<section class="sec" id="contact" style="background:var(--bg)">
+<section id="faq" style="background:var(--bg)">
   <div class="sec-inner">
-    <div class="contact-grid">
+    <div class="faq-layout">
       <div>
-        <div class="eyebrow rv" id="form-eye">Старт</div>
-        <h2 class="rv" id="form-h" style="font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,60px);font-weight:800;line-height:1;letter-spacing:-2px;margin-bottom:24px">Готовы<br><span style="color:var(--w3);font-weight:400">масштабироваться?</span></h2>
-        <p class="rv" id="form-sub" style="font-size:15px;color:var(--w2);line-height:1.85;margin-bottom:40px">Оставьте заявку — обсудим задачу и предложим конкретное решение.</p>
+        <div class="sec-label rv" id="fq-eye"></div>
+        <h2 class="sec-title rv" id="fq-title"></h2>
+        <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-top:12px" class="rv" id="fq-sub"></p>
+        <button class="btn-primary rv" style="margin-top:28px" onclick="scrollTo('contact')" id="fq-btn"></button>
+      </div>
+      <div class="rv" id="faq-list"></div>
+    </div>
+  </div>
+</section>
+<section id="contact" style="background:var(--bg1)">
+  <div class="sec-inner">
+    <div class="contact-layout">
+      <div>
+        <div class="sec-label rv" id="ct-eye"></div>
+        <h2 class="sec-title rv" id="ct-title"></h2>
+        <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-top:12px" class="rv" id="ct-sub"></p>
         <div class="contact-info rv">
-          <div class="ci"><div class="ci-icon">✉</div><span>hello@naxio.agency</span></div>
-          <div class="ci"><div class="ci-icon">TG</div><a href="https://t.me/naxio_manager_bot" style="color:var(--w2);text-decoration:none">@naxio_manager_bot</a></div>
-          <div class="ci"><div class="ci-icon">🌐</div><span>naxio.agency</span></div>
+          <div class="ci-row"><div class="ci-icon">@</div><span>hello@naxio.agency</span></div>
+          <div class="ci-row"><div class="ci-icon">TG</div><a href="https://t.me/naxio_manager_bot" style="color:var(--text2)">@naxio_manager_bot</a></div>
+          <div class="ci-row"><div class="ci-icon">W</div><span>naxio.agency</span></div>
         </div>
       </div>
       <div class="form-box rv">
         <div id="formInner">
-          <div class="form-ttl" id="form-title">Заявка на проект</div>
-          <div class="frow"><div class="fg"><label id="l-name">Имя *</label><input id="fn" class="fi" placeholder="Ваше имя"/></div><div class="fg"><label id="l-phone">Телефон</label><input class="fi" type="tel" placeholder="+7 (999) ..."/></div></div>
-          <div class="frow"><div class="fg"><label id="l-email">Email</label><input class="fi" type="email" placeholder="you@example.com"/></div><div class="fg"><label id="l-tg">Telegram</label><input id="ft" class="fi" placeholder="@username"/></div></div>
-          <div class="fg"><label id="l-biz">Тип бизнеса</label><select class="fi"><option value="">Выберите...</option><option>E-commerce</option><option>Услуги</option><option>SaaS / IT</option><option>Недвижимость</option><option>Образование</option><option>Другое</option></select></div>
-          <div class="fg"><label id="l-comment">Комментарий</label><textarea class="fi" placeholder="Кратко опишите задачу..."></textarea></div>
-          <button class="btn-send" id="send-btn" onclick="sendForm()">Отправить заявку</button>
+          <div class="form-title" id="fm-title"></div>
+          <div class="frow">
+            <div class="fg"><label id="l-name"></label><input id="fn" class="fi"/></div>
+            <div class="fg"><label id="l-phone"></label><input id="fi-phone" class="fi" type="tel"/></div>
+          </div>
+          <div class="frow">
+            <div class="fg"><label id="l-email"></label><input id="fi-email" class="fi" type="email"/></div>
+            <div class="fg"><label id="l-tg"></label><input id="ft" class="fi"/></div>
+          </div>
+          <div class="fg"><label id="l-biz"></label><select id="fi-biz" class="fi"></select></div>
+          <div class="fg"><label id="l-note"></label><textarea id="fi-note" class="fi"></textarea></div>
+          <button class="btn-submit" id="fm-btn" onclick="sendForm()"></button>
         </div>
-        <div class="sent-msg" id="sentMsg"><div class="sico">✓</div><h3 id="sent-h">Заявка отправлена!</h3><p id="sent-p">Свяжемся с вами в ближайшее время</p></div>
+        <div class="sent-view" id="sentView">
+          <div class="sent-icon">✓</div>
+          <div class="sent-title" id="sv-title"></div>
+          <div class="sent-sub" id="sv-sub"></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 <footer>
-  <div class="f-logo"><svg width="18" height="18" viewBox="0 0 32 32" fill="none"><polygon points="16,2 28,9 28,23 16,30 4,23 4,9" stroke="#c8ff00" stroke-width="1.5" fill="none"/><line x1="9" y1="9" x2="23" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><line x1="23" y1="9" x2="9" y2="23" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="#c8ff00"/></svg><div class="f-logo-txt">NAX<em>IO</em></div></div>
-  <nav class="f-nav"><a href="#services">Услуги</a><a href="#cases">Кейсы</a><a href="#process">Процесс</a><a href="#faq">FAQ</a><a href="#contact">Контакты</a></nav>
-  <div class="f-copy">2026 NAXIO Agency</div>
+  <div class="footer-logo"><div class="footer-logo-mark"></div><div class="footer-logo-text">NAX<em>IO</em></div></div>
+  <nav class="footer-nav" id="fnav"></nav>
+  <div class="footer-copy">2026 NAXIO</div>
 </footer>
 <script>
-var currentLang='ru';
-var T={
-  ru:{nav:['Услуги','Кейсы','Процесс','FAQ'],cta:'Начать проект',fb:'Начать проект',svcH:'Полный стек для роста бизнеса',procH:'От задачи до системы за 7 дней',faqH:'Часто спрашивают',formH:'Готовы масштабироваться?',formTitle:'Заявка на проект',sendBtn:'Отправить заявку',sentH:'Заявка отправлена!',sentP:'Свяжемся с вами в ближайшее время'},
-  ua:{nav:['Послуги','Кейси','Процес','FAQ'],cta:'Почати проект',fb:'Почати проект',svcH:'Повний стек для зростання',procH:'Від задачi до системи за 7 днiв',faqH:'Часто запитують',formH:'Готовi масштабуватись?',formTitle:'Заявка на проект',sendBtn:'Надiслати заявку',sentH:'Заявку надiслано!',sentP:'Звяжемося найближчим часом'},
-  en:{nav:['Services','Cases','Process','FAQ'],cta:'Start project',fb:'Start project',svcH:'Full stack for business growth',procH:'From task to system in 7 days',faqH:'Frequently asked',formH:'Ready to scale?',formTitle:'Project request',sendBtn:'Send request',sentH:'Request sent!',sentP:'We will contact you shortly'},
-  de:{nav:['Leistungen','Cases','Prozess','FAQ'],cta:'Projekt starten',fb:'Projekt starten',svcH:'Full Stack fuer Wachstum',procH:'Von der Aufgabe zum System in 7 Tagen',faqH:'Haeufig gefragt',formH:'Bereit zu skalieren?',formTitle:'Projektanfrage',sendBtn:'Anfrage senden',sentH:'Gesendet!',sentP:'Wir melden uns bald'},
-  pl:{nav:['Uslugi','Cases','Proces','FAQ'],cta:'Zacznij projekt',fb:'Zacznij projekt',svcH:'Pelny stack dla wzrostu',procH:'Od zadania do systemu w 7 dni',faqH:'Czesto pytane',formH:'Gotowy do skalowania?',formTitle:'Zapytanie o projekt',sendBtn:'Wyslij',sentH:'Wyslano!',sentP:'Skontaktujemy sie wkrotce'}
+var LANG = 'ru';
+var COPY = {
+  ru: {
+    navLinks: ['Услуги','Система','Кейсы'],navLang: 'RU',navCta: 'Начать',fcta: 'Начать проект',
+    hTag: 'AI Growth Infrastructure',hHeadline: ['Growth systems','для современных брендов'],
+    hSub: 'Строим AI-инфраструктуру для роста — автоматизация, привлечение клиентов, конверсия. Системы которые масштабируются без вас.',
+    hBtn1: 'Начать проект',hBtn2: 'Смотреть кейсы',m1: 'от идеи до запуска',m2: 'AI работает без вас',m3: 'рост конверсий',
+    mqItems: ['AI Automation','n8n Workflows','Growth Systems','Telegram Bots','CRM Integration','Funnel Infrastructure','Performance Marketing','Lead Automation','AI Chatbots','Revenue Systems'],
+    sEye: 'Системы роста',sTitle: ['Не услуги.','Инфраструктура.'],sDesc: 'Каждый блок — это система которая работает на рост вашего бизнеса.',
+    svcs: [
+      {n:'01',t:'Acquisition Systems',d:'Системы привлечения клиентов — от рекламы до автоматической квалификации лидов.',tags:['Lead Gen','Paid Ads','Qualification']},
+      {n:'02',t:'AI Automation',d:'Автоматизируем процессы на базе ИИ. 24/7 без участия команды.',tags:['n8n','OpenAI','Workflows']},
+      {n:'03',t:'Revenue Infrastructure',d:'CRM, pipeline, автоматические follow-up. Система закрытия сделок.',tags:['CRM','Pipeline','Follow-up']},
+      {n:'04',t:'Conversion Optimization',d:'Сайты и лендинги заточенные под конверсию. A/B тесты, аналитика.',tags:['Landing Pages','A/B Testing','Analytics']},
+      {n:'05',t:'AI Chatbots',d:'Telegram и WhatsApp боты на базе GPT-4. Квалификация, ответы, продажи.',tags:['Telegram','WhatsApp','GPT-4']},
+      {n:'06',t:'Content Engine',d:'Системы создания и дистрибуции контента. AI-ускоренное производство.',tags:['Content','SEO','Distribution']}
+    ],
+    fwEye: 'NAXIO Growth System',fwTitle: ['Как работает','наша система'],fwDesc: 'Каждый проект проходит через шесть этапов нашего фреймворка.',
+    fwSteps: [
+      {n:'1',t:'Audit',d:'Анализируем текущее состояние — трафик, конверсии, процессы.'},
+      {n:'2',t:'Infrastructure',d:'Строим техническую базу — CRM, автоматизация, аналитика.'},
+      {n:'3',t:'Acquisition',d:'Запускаем системы привлечения клиентов.'},
+      {n:'4',t:'Automation',d:'Автоматизируем обработку лидов и коммуникацию.'},
+      {n:'5',t:'Optimization',d:'Тестируем, анализируем, улучшаем конверсии.'},
+      {n:'6',t:'Scale',d:'Масштабируем работающие системы без потери качества.'}
+    ],
+    fvTitle: 'Live workflow — AI воронка',
+    fvRows: [{dot:'g',label:'Заявка получена',badge:'webhook'},{dot:'y',label:'n8n запускает workflow',badge:'auto'},{dot:'b',label:'AI квалифицирует лид',badge:'GPT-4o'},{dot:'g',label:'Данные в CRM',badge:'Bitrix24'},{dot:'y',label:'Уведомление менеджеру',badge:'Telegram'},{dot:'b',label:'Email клиенту',badge:'auto'},{dot:'d',label:'AI бот продолжает',badge:'@naxio_bot'}],
+    whyCards: [{n:'7d',t:'Быстро',d:'MVP за 3-7 дней. Без затяжных брифингов.'},{n:'AI',t:'AI-first',d:'AI — основа каждого решения, не надстройка.'},{n:'x3',t:'Системно',d:'Строим масштабируемые системы, не разовые работы.'},{n:'24h',t:'Прозрачно',d:'Все доступы, метрики и документация — ваши.'}],
+    cEye: 'Кейсы',cTitle: 'Проекты',cDesc: 'Первые кейсы появятся скоро. Станьте первым.',
+    cases: [
+      {badge:'AI Automation',t:'Автоматизация продаж',d:'AI-система квалификации лидов и автоматической коммуникации.',tags:['n8n','GPT-4o','CRM'],soon:true},
+      {badge:'Website',t:'AI-сайт с ассистентом',d:'Лендинг с встроенным AI-ботом для сбора и обработки заявок.',tags:['Next.js','Flowise','OpenAI'],soon:true},
+      {empty:true,emptyTitle:'Ваш проект',emptySub:'Станьте первым клиентом NAXIO и получите кейс с реальными результатами.',btn:'Начать проект'}
+    ],
+    stEye: 'Технологии',stTitle: 'Стек',
+    stack: ['n8n','OpenAI API','Claude API','Telegram','WhatsApp','Flowise','Google Sheets','Airtable','Notion','React','Next.js','Tailwind','AmoCRM','Bitrix24','HubSpot','Pipedrive','ElevenLabs','Twilio'],
+    fqEye: 'FAQ',fqTitle: 'Вопросы',fqSub: 'Остались вопросы? Напишите нам.',fqBtn: 'Задать вопрос',
+    faqs: [{q:'Сколько стоит?',a:'От 200 PLN. Точную стоимость называем после бесплатного созвона.'},{q:'Сколько времени занимает?',a:'MVP — 3-7 дней. Сайт — 7-14 дней. Комплексный проект — 2-4 недели.'},{q:'Какие автоматизации делаете?',a:'Любые: заявки, CRM, email, боты, квалификация, голосовые звонки.'},{q:'С какими CRM работаете?',a:'AmoCRM, Bitrix24, HubSpot, Pipedrive, Notion, Airtable.'},{q:'Есть ли поддержка после запуска?',a:'Да, 2 недели бесплатно. Далее по договоренности.'}],
+    ctEye: 'Начать',ctTitle: 'Готовы к росту?',ctSub: 'Оставьте заявку — обсудим задачу без воды.',
+    fmTitle: 'Заявка на проект',lName: 'Имя *',lPhone: 'Телефон',lEmail: 'Email',lTg: 'Telegram',lBiz: 'Тип бизнеса',lNote: 'Комментарий',
+    bizOpts: ['Выберите...','E-commerce','Услуги','SaaS / IT','Недвижимость','Образование','Другое'],
+    phName: 'Ваше имя',phPhone: '+7 (999) ...',phEmail: 'you@mail.com',phTg: '@username',phNote: 'Кратко о задаче...',
+    fmBtn: 'Отправить заявку',svTitle: 'Заявка отправлена',svSub: 'Свяжемся в ближайшее время',
+    footerLinks: ['Услуги','Система','Кейсы','FAQ','Контакт']
+  },
+  ua: {
+    navLinks: ['Послуги','Система','Кейси'],navLang: 'UA',navCta: 'Почати',fcta: 'Почати проект',
+    hTag: 'AI Growth Infrastructure',hHeadline: ['Growth systems','для сучасних брендів'],
+    hSub: 'Будуємо AI-інфраструктуру для зростання — автоматизація, залучення клієнтів, конверсія.',
+    hBtn1: 'Почати проект',hBtn2: 'Дивитися кейси',m1: 'від ідеї до запуску',m2: 'AI працює без вас',m3: 'ріст конверсій',
+    mqItems: ['AI Automation','n8n Workflows','Growth Systems','Telegram Bots','CRM Integration','Funnel Infrastructure','Performance Marketing','Lead Automation','AI Chatbots','Revenue Systems'],
+    sEye: 'Системи зростання',sTitle: ['Не послуги.','Інфраструктура.'],sDesc: 'Кожен блок — система яка працює на зростання вашого бізнесу.',
+    svcs: [
+      {n:'01',t:'Acquisition Systems',d:'Системи залучення клієнтів — від реклами до автоматичної кваліфікації.',tags:['Lead Gen','Paid Ads','Qualification']},
+      {n:'02',t:'AI Automation',d:'Автоматизуємо процеси на базі ШІ. 24/7 без участі команди.',tags:['n8n','OpenAI','Workflows']},
+      {n:'03',t:'Revenue Infrastructure',d:'CRM, pipeline, автоматичні follow-up. Система закриття угод.',tags:['CRM','Pipeline','Follow-up']},
+      {n:'04',t:'Conversion Optimization',d:'Сайти та лендінги під конверсію. A/B тести, аналітика.',tags:['Landing Pages','A/B Testing','Analytics']},
+      {n:'05',t:'AI Chatbots',d:'Telegram та WhatsApp боти на базі GPT-4. Кваліфікація, відповіді.',tags:['Telegram','WhatsApp','GPT-4']},
+      {n:'06',t:'Content Engine',d:'Системи створення та дистрибуції контенту з AI.',tags:['Content','SEO','Distribution']}
+    ],
+    fwEye: 'NAXIO Growth System',fwTitle: ['Як працює','наша система'],fwDesc: 'Кожен проект проходить через шість етапів нашого фреймворку.',
+    fwSteps: [{n:'1',t:'Audit',d:'Аналізуємо поточний стан — трафік, конверсії, процеси.'},{n:'2',t:'Infrastructure',d:'Будуємо технічну базу — CRM, автоматизація, аналітика.'},{n:'3',t:'Acquisition',d:'Запускаємо системи залучення клієнтів.'},{n:'4',t:'Automation',d:'Автоматизуємо обробку лідів та комунікацію.'},{n:'5',t:'Optimization',d:'Тестуємо, аналізуємо, покращуємо конверсії.'},{n:'6',t:'Scale',d:'Масштабуємо системи що працюють.'}],
+    fvTitle: 'Live workflow — AI воронка',
+    fvRows: [{dot:'g',label:'Заявку отримано',badge:'webhook'},{dot:'y',label:'n8n запускає workflow',badge:'auto'},{dot:'b',label:'AI кваліфікує лід',badge:'GPT-4o'},{dot:'g',label:'Дані у CRM',badge:'Bitrix24'},{dot:'y',label:'Повідомлення менеджеру',badge:'Telegram'},{dot:'b',label:'Email клієнту',badge:'auto'},{dot:'d',label:'AI бот продовжує',badge:'@naxio_bot'}],
+    whyCards: [{n:'7d',t:'Швидко',d:'MVP за 3-7 днів.'},{n:'AI',t:'AI-first',d:'AI — основа кожного рішення.'},{n:'x3',t:'Системно',d:'Будуємо масштабовані системи.'},{n:'24h',t:'Прозоро',d:'Всі доступи, метрики та документація — ваші.'}],
+    cEye: 'Кейси',cTitle: 'Проекти',cDesc: 'Перші кейси зявляться скоро. Станьте першим.',
+    cases: [{badge:'AI Automation',t:'Автоматизація продажів',d:'AI-система кваліфікації лідів та автоматичної комунікації.',tags:['n8n','GPT-4o','CRM'],soon:true},{badge:'Website',t:'AI-сайт з асистентом',d:'Лендінг з вбудованим AI-ботом для збору заявок.',tags:['Next.js','Flowise','OpenAI'],soon:true},{empty:true,emptyTitle:'Ваш проект',emptySub:'Станьте першим клієнтом NAXIO.',btn:'Почати проект'}],
+    stEye: 'Технології',stTitle: 'Стек',
+    stack: ['n8n','OpenAI API','Claude API','Telegram','WhatsApp','Flowise','Google Sheets','Airtable','Notion','React','Next.js','Tailwind','AmoCRM','Bitrix24','HubSpot','Pipedrive','ElevenLabs','Twilio'],
+    fqEye: 'FAQ',fqTitle: 'Питання',fqSub: 'Залишились питання? Напишіть нам.',fqBtn: 'Задати питання',
+    faqs: [{q:'Скільки коштує?',a:'Від 200 PLN. Точна вартість після безкоштовного дзвінка.'},{q:'Скільки часу займає?',a:'MVP — 3-7 днів. Сайт — 7-14 днів. Комплексний — 2-4 тижні.'},{q:'Які автоматизації робите?',a:'Будь-які: заявки, CRM, email, боти, кваліфікація.'},{q:'З якими CRM працюєте?',a:'AmoCRM, Bitrix24, HubSpot, Pipedrive, Notion, Airtable.'},{q:'Є підтримка після запуску?',a:'Так, 2 тижні безкоштовно.'}],
+    ctEye: 'Почати',ctTitle: 'Готові до зростання?',ctSub: 'Залиште заявку — обговоримо задачу.',
+    fmTitle: 'Заявка на проект',lName: "Ім'я *",lPhone: 'Телефон',lEmail: 'Email',lTg: 'Telegram',lBiz: 'Тип бізнесу',lNote: 'Коментар',
+    bizOpts: ['Оберіть...','E-commerce','Послуги','SaaS / IT','Нерухомість','Освіта','Інше'],
+    phName: "Ваше ім'я",phPhone: '+38 (099) ...',phEmail: 'you@mail.com',phTg: '@username',phNote: 'Коротко про задачу...',
+    fmBtn: 'Надіслати заявку',svTitle: 'Заявку надіслано',svSub: 'Звяжемося найближчим часом',
+    footerLinks: ['Послуги','Система','Кейси','FAQ','Контакт']
+  },
+  en: {
+    navLinks: ['Services','System','Cases'],navLang: 'EN',navCta: 'Start',fcta: 'Start project',
+    hTag: 'AI Growth Infrastructure',hHeadline: ['Growth systems','for modern brands'],
+    hSub: 'We build AI-powered growth infrastructure — automation, acquisition, conversion. Systems that scale without you.',
+    hBtn1: 'Start a project',hBtn2: 'View cases',m1: 'idea to launch',m2: 'AI runs without you',m3: 'conversion growth',
+    mqItems: ['AI Automation','n8n Workflows','Growth Systems','Telegram Bots','CRM Integration','Funnel Infrastructure','Performance Marketing','Lead Automation','AI Chatbots','Revenue Systems'],
+    sEye: 'Growth Systems',sTitle: ['Not services.','Infrastructure.'],sDesc: 'Each block is a system that works for your business growth.',
+    svcs: [
+      {n:'01',t:'Acquisition Systems',d:'Client acquisition systems — from ads to automatic lead qualification.',tags:['Lead Gen','Paid Ads','Qualification']},
+      {n:'02',t:'AI Automation',d:'AI-powered process automation. 24/7 without your team.',tags:['n8n','OpenAI','Workflows']},
+      {n:'03',t:'Revenue Infrastructure',d:'CRM, pipeline, automatic follow-ups. Deal closing system.',tags:['CRM','Pipeline','Follow-up']},
+      {n:'04',t:'Conversion Optimization',d:'Websites and landing pages built for conversion.',tags:['Landing Pages','A/B Testing','Analytics']},
+      {n:'05',t:'AI Chatbots',d:'GPT-4 Telegram and WhatsApp bots. Qualification, replies, sales.',tags:['Telegram','WhatsApp','GPT-4']},
+      {n:'06',t:'Content Engine',d:'Content creation and distribution systems with AI acceleration.',tags:['Content','SEO','Distribution']}
+    ],
+    fwEye: 'NAXIO Growth System',fwTitle: ['How our','system works'],fwDesc: 'Every project goes through six stages of our framework.',
+    fwSteps: [{n:'1',t:'Audit',d:'Analyze current state — traffic, conversions, processes.'},{n:'2',t:'Infrastructure',d:'Build the technical base — CRM, automation, analytics.'},{n:'3',t:'Acquisition',d:'Launch client acquisition systems.'},{n:'4',t:'Automation',d:'Automate lead handling and communication.'},{n:'5',t:'Optimization',d:'Test, analyze, improve conversions.'},{n:'6',t:'Scale',d:'Scale working systems without losing quality.'}],
+    fvTitle: 'Live workflow — AI funnel',
+    fvRows: [{dot:'g',label:'Lead received',badge:'webhook'},{dot:'y',label:'n8n triggers workflow',badge:'auto'},{dot:'b',label:'AI qualifies lead',badge:'GPT-4o'},{dot:'g',label:'Data in CRM',badge:'Bitrix24'},{dot:'y',label:'Manager notified',badge:'Telegram'},{dot:'b',label:'Email to client',badge:'auto'},{dot:'d',label:'AI bot continues',badge:'@naxio_bot'}],
+    whyCards: [{n:'7d',t:'Fast',d:'MVP in 3-7 days. No lengthy briefings.'},{n:'AI',t:'AI-first',d:'AI is the core of every solution, not an add-on.'},{n:'x3',t:'Systematic',d:'We build scalable systems, not one-offs.'},{n:'24h',t:'Transparent',d:'All access, metrics and docs — yours from day one.'}],
+    cEye: 'Cases',cTitle: 'Projects',cDesc: 'First cases coming soon. Be the first.',
+    cases: [{badge:'AI Automation',t:'Sales automation',d:'AI-powered lead qualification and automated communication system.',tags:['n8n','GPT-4o','CRM'],soon:true},{badge:'Website',t:'AI website with assistant',d:'Landing page with built-in AI bot for collecting and handling leads.',tags:['Next.js','Flowise','OpenAI'],soon:true},{empty:true,emptyTitle:'Your project',emptySub:'Become NAXIO first client and get a case with real results.',btn:'Start project'}],
+    stEye: 'Technology',stTitle: 'Stack',
+    stack: ['n8n','OpenAI API','Claude API','Telegram','WhatsApp','Flowise','Google Sheets','Airtable','Notion','React','Next.js','Tailwind','AmoCRM','Bitrix24','HubSpot','Pipedrive','ElevenLabs','Twilio'],
+    fqEye: 'FAQ',fqTitle: 'Questions',fqSub: 'Still have questions? Write to us.',fqBtn: 'Ask a question',
+    faqs: [{q:'How much does it cost?',a:'From 200 PLN. Exact quote after a free call.'},{q:'How long does it take?',a:'MVP — 3-7 days. Website — 7-14 days. Complex project — 2-4 weeks.'},{q:'What automations do you build?',a:'Any: leads, CRM, email, bots, qualification, voice calls.'},{q:'Which CRMs do you work with?',a:'AmoCRM, Bitrix24, HubSpot, Pipedrive, Notion, Airtable.'},{q:'Is there support after launch?',a:'Yes, 2 weeks free. Then by agreement.'}],
+    ctEye: 'Start',ctTitle: 'Ready to grow?',ctSub: 'Leave a request — we discuss your task without fluff.',
+    fmTitle: 'Project request',lName: 'Name *',lPhone: 'Phone',lEmail: 'Email',lTg: 'Telegram',lBiz: 'Business type',lNote: 'Comment',
+    bizOpts: ['Select...','E-commerce','Services','SaaS / IT','Real estate','Education','Other'],
+    phName: 'Your name',phPhone: '+1 (000) ...',phEmail: 'you@mail.com',phTg: '@username',phNote: 'Brief task description...',
+    fmBtn: 'Send request',svTitle: 'Request sent',svSub: 'We will contact you shortly',
+    footerLinks: ['Services','System','Cases','FAQ','Contact']
+  },
+  de: {
+    navLinks: ['Leistungen','System','Cases'],navLang: 'DE',navCta: 'Starten',fcta: 'Projekt starten',
+    hTag: 'AI Growth Infrastructure',hHeadline: ['Growth systems','für moderne Marken'],
+    hSub: 'Wir bauen KI-gestützte Wachstumsinfrastruktur — Automatisierung, Kundengewinnung, Konversion.',
+    hBtn1: 'Projekt starten',hBtn2: 'Cases ansehen',m1: 'Idee bis Launch',m2: 'KI arbeitet für Sie',m3: 'Konversionswachstum',
+    mqItems: ['KI Automation','n8n Workflows','Growth Systems','Telegram Bots','CRM Integration','Funnel Infrastruktur','Performance Marketing','Lead Automation','AI Chatbots','Revenue Systems'],
+    sEye: 'Wachstumssysteme',sTitle: ['Keine Dienste.','Infrastruktur.'],sDesc: 'Jeder Block ist ein System das für Ihr Geschäftswachstum arbeitet.',
+    svcs: [
+      {n:'01',t:'Acquisition Systems',d:'Kundengewinnungssysteme — von Werbung bis zur automatischen Lead-Qualifizierung.',tags:['Lead Gen','Paid Ads','Qualification']},
+      {n:'02',t:'KI Automatisierung',d:'KI-gestützte Prozessautomatisierung. 24/7 ohne Ihr Team.',tags:['n8n','OpenAI','Workflows']},
+      {n:'03',t:'Revenue Infrastructure',d:'CRM, Pipeline, automatische Follow-ups. Deal-Abschluss-System.',tags:['CRM','Pipeline','Follow-up']},
+      {n:'04',t:'Conversion Optimization',d:'Websites und Landing Pages für Konversion.',tags:['Landing Pages','A/B Testing','Analytics']},
+      {n:'05',t:'KI Chatbots',d:'GPT-4 Telegram und WhatsApp Bots für Qualifizierung und Verkauf.',tags:['Telegram','WhatsApp','GPT-4']},
+      {n:'06',t:'Content Engine',d:'Content-Erstellung und Distribution mit KI-Beschleunigung.',tags:['Content','SEO','Distribution']}
+    ],
+    fwEye: 'NAXIO Growth System',fwTitle: ['Wie unser','System funktioniert'],fwDesc: 'Jedes Projekt durchläuft sechs Phasen unseres Frameworks.',
+    fwSteps: [{n:'1',t:'Audit',d:'Aktuellen Stand analysieren.'},{n:'2',t:'Infrastructure',d:'Technische Basis aufbauen.'},{n:'3',t:'Acquisition',d:'Kundengewinnungssysteme starten.'},{n:'4',t:'Automation',d:'Lead-Bearbeitung automatisieren.'},{n:'5',t:'Optimization',d:'Konversionen testen und verbessern.'},{n:'6',t:'Scale',d:'Funktionierende Systeme skalieren.'}],
+    fvTitle: 'Live Workflow — KI Funnel',
+    fvRows: [{dot:'g',label:'Lead erhalten',badge:'webhook'},{dot:'y',label:'n8n startet Workflow',badge:'auto'},{dot:'b',label:'KI qualifiziert Lead',badge:'GPT-4o'},{dot:'g',label:'Daten im CRM',badge:'Bitrix24'},{dot:'y',label:'Manager benachrichtigt',badge:'Telegram'},{dot:'b',label:'E-Mail an Kunden',badge:'auto'},{dot:'d',label:'KI Bot setzt fort',badge:'@naxio_bot'}],
+    whyCards: [{n:'7d',t:'Schnell',d:'MVP in 3-7 Tagen.'},{n:'AI',t:'KI-first',d:'KI ist der Kern jeder Lösung.'},{n:'x3',t:'Systematisch',d:'Wir bauen skalierbare Systeme.'},{n:'24h',t:'Transparent',d:'Alle Zugänge und Docs sind Ihre.'}],
+    cEye: 'Cases',cTitle: 'Projekte',cDesc: 'Erste Cases erscheinen bald. Werden Sie der Erste.',
+    cases: [{badge:'KI Automation',t:'Vertriebsautomatisierung',d:'KI-System zur Lead-Qualifizierung und automatischen Kommunikation.',tags:['n8n','GPT-4o','CRM'],soon:true},{badge:'Website',t:'KI-Website mit Assistent',d:'Landing Page mit eingebautem KI-Bot zur Lead-Erfassung.',tags:['Next.js','Flowise','OpenAI'],soon:true},{empty:true,emptyTitle:'Ihr Projekt',emptySub:'Werden Sie NAXIOs erster Kunde.',btn:'Projekt starten'}],
+    stEye: 'Technologie',stTitle: 'Stack',
+    stack: ['n8n','OpenAI API','Claude API','Telegram','WhatsApp','Flowise','Google Sheets','Airtable','Notion','React','Next.js','Tailwind','AmoCRM','Bitrix24','HubSpot','Pipedrive','ElevenLabs','Twilio'],
+    fqEye: 'FAQ',fqTitle: 'Fragen',fqSub: 'Noch Fragen? Schreiben Sie uns.',fqBtn: 'Frage stellen',
+    faqs: [{q:'Was kostet es?',a:'Ab 200 PLN. Genaues Angebot nach kostenlosem Call.'},{q:'Wie lange dauert es?',a:'MVP — 3-7 Tage. Website — 7-14 Tage. Komplex — 2-4 Wochen.'},{q:'Welche Automatisierungen bauen Sie?',a:'Beliebige: Leads, CRM, E-Mail, Bots, Qualifizierung, Voice.'},{q:'Mit welchen CRMs arbeiten Sie?',a:'AmoCRM, Bitrix24, HubSpot, Pipedrive, Notion, Airtable.'},{q:'Gibt es Support nach dem Launch?',a:'Ja, 2 Wochen kostenlos.'}],
+    ctEye: 'Start',ctTitle: 'Bereit zu wachsen?',ctSub: 'Anfrage stellen — wir besprechen Ihre Aufgabe direkt.',
+    fmTitle: 'Projektanfrage',lName: 'Name *',lPhone: 'Telefon',lEmail: 'E-Mail',lTg: 'Telegram',lBiz: 'Unternehmenstyp',lNote: 'Kommentar',
+    bizOpts: ['Auswählen...','E-Commerce','Dienstleistungen','SaaS / IT','Immobilien','Bildung','Sonstiges'],
+    phName: 'Ihr Name',phPhone: '+49 (000) ...',phEmail: 'sie@mail.de',phTg: '@username',phNote: 'Kurze Aufgabenbeschreibung...',
+    fmBtn: 'Anfrage senden',svTitle: 'Anfrage gesendet',svSub: 'Wir melden uns bald',
+    footerLinks: ['Leistungen','System','Cases','FAQ','Kontakt']
+  },
+  pl: {
+    navLinks: ['Usługi','System','Cases'],navLang: 'PL',navCta: 'Start',fcta: 'Zacznij projekt',
+    hTag: 'AI Growth Infrastructure',hHeadline: ['Growth systems','dla nowoczesnych marek'],
+    hSub: 'Budujemy infrastrukturę wzrostu opartą na AI — automatyzacja, pozyskiwanie klientów, konwersja.',
+    hBtn1: 'Zacznij projekt',hBtn2: 'Zobacz cases',m1: 'od pomysłu do launchu',m2: 'AI pracuje bez ciebie',m3: 'wzrost konwersji',
+    mqItems: ['AI Automation','n8n Workflows','Growth Systems','Telegram Boty','CRM Integration','Funnel Infrastructure','Performance Marketing','Lead Automation','AI Chatboty','Revenue Systems'],
+    sEye: 'Systemy wzrostu',sTitle: ['Nie usługi.','Infrastruktura.'],sDesc: 'Każdy blok to system który pracuje na wzrost twojego biznesu.',
+    svcs: [
+      {n:'01',t:'Acquisition Systems',d:'Systemy pozyskiwania klientów — od reklamy do automatycznej kwalifikacji.',tags:['Lead Gen','Paid Ads','Qualification']},
+      {n:'02',t:'AI Automation',d:'Automatyzacja procesów na bazie AI. 24/7 bez udziału zespołu.',tags:['n8n','OpenAI','Workflows']},
+      {n:'03',t:'Revenue Infrastructure',d:'CRM, pipeline, automatyczne follow-upy. System zamykania sprzedaży.',tags:['CRM','Pipeline','Follow-up']},
+      {n:'04',t:'Conversion Optimization',d:'Strony i landing pages nastawione na konwersję.',tags:['Landing Pages','A/B Testing','Analytics']},
+      {n:'05',t:'AI Chatboty',d:'Boty Telegram i WhatsApp na bazie GPT-4. Kwalifikacja, odpowiedzi.',tags:['Telegram','WhatsApp','GPT-4']},
+      {n:'06',t:'Content Engine',d:'Systemy tworzenia i dystrybucji contentu z AI.',tags:['Content','SEO','Distribution']}
+    ],
+    fwEye: 'NAXIO Growth System',fwTitle: ['Jak działa','nasz system'],fwDesc: 'Każdy projekt przechodzi przez sześć etapów naszego frameworku.',
+    fwSteps: [{n:'1',t:'Audit',d:'Analizujemy obecny stan — ruch, konwersje, procesy.'},{n:'2',t:'Infrastructure',d:'Budujemy bazę techniczną — CRM, automatyzacja, analityka.'},{n:'3',t:'Acquisition',d:'Uruchamiamy systemy pozyskiwania klientów.'},{n:'4',t:'Automation',d:'Automatyzujemy obsługę leadów i komunikację.'},{n:'5',t:'Optimization',d:'Testujemy, analizujemy, poprawiamy konwersje.'},{n:'6',t:'Scale',d:'Skalujemy działające systemy.'}],
+    fvTitle: 'Live workflow — AI lejek',
+    fvRows: [{dot:'g',label:'Lead otrzymany',badge:'webhook'},{dot:'y',label:'n8n uruchamia workflow',badge:'auto'},{dot:'b',label:'AI kwalifikuje lead',badge:'GPT-4o'},{dot:'g',label:'Dane w CRM',badge:'Bitrix24'},{dot:'y',label:'Powiadomienie menedżera',badge:'Telegram'},{dot:'b',label:'Email do klienta',badge:'auto'},{dot:'d',label:'AI bot kontynuuje',badge:'@naxio_bot'}],
+    whyCards: [{n:'7d',t:'Szybko',d:'MVP w 3-7 dni. Bez długich briefingów.'},{n:'AI',t:'AI-first',d:'AI jest podstawą każdego rozwiązania.'},{n:'x3',t:'Systemowo',d:'Budujemy skalowalne systemy.'},{n:'24h',t:'Transparentnie',d:'Wszystkie dostępy i dokumentacja są twoje.'}],
+    cEye: 'Cases',cTitle: 'Projekty',cDesc: 'Pierwsze cases pojawią się wkrótce. Zostań pierwszym.',
+    cases: [{badge:'AI Automation',t:'Automatyzacja sprzedaży',d:'System AI do kwalifikacji leadów i automatycznej komunikacji.',tags:['n8n','GPT-4o','CRM'],soon:true},{badge:'Website',t:'AI strona z asystentem',d:'Landing page z wbudowanym botem AI do zbierania leadów.',tags:['Next.js','Flowise','OpenAI'],soon:true},{empty:true,emptyTitle:'Twój projekt',emptySub:'Zostań pierwszym klientem NAXIO.',btn:'Zacznij projekt'}],
+    stEye: 'Technologie',stTitle: 'Stack',
+    stack: ['n8n','OpenAI API','Claude API','Telegram','WhatsApp','Flowise','Google Sheets','Airtable','Notion','React','Next.js','Tailwind','AmoCRM','Bitrix24','HubSpot','Pipedrive','ElevenLabs','Twilio'],
+    fqEye: 'FAQ',fqTitle: 'Pytania',fqSub: 'Masz pytania? Napisz do nas.',fqBtn: 'Zadaj pytanie',
+    faqs: [{q:'Ile to kosztuje?',a:'Od 200 PLN. Dokładna wycena po bezpłatnej rozmowie.'},{q:'Ile czasu zajmuje?',a:'MVP — 3-7 dni. Strona — 7-14 dni. Kompleksowy — 2-4 tygodnie.'},{q:'Jakie automatyzacje robicie?',a:'Dowolne: leady, CRM, email, boty, kwalifikacja, połączenia głosowe.'},{q:'Z jakimi CRM pracujecie?',a:'AmoCRM, Bitrix24, HubSpot, Pipedrive, Notion, Airtable.'},{q:'Czy jest wsparcie po launchu?',a:'Tak, 2 tygodnie bezpłatnie.'}],
+    ctEye: 'Start',ctTitle: 'Gotowy na wzrost?',ctSub: 'Zostaw zapytanie — omówimy zadanie bez zbędnych słów.',
+    fmTitle: 'Zapytanie o projekt',lName: 'Imię *',lPhone: 'Telefon',lEmail: 'E-mail',lTg: 'Telegram',lBiz: 'Typ biznesu',lNote: 'Komentarz',
+    bizOpts: ['Wybierz...','E-commerce','Usługi','SaaS / IT','Nieruchomości','Edukacja','Inne'],
+    phName: 'Twoje imię',phPhone: '+48 (000) ...',phEmail: 'ty@mail.pl',phTg: '@username',phNote: 'Krótki opis zadania...',
+    fmBtn: 'Wyślij zapytanie',svTitle: 'Zapytanie wysłane',svSub: 'Skontaktujemy się wkrótce',
+    footerLinks: ['Usługi','System','Cases','FAQ','Kontakt']
+  }
 };
-function setLang(code){
-  currentLang=code;
-  var t=T[code];
-  var ol=document.getElementById('lang-overlay');
-  ol.style.opacity='0';
-  ol.style.transition='opacity 0.4s';
-  setTimeout(function(){ol.style.display='none'},400);
-  var navAs=document.querySelectorAll('.nav-links a');
-  for(var i=0;i<navAs.length;i++){if(t.nav[i])navAs[i].textContent=t.nav[i]}
-  document.querySelector('.nav-cta').textContent=t.cta;
-  document.getElementById('fb').textContent=t.fb+' →';
-  var sh=document.getElementById('svc-h');if(sh)sh.textContent=t.svcH;
-  var ph=document.getElementById('proc-h');if(ph)ph.textContent=t.procH;
-  var fh=document.getElementById('faq-h');if(fh)fh.textContent=t.faqH;
-  var fmh=document.getElementById('form-h');if(fmh)fmh.textContent=t.formH;
-  var ft=document.getElementById('form-title');if(ft)ft.textContent=t.formTitle;
-  var sb=document.getElementById('send-btn');if(sb)sb.textContent=t.sendBtn;
-  var sh2=document.getElementById('sent-h');if(sh2)sh2.textContent=t.sentH;
-  var sp=document.getElementById('sent-p');if(sp)sp.textContent=t.sentP;
+function boot(code) {
+  LANG = code;
+  var ol = document.getElementById('lo');
+  ol.style.transition = 'opacity 0.5s';
+  ol.style.opacity = '0';
+  setTimeout(function() { ol.style.display = 'none'; }, 500);
+  render(code);
+  setTimeout(function() {
+    document.querySelectorAll('.rv').forEach(function(el) { io.observe(el); });
+  }, 100);
 }
-var cur=document.getElementById('cur');
-var cring=document.getElementById('cring');
-var mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
-(function loop(){rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;cring.style.left=rx+'px';cring.style.top=ry+'px';requestAnimationFrame(loop)})();
-var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.06});
-document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
-var fb=document.getElementById('fb');
-window.addEventListener('scroll',function(){fb.classList.toggle('on',window.scrollY>window.innerHeight*0.5)});
-function goForm(){document.getElementById('contact').scrollIntoView({behavior:'smooth'});setTimeout(function(){var n=document.getElementById('fn');if(n)n.focus()},700)}
-function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
-function openFaq(btn){var item=btn.closest('.fq');var open=item.classList.contains('open');document.querySelectorAll('.fq.open').forEach(function(i){i.classList.remove('open')});if(!open)item.classList.add('open')}
-var navOpen=false;
-function mobileNav(){navOpen=!navOpen;var l=document.querySelector('.nav-links');if(navOpen){l.style.cssText='display:flex;flex-direction:column;position:fixed;top:58px;left:0;right:0;background:rgba(2,2,2,.97);padding:20px;gap:4px;border-bottom:1px solid rgba(255,255,255,.06);backdrop-filter:blur(24px);z-index:199';l.querySelectorAll('a').forEach(function(a){a.onclick=function(){mobileNav()}})}else{l.style.display='none'}}
-function sendForm(){
-  var n=document.getElementById('fn').value.trim();
-  if(!n){document.getElementById('fn').focus();return}
-  var phone=document.querySelector('input[type="tel"]');
-  var email=document.querySelector('input[type="email"]');
-  var tg=document.getElementById('ft');
-  var biz=document.querySelector('select.fi');
-  var comment=document.querySelector('textarea.fi');
-  fetch('https://n8n.naxio.agency/webhook/677d734e-e0e7-42e3-8039-6a7ddadf9b69',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name:n,phone:phone?phone.value:'',email:email?email.value:'',telegram:tg?tg.value:'',business:biz?biz.value:'',comment:comment?comment.value:'',language:currentLang,source:'naxio.agency'})
-  }).catch(function(){});
-  document.getElementById('formInner').style.display='none';
-  document.getElementById('sentMsg').style.display='block';
+function showLang() {
+  var ol = document.getElementById('lo');
+  ol.style.display = 'flex';
+  ol.style.opacity = '0';
+  ol.style.transition = 'opacity 0.3s';
+  setTimeout(function() { ol.style.opacity = '1'; }, 10);
+}
+function setText(id, txt) { var el = document.getElementById(id); if (el) el.textContent = txt; }
+function setPlh(id, txt) { var el = document.getElementById(id); if (el) el.placeholder = txt; }
+function render(code) {
+  var t = COPY[code];
+  if (!t) return;
+  var nls = document.querySelectorAll('#navlinks a');
+  t.navLinks.forEach(function(txt, i) { if (nls[i]) nls[i].textContent = txt; });
+  setText('nlang', t.navLang);
+  setText('nctabtn', t.navCta);
+  setText('fcta', t.fcta);
+  setText('h-tag', t.hTag);
+  var hh = document.getElementById('h-headline');
+  if (hh) hh.innerHTML = t.hHeadline[0] + '<br><em>' + t.hHeadline[1] + '</em>';
+  setText('h-sub', t.hSub);
+  setText('h-btn1', t.hBtn1);
+  setText('h-btn2', t.hBtn2);
+  setText('m1', t.m1); setText('m2', t.m2); setText('m3', t.m3);
+  var mq = document.getElementById('mq');
+  if (mq) { var mh = ''; t.mqItems.concat(t.mqItems).forEach(function(item) { mh += '<div class="marquee-item">' + item + '</div>'; }); mq.innerHTML = mh; }
+  setText('s-eye', t.sEye);
+  var st = document.getElementById('s-title');
+  if (st) st.innerHTML = t.sTitle[0] + '<br><em>' + t.sTitle[1] + '</em>';
+  setText('s-desc', t.sDesc);
+  var sg = document.getElementById('svc-grid');
+  if (sg) { var sh = ''; t.svcs.forEach(function(s) { sh += '<div class="svc-card"><div class="svc-n">' + s.n + '</div><div class="svc-title">' + s.t + '</div><div class="svc-desc">' + s.d + '</div><div class="svc-tags">' + s.tags.map(function(tg) { return '<span class="tag">' + tg + '</span>'; }).join('') + '</div></div>'; }); sg.innerHTML = sh; }
+  setText('fw-eye', t.fwEye);
+  var fwt = document.getElementById('fw-title');
+  if (fwt) fwt.innerHTML = t.fwTitle[0] + '<br><em>' + t.fwTitle[1] + '</em>';
+  setText('fw-desc', t.fwDesc);
+  var fws = document.getElementById('fw-steps');
+  if (fws) { var fh = ''; t.fwSteps.forEach(function(s) { fh += '<div class="fstep"><div class="fstep-n">' + s.n + '</div><div><div class="fstep-title">' + s.t + '</div><div class="fstep-desc">' + s.d + '</div></div></div>'; }); fws.innerHTML = fh; }
+  setText('fv-title', t.fvTitle);
+  var fvr = document.getElementById('fv-rows');
+  if (fvr) { var rh = ''; t.fvRows.forEach(function(r) { rh += '<div class="fv-row"><div class="fv-dot ' + r.dot + '"></div><div class="fv-label">' + r.label + '</div><div class="fv-badge">' + r.badge + '</div></div>'; }); fvr.innerHTML = rh; }
+  var wg = document.getElementById('why-grid');
+  if (wg) { var wh = ''; t.whyCards.forEach(function(w) { wh += '<div class="why-card"><div class="why-num">' + w.n + '</div><div class="why-title">' + w.t + '</div><div class="why-desc">' + w.d + '</div></div>'; }); wg.innerHTML = wh; }
+  setText('c-eye', t.cEye); setText('c-title', t.cTitle); setText('c-desc', t.cDesc);
+  var cg = document.getElementById('cases-grid');
+  if (cg) { var ch = ''; t.cases.forEach(function(c) { if (c.empty) { ch += '<div class="case-card"><div class="case-empty"><div class="case-empty-label">' + c.emptyTitle + '</div><div class="case-empty-sub">' + c.emptySub + '</div><button class="btn-primary" onclick="scrollTo(\'contact\')" style="font-size:12px;padding:10px 20px">' + c.btn + '</button></div></div>'; } else { ch += '<div class="case-card' + (c.soon ? ' case-soon' : '') + '"><div><div class="case-badge">' + c.badge + '</div><div class="case-title">' + c.t + '</div><div class="case-desc">' + c.d + '</div></div><div class="case-tags">' + c.tags.map(function(tg) { return '<span class="tag">' + tg + '</span>'; }).join('') + '</div></div>'; } }); cg.innerHTML = ch; }
+  setText('st-eye', t.stEye); setText('st-title', t.stTitle);
+  var sw = document.getElementById('stack-wrap');
+  if (sw) sw.innerHTML = t.stack.map(function(s) { return '<div class="stack-pill">' + s + '</div>'; }).join('');
+  setText('fq-eye', t.fqEye); setText('fq-title', t.fqTitle); setText('fq-sub', t.fqSub); setText('fq-btn', t.fqBtn);
+  var fl = document.getElementById('faq-list');
+  if (fl) { var flh = ''; t.faqs.forEach(function(f) { flh += '<div class="fqi"><button class="fqi-q" onclick="toggleFaq(this)">' + f.q + '<span class="fqi-icon">+</span></button><div class="fqi-a">' + f.a + '</div></div>'; }); fl.innerHTML = flh; }
+  setText('ct-eye', t.ctEye); setText('ct-title', t.ctTitle); setText('ct-sub', t.ctSub);
+  setText('fm-title', t.fmTitle); setText('fm-btn', t.fmBtn); setText('sv-title', t.svTitle); setText('sv-sub', t.svSub);
+  setText('l-name', t.lName); setText('l-phone', t.lPhone); setText('l-email', t.lEmail); setText('l-tg', t.lTg); setText('l-biz', t.lBiz); setText('l-note', t.lNote);
+  setPlh('fn', t.phName); setPlh('fi-phone', t.phPhone); setPlh('fi-email', t.phEmail); setPlh('ft', t.phTg); setPlh('fi-note', t.phNote);
+  var biz = document.getElementById('fi-biz');
+  if (biz) biz.innerHTML = t.bizOpts.map(function(o) { return '<option>' + o + '</option>'; }).join('');
+  var fn2 = document.getElementById('fnav');
+  if (fn2) { var hrefs = ['#services','#framework','#cases','#faq','#contact']; fn2.innerHTML = t.footerLinks.map(function(l, i) { return '<a href="' + (hrefs[i] || '#') + '">' + l + '</a>'; }).join(''); }
+}
+var io = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.05 });
+var fcta = document.getElementById('fcta');
+window.addEventListener('scroll', function() { fcta.classList.toggle('show', window.scrollY > window.innerHeight * 0.6); });
+var menuOpen = false;
+function toggleMenu() {
+  menuOpen = !menuOpen;
+  var l = document.getElementById('navlinks');
+  if (menuOpen) {
+    l.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:56px;left:0;right:0;background:rgba(12,12,12,.98);padding:16px;gap:2px;border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(20px);z-index:99';
+    l.querySelectorAll('a').forEach(function(a) { a.onclick = function() { toggleMenu(); }; });
+  } else { l.style.display = ''; }
+}
+function toggleFaq(btn) {
+  var item = btn.closest('.fqi');
+  var open = item.classList.contains('open');
+  document.querySelectorAll('.fqi.open').forEach(function(i) { i.classList.remove('open'); });
+  if (!open) item.classList.add('open');
+}
+function scrollTo(id) {
+  var el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+  if (id === 'contact') setTimeout(function() { var n = document.getElementById('fn'); if (n) n.focus(); }, 600);
+}
+function sendForm() {
+  var name = document.getElementById('fn').value.trim();
+  if (!name) { document.getElementById('fn').focus(); return; }
+  var phone = document.getElementById('fi-phone');
+  var email = document.getElementById('fi-email');
+  var tg = document.getElementById('ft');
+  var biz = document.getElementById('fi-biz');
+  var note = document.getElementById('fi-note');
+  fetch('https://n8n.naxio.agency/webhook/677d734e-e0e7-42e3-8039-6a7ddadf9b69', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name: name, phone: phone ? phone.value : '', email: email ? email.value : '', telegram: tg ? tg.value : '', business: biz ? biz.value : '', comment: note ? note.value : '', language: LANG, source: 'naxio.agency' })
+  }).catch(function() {});
+  document.getElementById('formInner').style.display = 'none';
+  document.getElementById('sentView').style.display = 'block';
 }
 </script>
 </body>
