@@ -180,11 +180,26 @@ footer{padding:32px;border-top:1px solid var(--border);display:flex;align-items:
 .footer-nav a{font-size:11px;color:var(--text3);transition:color .15s}
 .footer-nav a:hover{color:var(--text)}
 .footer-copy{font-size:11px;color:var(--text3)}
+/* COOKIE BANNER */
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:500;background:var(--bg1);border-top:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+#cookie-banner.show{transform:translateY(0)}
+.cookie-text{font-size:12px;color:var(--text2);line-height:1.6;flex:1;min-width:200px}
+.cookie-text a{color:var(--accent)}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.cookie-accept{font-size:11px;font-weight:500;background:var(--accent);color:#000;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;transition:opacity .2s}
+.cookie-accept:hover{opacity:.85}
+.cookie-reject{font-size:11px;background:transparent;color:var(--text3);border:1px solid var(--border2);padding:8px 16px;border-radius:6px;cursor:pointer;transition:border-color .2s,color .2s}
+.cookie-reject:hover{color:var(--text)}
+/* CONSENT */
+.consent-row{display:flex;align-items:flex-start;gap:10px;margin-top:12px;margin-bottom:4px}
+.consent-cb{width:15px;height:15px;border:1px solid var(--border2);border-radius:3px;background:transparent;cursor:pointer;flex-shrink:0;margin-top:1px;accent-color:var(--accent)}
+.consent-label{font-size:11px;color:var(--text3);line-height:1.6}
+.consent-label a{color:var(--accent)}
 .rv{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .rv.in{opacity:1;transform:none}
 .rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}.rv-d4{transition-delay:.32s}
 @media(max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:repeat(2,1fr)}.cases-grid{grid-template-columns:repeat(2,1fr)}.framework-row{grid-template-columns:1fr;gap:48px}.framework-visual{position:static}.faq-layout{grid-template-columns:1fr;gap:48px}.contact-layout{grid-template-columns:1fr;gap:40px}}
-@media(max-width:640px){nav{padding:0 16px}.nav-links{display:none}.burger{display:flex}.btn-cta{display:none}.hero-metrics{gap:28px}section{padding:80px 16px}.services-grid{grid-template-columns:1fr}.cases-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr 1fr}.frow{grid-template-columns:1fr}footer{padding:24px 16px}.float-cta{display:none}.brand-strip{padding:14px 16px}.hero-logo-row{gap:12px;margin-bottom:36px}}
+@media(max-width:640px){nav{padding:0 16px}.nav-links{display:none}.burger{display:flex}.btn-cta{display:none}.hero-metrics{gap:28px}section{padding:80px 16px}.services-grid{grid-template-columns:1fr}.cases-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr 1fr}.frow{grid-template-columns:1fr}footer{padding:24px 16px}.float-cta{display:none}.brand-strip{padding:14px 16px}.hero-logo-row{gap:12px;margin-bottom:36px}#cookie-banner{padding:16px;flex-direction:column;align-items:flex-start}.cookie-btns{width:100%}.cookie-accept,.cookie-reject{flex:1;text-align:center}}
 </style>
 </head>
 <body>
@@ -212,19 +227,11 @@ footer{padding:32px;border-top:1px solid var(--border);display:flex;align-items:
 <section style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:140px;padding-bottom:80px;padding-left:32px;padding-right:32px;position:relative;overflow:hidden">
   <div class="hero-wordmark-bg" aria-hidden="true">NAXIO</div>
   <div style="max-width:1160px;margin:0 auto;width:100%;position:relative;z-index:1">
-    <div class="hero-logo-row rv">
-      <div class="hero-logo-sym"></div>
-      <div class="hero-logo-name">NAX<em>IO</em></div>
-      <div class="hero-logo-sep"></div>
-      <div class="hero-logo-tagline">AI Growth<br>Infrastructure</div>
-    </div>
+    <div class="hero-logo-row rv"><div class="hero-logo-sym"></div><div class="hero-logo-name">NAX<em>IO</em></div><div class="hero-logo-sep"></div><div class="hero-logo-tagline">AI Growth<br>Infrastructure</div></div>
     <div class="hero-eyebrow rv"><span class="hero-eyebrow-dot"></span><span id="h-tag"></span></div>
     <h1 class="hero-h rv rv-d1" id="h-headline"></h1>
     <p class="hero-p rv rv-d2" id="h-sub"></p>
-    <div class="hero-btns rv rv-d3">
-      <button class="btn-primary" id="h-btn1" onclick="scrollTo('contact')"></button>
-      <button class="btn-secondary" id="h-btn2" onclick="scrollTo('cases')"></button>
-    </div>
+    <div class="hero-btns rv rv-d3"><button class="btn-primary" id="h-btn1" onclick="scrollTo('contact')"></button><button class="btn-secondary" id="h-btn2" onclick="scrollTo('cases')"></button></div>
     <div class="hero-metrics rv rv-d4">
       <div><div class="metric-val">7<span>d</span></div><div class="metric-label" id="m1"></div></div>
       <div><div class="metric-val">24<span>/7</span></div><div class="metric-label" id="m2"></div></div>
@@ -235,10 +242,7 @@ footer{padding:32px;border-top:1px solid var(--border);display:flex;align-items:
 <div class="marquee"><div class="marquee-track" id="mq"></div></div>
 <div class="brand-strip"><div class="brand-strip-left"><div class="brand-strip-sym"></div><div class="brand-strip-name">NAX<em>IO</em></div></div><div class="brand-strip-right">AI Growth Infrastructure · 2026</div></div>
 <section id="services" style="background:var(--bg1)"><div class="sec-inner"><div class="sec-label rv" id="s-eye"></div><h2 class="sec-title rv" id="s-title"></h2><p class="sec-desc rv" id="s-desc"></p><div class="services-grid rv" id="svc-grid"></div></div></section>
-<section id="framework" style="background:var(--bg);position:relative;overflow:hidden">
-  <div class="sec-ghost" aria-hidden="true">NAXIO</div>
-  <div class="sec-inner"><div class="framework-row"><div><div class="sec-label rv" id="fw-eye"></div><h2 class="sec-title rv" id="fw-title"></h2><p class="sec-desc rv" id="fw-desc"></p><div class="framework-steps rv" id="fw-steps"></div></div><div class="framework-visual rv"><div class="fv-title" id="fv-title"></div><div class="fv-rows" id="fv-rows"></div></div></div></div>
-</section>
+<section id="framework" style="background:var(--bg);position:relative;overflow:hidden"><div class="sec-ghost" aria-hidden="true">NAXIO</div><div class="sec-inner"><div class="framework-row"><div><div class="sec-label rv" id="fw-eye"></div><h2 class="sec-title rv" id="fw-title"></h2><p class="sec-desc rv" id="fw-desc"></p><div class="framework-steps rv" id="fw-steps"></div></div><div class="framework-visual rv"><div class="fv-title" id="fv-title"></div><div class="fv-rows" id="fv-rows"></div></div></div></div></section>
 <div class="brand-strip"><div class="brand-strip-left"><div class="brand-strip-sym"></div><div class="brand-strip-name">NAX<em>IO</em></div></div><div class="brand-strip-right">Growth System™</div></div>
 <section style="padding:0;background:var(--bg1)"><div class="why-grid" id="why-grid"></div></section>
 <section id="cases" style="background:var(--bg)"><div class="sec-inner"><div class="sec-label rv" id="c-eye"></div><h2 class="sec-title rv" id="c-title"></h2><p class="sec-desc rv" id="c-desc"></p><div class="cases-grid rv" id="cases-grid"></div></div></section>
@@ -247,10 +251,29 @@ footer{padding:32px;border-top:1px solid var(--border);display:flex;align-items:
 <section id="contact" style="background:var(--bg1)">
   <div class="sec-inner"><div class="contact-layout">
     <div><div class="sec-label rv" id="ct-eye"></div><h2 class="sec-title rv" id="ct-title"></h2><p style="font-size:14px;color:var(--text2);line-height:1.8;margin-top:12px" class="rv" id="ct-sub"></p><div class="contact-info rv"><div class="ci-row"><div class="ci-icon">@</div><span>hello@naxio.agency</span></div><div class="ci-row"><div class="ci-icon">TG</div><a href="https://t.me/naxio_manager_bot" style="color:var(--text2)">@naxio_manager_bot</a></div><div class="ci-row"><div class="ci-icon">W</div><span>naxio.agency</span></div></div></div>
-    <div class="form-box rv"><div id="formInner"><div class="form-title" id="fm-title"></div><div class="frow"><div class="fg"><label id="l-name"></label><input id="fn" class="fi"/></div><div class="fg"><label id="l-phone"></label><input id="fi-phone" class="fi" type="tel"/></div></div><div class="frow"><div class="fg"><label id="l-email"></label><input id="fi-email" class="fi" type="email"/></div><div class="fg"><label id="l-tg"></label><input id="ft" class="fi"/></div></div><div class="fg"><label id="l-biz"></label><select id="fi-biz" class="fi"></select></div><div class="fg"><label id="l-note"></label><textarea id="fi-note" class="fi"></textarea></div><button class="btn-submit" id="fm-btn" onclick="sendForm()"></button></div><div class="sent-view" id="sentView"><div class="sent-icon">✓</div><div class="sent-title" id="sv-title"></div><div class="sent-sub" id="sv-sub"></div></div></div>
+    <div class="form-box rv"><div id="formInner"><div class="form-title" id="fm-title"></div><div class="frow"><div class="fg"><label id="l-name"></label><input id="fn" class="fi"/></div><div class="fg"><label id="l-phone"></label><input id="fi-phone" class="fi" type="tel"/></div></div><div class="frow"><div class="fg"><label id="l-email"></label><input id="fi-email" class="fi" type="email"/></div><div class="fg"><label id="l-tg"></label><input id="ft" class="fi"/></div></div><div class="fg"><label id="l-biz"></label><select id="fi-biz" class="fi"></select></div><div class="fg"><label id="l-note"></label><textarea id="fi-note" class="fi"></textarea></div><div class="consent-row"><input type="checkbox" class="consent-cb" id="fc"/><label class="consent-label" for="fc">I agree to the processing of my personal data per the <a href="/legal.html" target="_blank">Privacy Policy</a></label></div><button class="btn-submit" id="fm-btn" onclick="sendForm()"></button></div><div class="sent-view" id="sentView"><div class="sent-icon">✓</div><div class="sent-title" id="sv-title"></div><div class="sent-sub" id="sv-sub"></div></div></div>
   </div></div>
 </section>
-<footer><div class="footer-logo"><div class="footer-logo-mark"></div><div class="footer-logo-text">NAX<em>IO</em></div></div><nav class="footer-nav" id="fnav"></nav><div class="footer-copy">2026 NAXIO</div></footer>
+<footer>
+  <div class="footer-logo"><div class="footer-logo-mark"></div><div class="footer-logo-text">NAX<em>IO</em></div></div>
+  <nav class="footer-nav" id="fnav"></nav>
+  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+    <div class="footer-copy">© 2026 NAXIO Agency</div>
+    <div style="display:flex;gap:14px">
+      <a href="/legal.html" style="font-size:10px;color:var(--text3)">Privacy</a>
+      <a href="/legal.html#cookies" style="font-size:10px;color:var(--text3)">Cookies</a>
+      <a href="/legal.html#terms" style="font-size:10px;color:var(--text3)">Terms</a>
+      <a href="mailto:hello@naxio.agency" style="font-size:10px;color:var(--text3)">hello@naxio.agency</a>
+    </div>
+  </div>
+</footer>
+<div id="cookie-banner">
+  <div class="cookie-text">We use essential cookies to remember your preferences. By using this site you agree to our <a href="/legal.html">Privacy Policy</a> and <a href="/legal.html#cookies">Cookie Policy</a>.</div>
+  <div class="cookie-btns">
+    <button class="cookie-reject" onclick="cookieChoice(false)">Essential only</button>
+    <button class="cookie-accept" onclick="cookieChoice(true)">Accept</button>
+  </div>
+</div>
 <script>
 var LANG='ru';
 var COPY={
@@ -272,7 +295,24 @@ var menuOpen=false;
 function toggleMenu(){menuOpen=!menuOpen;var l=document.getElementById('navlinks');if(menuOpen){l.style.cssText='display:flex;flex-direction:column;position:fixed;top:56px;left:0;right:0;background:rgba(12,12,12,.98);padding:16px;gap:2px;border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(20px);z-index:99';l.querySelectorAll('a').forEach(function(a){a.onclick=function(){toggleMenu()}})}else{l.style.display=''}}
 function toggleFaq(btn){var item=btn.closest('.fqi');var open=item.classList.contains('open');document.querySelectorAll('.fqi.open').forEach(function(i){i.classList.remove('open')});if(!open)item.classList.add('open')}
 function scrollTo(id){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});if(id==='contact')setTimeout(function(){var n=document.getElementById('fn');if(n)n.focus()},600)}
-function sendForm(){var name=document.getElementById('fn').value.trim();if(!name){document.getElementById('fn').focus();return}var phone=document.getElementById('fi-phone');var email=document.getElementById('fi-email');var tg=document.getElementById('ft');var biz=document.getElementById('fi-biz');var note=document.getElementById('fi-note');fetch('https://n8n.naxio.agency/webhook/677d734e-e0e7-42e3-8039-6a7ddadf9b69',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,phone:phone?phone.value:'',email:email?email.value:'',telegram:tg?tg.value:'',business:biz?biz.value:'',comment:note?note.value:'',language:LANG,source:'naxio.agency'})}).catch(function(){});document.getElementById('formInner').style.display='none';document.getElementById('sentView').style.display='block'}
+function sendForm(){
+  var name=document.getElementById('fn').value.trim();
+  if(!name){document.getElementById('fn').focus();return}
+  var cb=document.getElementById('fc');
+  if(!cb||!cb.checked){cb.style.outline='1px solid #e8ff57';setTimeout(function(){cb.style.outline=''},2000);return}
+  var phone=document.getElementById('fi-phone');var email=document.getElementById('fi-email');var tg=document.getElementById('ft');var biz=document.getElementById('fi-biz');var note=document.getElementById('fi-note');
+  fetch('https://n8n.naxio.agency/webhook/677d734e-e0e7-42e3-8039-6a7ddadf9b69',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,phone:phone?phone.value:'',email:email?email.value:'',telegram:tg?tg.value:'',business:biz?biz.value:'',comment:note?note.value:'',language:LANG,source:'naxio.agency',consent:true})}).catch(function(){});
+  document.getElementById('formInner').style.display='none';document.getElementById('sentView').style.display='block'
+}
+function cookieChoice(accept){
+  try{localStorage.setItem('naxio_consent',accept?'all':'essential')}catch(e){}
+  var b=document.getElementById('cookie-banner');
+  b.style.transition='transform .3s ease';b.style.transform='translateY(110%)';
+  setTimeout(function(){b.style.display='none'},350)
+}
+(function(){
+  try{if(!localStorage.getItem('naxio_consent')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show')},1500)}}catch(e){}
+})();
 </script>
 </body>
 </html>
